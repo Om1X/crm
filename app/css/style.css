@@ -5,18 +5,20 @@
 html,
 body {
   min-height: 100%;
-  font-family: 'ralewayregular', sans-serif;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
 }
 h1 {
   font-size: 30px;
   line-height: 45px;
-  font-family: 'ralewaybold', sans-serif;
+  font-family: 'Raleway', sans-serif;
   margin-bottom: 26px;
+  font-weight: 800;
 }
 h2 {
-  font-family: 'ralewaybold', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 700;
   line-height: 20px;
   color: #202438;
   margin: 13px 0 16px;
@@ -28,7 +30,7 @@ ul {
   clear: both;
 }
 .linkButton {
-  font-family: 'ralewaymedium', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 12px;
   font-weight: 500;
   line-height: 1.33;
@@ -124,7 +126,7 @@ ul {
 }
 .contractNumber,
 .counts {
-  font-family: 'ralewaymedium', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.43;

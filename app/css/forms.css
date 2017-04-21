@@ -1,13 +1,3 @@
-.inputFocus {
-  border: 2px solid #1b68ff;
-  padding: 23px 14px 19px;
-  outline: none;
-}
-.selectFocus {
-  border: 2px solid #1b68ff;
-  padding: 0 15px;
-  outline: none;
-}
 div.-inline {
   display: inline-block;
   margin-right: 19px;
@@ -24,7 +14,7 @@ div.-inline:nth-child(4n) {
   margin-bottom: 16px;
 }
 .label {
-  font-family: 'ralewaysemibold', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 600;
   display: block;
   font-size: 14px;
@@ -36,7 +26,7 @@ div.-inline:nth-child(4n) {
   box-sizing: border-box;
   padding: 25px 15px 21px;
   margin-bottom: 16px;
-  font-family: 'ralewaymedium', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 500;
   border-radius: 4px;
   border: solid 1px rgba(32, 36, 56, 0.2);
@@ -56,7 +46,7 @@ div.-inline:nth-child(4n) {
   width: 696px;
 }
 .input::placeholder {
-  font-family: 'ralewaymedium', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 500;
   color: rgba(32, 36, 56, 0.4);
 }
@@ -113,7 +103,7 @@ option[disabled] {
 .formSplitter__right {
   padding-left: 25px;
   box-sizing: border-box;
-  font-family: 'ralewaysemibold', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 600;
   line-height: 1.4;
   color: rgba(32, 36, 56, 0.4);
@@ -130,7 +120,7 @@ option[disabled] {
   border-radius: 4px;
   border: solid 1px rgba(32, 36, 56, 0.2);
   resize: none;
-  font-family: 'ralewaymedium', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.43;
@@ -152,7 +142,7 @@ input[type='checkbox'] + .checkboxLabel {
   display: block;
   height: 24px;
   line-height: 24px;
-  font-family: 'ralewaymedium', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 500;
   text-align: left;
   color: rgba(32, 36, 56, 0.4);
@@ -199,7 +189,7 @@ input[type='checkbox']:checked + label span > i {
   text-align: center;
   line-height: 32px;
   text-decoration: none;
-  font-family: "ralewayregular", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 14px;
   color: #202438;
   margin-bottom: 10px;
@@ -221,9 +211,9 @@ input[type='checkbox']:checked + label span > i {
   height: 48px;
   border-radius: 100px;
   background-color: #ff7642;
-  font-family: "ralewayregular", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 700;
   line-height: 1.5;
   color: #fff;
   margin-bottom: 8px;
