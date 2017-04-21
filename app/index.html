@@ -1,0 +1,255 @@
+
+<!-- Left menu-->
+<!-- Header menu-->
+<!-- Partner-->
+<!-- Contract-->
+<!-- Services--><!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>CRM</title>
+		<!--build:css css/style.min.css-->
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/forms.css">
+		<link rel="stylesheet" href="css/fonts.css">
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<!--endbuild-->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="//api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+		<script src="js/scripts.js"></script>
+		<script src="js/yaMaps.js"></script>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="leftMenu">
+				<div class="leftMenu__logo"></div>
+				<ul>
+					<li><a class="leftMenu__link" href="#">Создать акцию</a></li>
+					<li><a class="leftMenu__link" href="#">Акции</a></li>
+					<li><a class="leftMenu__link" href="#">Партнеры</a></li>
+					<li><a class="leftMenu__link" href="#">Договоры</a></li>
+					<li><a class="leftMenu__link" href="#">Фин. заявки</a></li>
+				</ul>
+			</div>
+			<div class="content">
+				<header class="header" id="header">
+					<div class="innerWrapper">
+						<h1>Создание акции</h1>
+						<nav class="headerMenu">
+							<ul>
+								<li><a class="headerMenu__link" href="#">Партнер</a></li>
+								<li><a class="headerMenu__link" href="#">Договор</a></li>
+								<li><a class="headerMenu__link" href="#">Условия</a></li>
+								<li><a class="headerMenu__link" href="#">Размещение</a></li>
+								<li><a class="headerMenu__link" href="#">Условия действия купонов</a></li>
+								<li><a class="headerMenu__link" href="#">Цены</a></li>
+								<li><a class="headerMenu__link" href="#">Адреса</a></li>
+								<li><a class="headerMenu__link" href="#">Комментарии</a></li>
+							</ul>
+						</nav>
+					</div>
+				</header>
+				<div class="innerWrapper" id="rContent">
+					<form>
+						<fieldset class="fieldset">
+							<label class="label" for="restart">Перезапуск акции</label>
+							<input class="input input-big" type="text" placeholder="Ссылка на сайте, номер SPO или DO" name="" id="restart">
+						</fieldset>
+						<fieldset class="fieldset">
+							<h2>Партнер</h2>
+							<label class="label" for="partner">Название партнера</label>
+							<input class="input input-big" type="text" id="partner">
+							<label class="label" for="legalEntity">Юридическое лицо</label>
+							<!--Temporary select. Waiting for normal design.-->
+							<select class="select select-big" id="legalEntity">
+								<option>Первый партнер</option>
+								<option>Второй партнер</option>
+								<option>Третий партнер</option>
+								<option>Четвертый партнер</option>
+							</select>
+						</fieldset>
+						<fieldset class="fieldset">
+							<h2>Договор</h2>
+							<div class="formSplitter">
+								<div class="formSplitter__left">
+									<label class="label" for="contract">Номер договора</label>
+									<select class="select select-mid" id="contract">
+										<option>112233</option>
+										<option>223344</option>
+										<option>334455</option>
+										<option>445566</option>
+									</select>
+								</div>
+								<div class="formSplitter__right formSplitter__right-uppercase">Заявка к договору
+									<div class="contractNumber">А6, 01.02.2017</div>
+									<div class="comissionBlock">
+										<div>Комиссия, %
+											<div class="counts">50</div>
+										</div>
+										<div>Комиссия, руб.
+											<div class="counts">0</div>
+										</div>
+										<div>Аванс, %
+											<div class="counts">0</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</fieldset>
+						<fieldset class="fieldset">
+							<h2>Условия</h2>
+							<label class="label" for="nom">Номер договора</label>
+							<textarea class="textarea" id="nom"></textarea>
+							<label class="label" for="conditions">Условия</label>
+							<textarea class="textarea textarea-big" id="conditions"></textarea>
+							<div class="formSplitter">
+								<div class="formSplitter__left">
+									<input type="checkbox" id="print">
+									<label class="checkboxLabel" for="print" tabindex="0"><span><i class="fa fa-check" aria-hidden="true"></i></span>Требуется распечатать купон</label>
+									<input type="checkbox" id="sms">
+									<label class="checkboxLabel" for="sms" tabindex="0"><span><i class="fa fa-check" aria-hidden="true"></i></span>Действует СМС-купон</label>
+									<input type="checkbox" id="delivery">
+									<label class="checkboxLabel" for="delivery" tabindex="0"><span><i class="fa fa-check" aria-hidden="true"></i></span>Доставка входит в стоимость</label>
+									<input type="checkbox" id="ownDelivery">
+									<label class="checkboxLabel" for="ownDelivery" tabindex="0"><span><i class="fa fa-check" aria-hidden="true"></i></span>Самовывоз</label>
+								</div>
+								<div class="formSplitter__right">
+									<input type="checkbox" id="pre">
+									<label class="checkboxLabel" for="pre" tabindex="0"><span><i class="fa fa-check" aria-hidden="true"></i></span>Предварительная запись</label>
+									<input type="checkbox" id="consult">
+									<label class="checkboxLabel" for="consult" tabindex="0"><span><i class="fa fa-check" aria-hidden="true"></i></span>Консультация врача</label>
+									<input type="checkbox" id="adultOnly">
+									<label class="checkboxLabel" for="adultOnly" tabindex="0"><span><i class="fa fa-check" aria-hidden="true"></i></span>Только для совершеннолетних</label>
+								</div>
+							</div>
+							<label class="label" for="price">Прайс или меню</label>
+							<input class="input input-big" id="price"><a class="linkButton linkButton-price" href="#">Прикрепить</a>
+							<label class="label" for="socialSite">Сайт или страница в соц. сетях</label>
+							<input class="input input-big" id="socialSite">
+						</fieldset>
+						<fieldset class="fieldset">
+							<h2>Размещение акции</h2>
+							<div class="label">Площадка</div>
+							<input type="checkbox" id="biglion">
+							<label class="checkboxLabel checkboxLabel-inline" for="biglion"><span><i class="fa fa-check" aria-hidden="true"></i></span>Biglion</label>
+							<input type="checkbox" id="frendi">
+							<label class="checkboxLabel checkboxLabel-inline" for="frendi"><span><i class="fa fa-check" aria-hidden="true"></i></span>Frendi</label>
+							<label class="label" for="direction">Направление</label>
+							<select class="select select-mid" size="1" id="direction">
+								<option value="Услуги" selected disabled>Услуги</option>
+								<option>первая услуга</option>
+								<option>вторая услуга</option>
+								<option>третья услуга</option>
+								<option>четвертая услуга</option>
+							</select>
+							<div>
+								<div class="-inline">
+									<label class="label" for="startEvent">Дата старта</label>
+									<input class="input input-short" type="text" id="startEvent">
+								</div>
+								<div class="-inline">
+									<label class="label" for="endEvent">Дата завершения</label>
+									<input class="input input-short" type="text" id="endEvent">
+								</div>
+								<div class="-inline">
+									<label class="label" for="days">Срок размещения</label>
+									<input class="input input-short" type="text" placeholder="Дней" id="days">
+								</div>
+							</div>
+							<input type="checkbox" id="allCities">
+							<label class="checkboxLabel" for="allCities"><span><i class="fa fa fa-check" aria-hidden="true"></i></span>Все города</label>
+							<label class="label" for="city">Города размещения</label>
+							<input class="input input-mid" type="text" id="city">
+						</fieldset>
+						<fieldset class="fieldset">
+							<h2>Условия действия купонов</h2>
+							<div>
+								<div class="-inline">
+									<label class="label" for="startCoupon">Купон действует с</label>
+									<input class="input input-short" type="text" id="startCoupon">
+								</div>
+								<div class="-inline">
+									<label class="label" for="endCoupon">по</label>
+									<input class="input input-short" type="text" id="endCoupon">
+								</div>
+								<div class="-inline">
+									<label class="label" for="couponLink">Ссылка на страницу</label>
+									<input class="input input-short" type="text" id="couponLink">
+								</div>
+								<div class="-inline">
+									<label class="label" for="couponMax">Максимум купонов</label>
+									<input class="input input-short" type="text" id="couponMax">
+								</div>
+							</div>
+							<input type="checkbox" id="discountCoupon">
+							<label class="checkboxLabel" for="discountCoupon"><span><i class="fa fa fa-check" aria-hidden="true"></i></span>Купон на скидку</label>
+							<input type="checkbox" id="pinReport">
+							<label class="checkboxLabel" for="pinReport"><span><i class="fa fa fa-check" aria-hidden="true"></i></span>Сообщить ПИН-код заранее</label>
+						</fieldset>
+						<fieldset class="fieldset">
+							<h2>Цены</h2>
+							<label class="label" for="priceName">Название цены</label>
+							<input class="input input-big" type="text" id="priceName">
+							<div>
+								<div class="-inline">
+									<label class="label" for="priceBefore">Цена до скидки</label>
+									<input class="input input-short" type="text" id="priceBefore">
+								</div>
+								<div class="-inline">
+									<label class="label" for="discount">Скидка в %</label>
+									<input class="input input-short" type="text" id="discount">
+								</div>
+								<div class="-inline">
+									<label class="label" for="eventPrice">Цена по акции</label>
+									<input class="input input-short" type="text" id="eventPrice">
+								</div>
+								<div class="-inline">
+									<label class="label" for="expDate">Действует до</label>
+									<input class="input input-short" type="text" id="expDate">
+								</div>
+								<div class="-inline">
+									<label class="label" for="maxCoupons">Купонов максимум</label>
+									<input class="input input-short" type="text" id="maxCoupons">
+								</div>
+								<div class="-inline">
+									<input type="checkbox" id="priceDiscountCoupon">
+									<label class="checkboxLabel" for="priceDiscountCoupon"><span><i class="fa fa fa-check" aria-hidden="true"></i></span>Купон на скидку</label>
+								</div>
+							</div><a class="innerButton innerButton-right" href="#">Сохранить</a>
+						</fieldset>
+						<fieldset class="fieldset">
+							<h2>Адреса</h2>
+							<label class="label" for="placeName">Название места</label>
+							<input class="input input-big" type="text" id="placeName">
+							<label class="label" for="coordinates">Координаты</label>
+							<input class="input input-big" type="text" id="coordinates">
+							<div class="formSplitter">
+								<div class="formSplitter__left">
+									<div class="mapBlock" id="map"></div>
+								</div>
+								<div class="formSplitter__right">
+									<label class="label" for="metro">Метро</label>
+									<input class="input input-mid" type="text" id="metro">
+									<label class="label" for="phone">Телефон</label>
+									<input class="input input-mid" type="text" id="phone">
+									<label class="label" for="workTime">Время работы</label>
+									<input class="input input-mid" type="text" id="workTime">
+									<input type="checkbox" id="dontShowOnMap">
+									<label class="checkboxLabel" for="dontShowOnMap"><span><i class="fa fa fa-check" aria-hidden="true"></i></span>Не показывать карте</label>
+								</div>
+							</div><a class="innerButton innerButton-right" href="#">Сохранить</a>
+						</fieldset>
+						<fieldset class="fieldset">
+							<h2>Комментарии</h2>
+							<textarea class="textarea textarea-small" placeholder="Комментарий по оформлению или закреплению акции. Ссылки на фото или видео."></textarea><a class="linkButton linkButton-comments" href="#">Добавить фотографии</a>
+							<div class="info">Минимальный размер — 832 х 422 px</div>
+						</fieldset>
+						<button class="submit">Создать заявку</button>
+						<div class="info info-submit">Заявка получит статус &laquo;Новая&raquo; и будет передана в сити-планирование</div>
+						<div class="clr"></div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

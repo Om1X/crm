@@ -1,0 +1,244 @@
+include pug/vars
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        title CRM
+        //build:css css/style.min.css
+        link(rel="stylesheet", href="css/style.css")
+        link(rel="stylesheet", href="css/forms.css")
+        link(rel="stylesheet", href="css/fonts.css")
+        link(rel="stylesheet", href="css/font-awesome.min.css")
+        //endbuild
+        script(src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+        script(src="//api-maps.yandex.ru/2.1/?lang=ru_RU")
+        script(src="js/scripts.js")
+        script(src="js/yaMaps.js")
+    body
+        .wrapper
+            .leftMenu
+                .leftMenu__logo
+                ul
+                    for name in leftMenu
+                        li
+                            a.leftMenu__link(href='#') #{name['description']}
+            .content
+                header.header#header
+                    .innerWrapper
+                        h1 Создание акции
+                        nav.headerMenu
+                            ul
+                                for name in headerMenu
+                                    li
+                                        a.headerMenu__link(href='#') #{name}
+                .innerWrapper#rContent
+                    form
+                        fieldset.fieldset
+                            label.label(for='restart') Перезапуск акции
+                            input.input.input-big(type='text' placeholder='Ссылка на сайте, номер SPO или DO' name="")#restart
+                        fieldset.fieldset
+                            h2 Партнер
+                            label.label(for='partner') Название партнера
+                            input.input.input-big(type='text')#partner
+                            label.label(for='legalEntity') Юридическое лицо
+                            //Temporary select. Waiting for normal design.
+                            select.select.select-big#legalEntity
+                                for name in legalEntity
+                                    option #{name}
+                        fieldset.fieldset
+                            h2 Договор
+                            div.formSplitter
+                                div.formSplitter__left
+                                    label.label(for='contract') Номер договора
+                                    select.select.select-mid#contract
+                                        for name in contracts
+                                            option #{name}
+                                div.formSplitter__right.formSplitter__right-uppercase Заявка к договору
+                                    div.contractNumber А6, 01.02.2017
+                                    div.comissionBlock
+                                        div Комиссия, %
+                                            div.counts 50
+                                        div Комиссия, руб.
+                                            div.counts 0
+                                        div Аванс, %
+                                            div.counts 0
+                        fieldset.fieldset
+                            h2 Условия
+                            label.label(for='nom') Номер договора
+                            textarea.textarea#nom
+                            label.label(for='conditions') Условия
+                            textarea.textarea.textarea-big#conditions
+                            div.formSplitter
+                                div.formSplitter__left
+                                    input(type='checkbox')#print
+                                    label.checkboxLabel(for='print' tabindex='0')
+                                        span
+                                            i.fa.fa-check(aria-hidden='true')
+                                        .
+                                            Требуется распечатать купон
+                                    input(type='checkbox')#sms
+                                    label.checkboxLabel(for='sms' tabindex='0')
+                                        span
+                                            i.fa.fa-check(aria-hidden='true')
+                                        .
+                                            Действует СМС-купон
+                                    input(type='checkbox')#delivery
+                                    label.checkboxLabel(for='delivery' tabindex='0')
+                                        span
+                                            i.fa.fa-check(aria-hidden='true')
+                                        .
+                                            Доставка входит в стоимость
+                                    input(type='checkbox')#ownDelivery
+                                    label.checkboxLabel(for='ownDelivery' tabindex='0')
+                                        span
+                                            i.fa.fa-check(aria-hidden='true')
+                                        .
+                                            Самовывоз
+                                div.formSplitter__right
+                                    input(type='checkbox')#pre
+                                    label.checkboxLabel(for='pre' tabindex='0')
+                                        span
+                                            i.fa.fa-check(aria-hidden='true')
+                                        .
+                                            Предварительная запись
+                                    input(type='checkbox')#consult
+                                    label.checkboxLabel(for='consult' tabindex='0')
+                                        span
+                                            i.fa.fa-check(aria-hidden='true')
+                                        .
+                                            Консультация врача
+                                    input(type='checkbox')#adultOnly
+                                    label.checkboxLabel(for='adultOnly' tabindex='0')
+                                        span
+                                            i.fa.fa-check(aria-hidden='true')
+                                        .
+                                            Только для совершеннолетних
+                            label.label(for='price') Прайс или меню
+                            input.input.input-big#price
+                            a.linkButton.linkButton-price(href='#') Прикрепить
+                            label.label(for='socialSite') Сайт или страница в соц. сетях
+                            input.input.input-big#socialSite
+                        fieldset.fieldset
+                            h2 Размещение акции
+                            div.label Площадка
+                            input(type='checkbox')#biglion
+                            label.checkboxLabel.checkboxLabel-inline(for='biglion')
+                                span
+                                    i.fa.fa-check(aria-hidden='true')
+                                .
+                                    Biglion
+                            input(type='checkbox')#frendi
+                            label.checkboxLabel.checkboxLabel-inline(for='frendi')
+                                span
+                                    i.fa.fa-check(aria-hidden='true')
+                                .
+                                    Frendi
+                            label.label(for='direction') Направление
+                            select.select.select-mid(size="1")#direction
+                                option(value='Услуги' selected disabled) Услуги
+                                for name in service
+                                    option #{name}
+                            div
+                                div.-inline
+                                    label.label(for="startEvent") Дата старта
+                                    input.input.input-short(type="text")#startEvent
+                                div.-inline
+                                    label.label(for="endEvent") Дата завершения
+                                    input.input.input-short(type="text")#endEvent
+                                div.-inline
+                                    label.label(for="days") Срок размещения
+                                    input.input.input-short(type="text" placeholder="Дней")#days
+                            input(type="checkbox")#allCities
+                            label.checkboxLabel(for="allCities")
+                                span
+                                    i.fa.fa.fa-check(aria-hidden="true")
+                                .
+                                    Все города
+                            label.label(for="city") Города размещения
+                            input.input.input-mid(type="text")#city
+                        fieldset.fieldset
+                            h2 Условия действия купонов
+                            div
+                                div.-inline
+                                    label.label(for="startCoupon") Купон действует с
+                                    input.input.input-short(type="text")#startCoupon
+                                div.-inline
+                                    label.label(for="endCoupon") по
+                                    input.input.input-short(type="text")#endCoupon
+                                div.-inline
+                                    label.label(for="couponLink") Ссылка на страницу
+                                    input.input.input-short(type="text")#couponLink
+                                div.-inline
+                                    label.label(for="couponMax") Максимум купонов
+                                    input.input.input-short(type="text")#couponMax
+                            input(type="checkbox")#discountCoupon
+                            label.checkboxLabel(for="discountCoupon")
+                                span
+                                    i.fa.fa.fa-check(aria-hidden="true")
+                                .
+                                    Купон на скидку
+                            input(type="checkbox")#pinReport
+                            label.checkboxLabel(for="pinReport")
+                                span
+                                    i.fa.fa.fa-check(aria-hidden="true")
+                                .
+                                    Сообщить ПИН-код заранее
+                        fieldset.fieldset
+                            h2 Цены
+                            label.label(for="priceName") Название цены
+                            input.input.input-big(type="text")#priceName
+                            div
+                                div.-inline
+                                    label.label(for="priceBefore") Цена до скидки
+                                    input.input.input-short(type="text")#priceBefore
+                                div.-inline
+                                    label.label(for="discount") Скидка в %
+                                    input.input.input-short(type="text")#discount
+                                div.-inline
+                                    label.label(for="eventPrice") Цена по акции
+                                    input.input.input-short(type="text")#eventPrice
+                                div.-inline
+                                    label.label(for="expDate") Действует до
+                                    input.input.input-short(type="text")#expDate
+                                div.-inline
+                                    label.label(for="maxCoupons") Купонов максимум
+                                    input.input.input-short(type="text")#maxCoupons
+                                div.-inline
+                                    input(type="checkbox")#priceDiscountCoupon
+                                    label.checkboxLabel(for="priceDiscountCoupon")
+                                        span
+                                            i.fa.fa.fa-check(aria-hidden="true")
+                                        .
+                                            Купон на скидку
+                            a.innerButton.innerButton-right(href="#") Сохранить
+                        fieldset.fieldset
+                            h2 Адреса
+                            label.label(for="placeName") Название места
+                            input.input.input-big(type="text")#placeName
+                            label.label(for="coordinates") Координаты
+                            input.input.input-big(type="text")#coordinates
+                            div.formSplitter
+                                div.formSplitter__left
+                                    .mapBlock#map
+                                div.formSplitter__right
+                                    label.label(for="metro") Метро
+                                    input.input.input-mid(type="text")#metro
+                                    label.label(for="phone") Телефон
+                                    input.input.input-mid(type="text")#phone
+                                    label.label(for="workTime") Время работы
+                                    input.input.input-mid(type="text")#workTime
+                                    input(type="checkbox")#dontShowOnMap
+                                    label.checkboxLabel(for="dontShowOnMap")
+                                        span
+                                            i.fa.fa.fa-check(aria-hidden="true")
+                                        .
+                                            Не показывать карте
+                            a.innerButton.innerButton-right(href="#") Сохранить
+                        fieldset.fieldset
+                            h2 Комментарии
+                            textarea.textarea.textarea-small(placeholder="Комментарий по оформлению или закреплению акции. Ссылки на фото или видео.")
+                            a.linkButton.linkButton-comments(href="#") Добавить фотографии
+                            div.info Минимальный размер — 832 х 422 px
+                        button.submit Создать заявку
+                        div.info.info-submit Заявка получит статус &laquo;Новая&raquo; и будет передана в сити-планирование
+                        .clr

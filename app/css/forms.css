@@ -1,0 +1,212 @@
+div.-inline {
+  display: inline-block;
+  margin-right: 19px;
+}
+div.-inline:nth-child(4n) {
+  margin-right: 0;
+}
+.fieldset {
+  position: relative;
+  border: 0;
+  border-radius: 8px;
+  background-color: #fff;
+  padding: 28px 90px 8px;
+  margin-bottom: 16px;
+}
+.label {
+  font-family: 'ralewaysemibold', sans-serif;
+  font-weight: 600;
+  display: block;
+  font-size: 14px;
+  line-height: 14px;
+  color: rgba(32, 36, 56, 0.4);
+  margin-bottom: 8px;
+}
+.input {
+  box-sizing: border-box;
+  padding: 25px 15px 21px;
+  margin-bottom: 16px;
+  font-family: 'ralewaymedium', sans-serif;
+  font-weight: 500;
+  border-radius: 4px;
+  border: solid 1px rgba(32, 36, 56, 0.2);
+  height: 48px;
+  font-size: 14px;
+  line-height: 1.43;
+  text-align: left;
+  color: #202438;
+}
+.input-mid {
+  width: 336px;
+}
+.input-short {
+  width: 156px;
+}
+.input-big {
+  width: 696px;
+}
+.input::placeholder {
+  font-family: 'ralewaymedium', sans-serif;
+  font-weight: 500;
+  color: rgba(32, 36, 56, 0.4);
+}
+.select {
+  box-sizing: border-box;
+  padding: 0 16px;
+  margin-bottom: 16px;
+  font-family: 'ralewaymedium', sans-serif;
+  font-weight: 500;
+  border-radius: 4px;
+  border: solid 1px rgba(32, 36, 56, 0.2);
+  height: 48px;
+  font-size: 14px;
+  line-height: 1.43;
+  text-align: left;
+  color: #202438;
+  background: url("../images/dropdownRow.png") no-repeat;
+  background-position: right;
+  -moz-appearance: none;
+  text-indent: 0.01px;
+  text-overflow: '';
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  appearance: none!important;
+}
+.select-big {
+  width: 696px;
+}
+.select-mid {
+  width: 336px;
+}
+select::-ms-expand {
+  display: none;
+}
+option[disabled] {
+  color: rgba(32, 36, 56, 0.4);
+}
+.formSplitter {
+  display: flex;
+}
+.formSplitter__left {
+  width: 50%;
+}
+.formSplitter__right {
+  padding-left: 25px;
+  box-sizing: border-box;
+  font-family: 'ralewaysemibold', sans-serif;
+  font-weight: 600;
+  line-height: 1.4;
+  color: rgba(32, 36, 56, 0.4);
+}
+.formSplitter__right-uppercase {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 10px;
+}
+.textarea {
+  box-sizing: border-box;
+  padding: 17px 25px 15px 16px;
+  width: 696px;
+  border-radius: 4px;
+  border: solid 1px rgba(32, 36, 56, 0.2);
+  resize: none;
+  font-family: 'ralewaymedium', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.43;
+  text-align: left;
+  color: #202438;
+  margin-bottom: 16px;
+}
+.textarea-big {
+  height: 492px;
+}
+.textarea-small {
+  height: 112px;
+  resize: vertical;
+}
+input[type='checkbox'] {
+  display: none;
+}
+input[type='checkbox'] + .checkboxLabel {
+  display: block;
+  height: 24px;
+  line-height: 24px;
+  font-family: 'ralewaymedium', sans-serif;
+  font-weight: 500;
+  text-align: left;
+  color: rgba(32, 36, 56, 0.4);
+  margin-bottom: 16px;
+  cursor: pointer;
+  outline: none;
+}
+input[type='checkbox'] + .checkboxLabel-inline {
+  display: inline-block;
+  margin-right: 34px;
+}
+input[type='checkbox'] + label span {
+  box-sizing: border-box;
+  display: inline-block;
+  text-align: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  border: solid 1px rgba(32, 36, 56, 0.2);
+  cursor: pointer;
+  padding-top: 2px;
+  margin-right: 8px;
+  vertical-align: middle;
+  margin-top: -5px;
+}
+input[type='checkbox'] + label span > i {
+  display: none;
+  color: #fff;
+}
+input[type='checkbox']:checked + label {
+  color: #202438;
+}
+input[type='checkbox']:checked + label span {
+  background: #1b68ff;
+}
+input[type='checkbox']:checked + label span > i {
+  display: block;
+}
+.innerButton {
+  width: 103px;
+  height: 32px;
+  border-radius: 100px;
+  background-color: rgba(32, 36, 56, 0.05);
+  text-align: center;
+  line-height: 32px;
+  text-decoration: none;
+  font-family: "ralewayregular", sans-serif;
+  font-size: 14px;
+  color: #202438;
+  margin-bottom: 10px;
+}
+.innerButton-right {
+  float: right;
+}
+.innerButton:hover {
+  background-color: rgba(32, 35, 56, 0.1);
+}
+.innerButton:active {
+  background-color: rgba(32, 35, 56, 0.2);
+  color: rgba(32, 36, 56, 0.8);
+}
+.submit {
+  float: right;
+  border: none;
+  width: 195px;
+  height: 48px;
+  border-radius: 100px;
+  background-color: #ff7642;
+  font-family: "ralewayregular", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.5;
+  color: #fff;
+  margin-bottom: 8px;
+  cursor: pointer;
+  margin-right: 85px;
+}
