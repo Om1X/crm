@@ -1,12 +1,19 @@
 // Mixins
+@import "vars";
 .inputFocus () {
-  border: 2px solid #1b68ff;
+  border: 2px solid @focusColor;
   padding: 23px 14px 19px;
   outline: none;
 }
 
 .selectFocus () {
-  border: 2px solid #1b68ff;
+  border: 2px solid @focusColor;
   padding: 0 15px;
+  outline: none;
+}
+
+.textareaFocus () {
+  border: 2px solid @focusColor;
+  padding: 16px 24px 14px 15px;
   outline: none;
 }

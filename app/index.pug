@@ -30,13 +30,13 @@ html(lang='en')
                             ul
                                 for name in headerMenu
                                     li
-                                        a.headerMenu__link(href='#') #{name}
+                                        a.headerMenu__link(href='#'+name.anchor) #{name.name}
                 .innerWrapper#rContent
                     form
                         fieldset.fieldset
                             label.label(for='restart') Перезапуск акции
                             input.input.input-big(type='text' placeholder='Ссылка на сайте, номер SPO или DO' name="")#restart
-                        fieldset.fieldset
+                        fieldset.fieldset#partnerBlock
                             h2 Партнер
                             label.label(for='partner') Название партнера
                             input.input.input-big(type='text')#partner
@@ -45,7 +45,7 @@ html(lang='en')
                             select.select.select-big#legalEntity
                                 for name in legalEntity
                                     option #{name}
-                        fieldset.fieldset
+                        fieldset.fieldset#contractBlock
                             h2 Договор
                             div.formSplitter
                                 div.formSplitter__left
@@ -62,7 +62,7 @@ html(lang='en')
                                             div.counts 0
                                         div Аванс, %
                                             div.counts 0
-                        fieldset.fieldset
+                        fieldset.fieldset#conditionsBlock
                             h2 Условия
                             label.label(for='nom') Номер договора
                             textarea.textarea#nom
@@ -118,7 +118,7 @@ html(lang='en')
                             a.linkButton.linkButton-price(href='#') Прикрепить
                             label.label(for='socialSite') Сайт или страница в соц. сетях
                             input.input.input-big#socialSite
-                        fieldset.fieldset
+                        fieldset.fieldset#share
                             h2 Размещение акции
                             div.label Площадка
                             input(type='checkbox')#biglion
@@ -156,7 +156,7 @@ html(lang='en')
                                     Все города
                             label.label(for="city") Города размещения
                             input.input.input-mid(type="text")#city
-                        fieldset.fieldset
+                        fieldset.fieldset#couponConditions
                             h2 Условия действия купонов
                             div
                                 div.-inline
@@ -183,7 +183,7 @@ html(lang='en')
                                     i.fa.fa.fa-check(aria-hidden="true")
                                 .
                                     Сообщить ПИН-код заранее
-                        fieldset.fieldset
+                        fieldset.fieldset#pricesBlock
                             h2 Цены
                             label.label(for="priceName") Название цены
                             input.input.input-big(type="text")#priceName
@@ -211,7 +211,7 @@ html(lang='en')
                                         .
                                             Купон на скидку
                             a.innerButton.innerButton-right(href="#") Сохранить
-                        fieldset.fieldset
+                        fieldset.fieldset#placesBlock
                             h2 Адреса
                             label.label(for="placeName") Название места
                             input.input.input-big(type="text")#placeName
@@ -234,7 +234,7 @@ html(lang='en')
                                         .
                                             Не показывать карте
                             a.innerButton.innerButton-right(href="#") Сохранить
-                        fieldset.fieldset
+                        fieldset.fieldset#comments
                             h2 Комментарии
                             textarea.textarea.textarea-small(placeholder="Комментарий по оформлению или закреплению акции. Ссылки на фото или видео.")
                             a.linkButton.linkButton-comments(href="#") Добавить фотографии

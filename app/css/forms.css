@@ -10,7 +10,7 @@ div.-inline:nth-child(4n) {
   border: 0;
   border-radius: 8px;
   background-color: #fff;
-  padding: 28px 90px 8px;
+  padding: 28px 90px 24px;
   margin-bottom: 16px;
 }
 .label {
@@ -134,6 +134,11 @@ option[disabled] {
 .textarea-small {
   height: 112px;
   resize: vertical;
+}
+.textarea:focus {
+  border: 2px solid #1b68ff;
+  padding: 16px 24px 14px 15px;
+  outline: none;
 }
 input[type='checkbox'] {
   display: none;

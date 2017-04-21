@@ -37,14 +37,14 @@
 						<h1>Создание акции</h1>
 						<nav class="headerMenu">
 							<ul>
-								<li><a class="headerMenu__link" href="#">Партнер</a></li>
-								<li><a class="headerMenu__link" href="#">Договор</a></li>
-								<li><a class="headerMenu__link" href="#">Условия</a></li>
-								<li><a class="headerMenu__link" href="#">Размещение</a></li>
-								<li><a class="headerMenu__link" href="#">Условия действия купонов</a></li>
-								<li><a class="headerMenu__link" href="#">Цены</a></li>
-								<li><a class="headerMenu__link" href="#">Адреса</a></li>
-								<li><a class="headerMenu__link" href="#">Комментарии</a></li>
+								<li><a class="headerMenu__link" href="#partnerBlock">Партнер</a></li>
+								<li><a class="headerMenu__link" href="#contractBlock">Договор</a></li>
+								<li><a class="headerMenu__link" href="#conditionsBlock">Условия</a></li>
+								<li><a class="headerMenu__link" href="#share">Размещение</a></li>
+								<li><a class="headerMenu__link" href="#couponConditions">Условия действия купонов</a></li>
+								<li><a class="headerMenu__link" href="#pricesBlock">Цены</a></li>
+								<li><a class="headerMenu__link" href="#placesBlock">Адреса</a></li>
+								<li><a class="headerMenu__link" href="#comments">Коментарии</a></li>
 							</ul>
 						</nav>
 					</div>
@@ -55,7 +55,7 @@
 							<label class="label" for="restart">Перезапуск акции</label>
 							<input class="input input-big" type="text" placeholder="Ссылка на сайте, номер SPO или DO" name="" id="restart">
 						</fieldset>
-						<fieldset class="fieldset">
+						<fieldset class="fieldset" id="partnerBlock">
 							<h2>Партнер</h2>
 							<label class="label" for="partner">Название партнера</label>
 							<input class="input input-big" type="text" id="partner">
@@ -68,7 +68,7 @@
 								<option>Четвертый партнер</option>
 							</select>
 						</fieldset>
-						<fieldset class="fieldset">
+						<fieldset class="fieldset" id="contractBlock">
 							<h2>Договор</h2>
 							<div class="formSplitter">
 								<div class="formSplitter__left">
@@ -96,7 +96,7 @@
 								</div>
 							</div>
 						</fieldset>
-						<fieldset class="fieldset">
+						<fieldset class="fieldset" id="conditionsBlock">
 							<h2>Условия</h2>
 							<label class="label" for="nom">Номер договора</label>
 							<textarea class="textarea" id="nom"></textarea>
@@ -127,7 +127,7 @@
 							<label class="label" for="socialSite">Сайт или страница в соц. сетях</label>
 							<input class="input input-big" id="socialSite">
 						</fieldset>
-						<fieldset class="fieldset">
+						<fieldset class="fieldset" id="share">
 							<h2>Размещение акции</h2>
 							<div class="label">Площадка</div>
 							<input type="checkbox" id="biglion">
@@ -161,7 +161,7 @@
 							<label class="label" for="city">Города размещения</label>
 							<input class="input input-mid" type="text" id="city">
 						</fieldset>
-						<fieldset class="fieldset">
+						<fieldset class="fieldset" id="couponConditions">
 							<h2>Условия действия купонов</h2>
 							<div>
 								<div class="-inline">
@@ -186,7 +186,7 @@
 							<input type="checkbox" id="pinReport">
 							<label class="checkboxLabel" for="pinReport"><span><i class="fa fa fa-check" aria-hidden="true"></i></span>Сообщить ПИН-код заранее</label>
 						</fieldset>
-						<fieldset class="fieldset">
+						<fieldset class="fieldset" id="pricesBlock">
 							<h2>Цены</h2>
 							<label class="label" for="priceName">Название цены</label>
 							<input class="input input-big" type="text" id="priceName">
@@ -217,7 +217,7 @@
 								</div>
 							</div><a class="innerButton innerButton-right" href="#">Сохранить</a>
 						</fieldset>
-						<fieldset class="fieldset">
+						<fieldset class="fieldset" id="placesBlock">
 							<h2>Адреса</h2>
 							<label class="label" for="placeName">Название места</label>
 							<input class="input input-big" type="text" id="placeName">
@@ -239,7 +239,7 @@
 								</div>
 							</div><a class="innerButton innerButton-right" href="#">Сохранить</a>
 						</fieldset>
-						<fieldset class="fieldset">
+						<fieldset class="fieldset" id="comments">
 							<h2>Комментарии</h2>
 							<textarea class="textarea textarea-small" placeholder="Комментарий по оформлению или закреплению акции. Ссылки на фото или видео."></textarea><a class="linkButton linkButton-comments" href="#">Добавить фотографии</a>
 							<div class="info">Минимальный размер — 832 х 422 px</div>
