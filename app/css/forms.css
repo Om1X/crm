@@ -1,3 +1,13 @@
+.inputFocus {
+  border: 2px solid #1b68ff;
+  padding: 23px 14px 19px;
+  outline: none;
+}
+.selectFocus {
+  border: 2px solid #1b68ff;
+  padding: 0 15px;
+  outline: none;
+}
 div.-inline {
   display: inline-block;
   margin-right: 19px;
@@ -50,6 +60,11 @@ div.-inline:nth-child(4n) {
   font-weight: 500;
   color: rgba(32, 36, 56, 0.4);
 }
+.input:focus {
+  border: 2px solid #1b68ff;
+  padding: 23px 14px 19px;
+  outline: none;
+}
 .select {
   box-sizing: border-box;
   padding: 0 16px;
@@ -77,6 +92,11 @@ div.-inline:nth-child(4n) {
 }
 .select-mid {
   width: 336px;
+}
+.select:focus {
+  border: 2px solid #1b68ff;
+  padding: 0 15px;
+  outline: none;
 }
 select::-ms-expand {
   display: none;

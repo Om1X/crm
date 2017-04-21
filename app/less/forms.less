@@ -1,3 +1,16 @@
+// Mixins
+.inputFocus {
+  border: 2px solid #1b68ff;
+  padding: 23px 14px 19px;
+  outline: none;
+}
+
+.selectFocus {
+  border: 2px solid #1b68ff;
+  padding: 0 15px;
+  outline: none;
+}
+
 // Vars
 @bigInputsWidth: 696px;
 @midInputsWidth: 336px;
@@ -62,6 +75,10 @@ div.-inline {
     font-weight: 500;
     color: rgba(32, 36, 56, 0.4);
   }
+
+  &:focus {
+    .inputFocus
+  }
 }
 
 .select {
@@ -95,6 +112,10 @@ div.-inline {
 
   &-mid {
     width: @midInputsWidth;
+  }
+
+  &:focus {
+    .selectFocus
   }
 }
 
