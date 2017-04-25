@@ -12,8 +12,8 @@ html(lang='en')
         //endbuild
         script(src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
         script(src="//api-maps.yandex.ru/2.1/?lang=ru_RU")
-        script(src="js/scripts.js")
-        script(src="js/yaMaps.js")
+        //script(src="js/scripts.js")
+        //script(src="js/dropdown.js")
     body
         .wrapper
             .leftMenu
@@ -44,7 +44,8 @@ html(lang='en')
                             //Temporary select. Waiting for normal design.
                             select.select.select-big#legalEntity
                                 for name in legalEntity
-                                    option #{name}
+                                    option
+                                        .option #{name}
                         fieldset.fieldset#contractBlock
                             h2 Договор
                             div.formSplitter
@@ -73,44 +74,37 @@ html(lang='en')
                                     input(type='checkbox')#print
                                     label.checkboxLabel(for='print' tabindex='0')
                                         span
-                                            i.fa.fa-check(aria-hidden='true')
                                         .
                                             Требуется распечатать купон
                                     input(type='checkbox')#sms
                                     label.checkboxLabel(for='sms' tabindex='0')
                                         span
-                                            i.fa.fa-check(aria-hidden='true')
                                         .
                                             Действует СМС-купон
                                     input(type='checkbox')#delivery
                                     label.checkboxLabel(for='delivery' tabindex='0')
                                         span
-                                            i.fa.fa-check(aria-hidden='true')
                                         .
                                             Доставка входит в стоимость
                                     input(type='checkbox')#ownDelivery
                                     label.checkboxLabel(for='ownDelivery' tabindex='0')
                                         span
-                                            i.fa.fa-check(aria-hidden='true')
                                         .
                                             Самовывоз
                                 div.formSplitter__right
                                     input(type='checkbox')#pre
                                     label.checkboxLabel(for='pre' tabindex='0')
                                         span
-                                            i.fa.fa-check(aria-hidden='true')
                                         .
                                             Предварительная запись
                                     input(type='checkbox')#consult
                                     label.checkboxLabel(for='consult' tabindex='0')
                                         span
-                                            i.fa.fa-check(aria-hidden='true')
                                         .
                                             Консультация врача
                                     input(type='checkbox')#adultOnly
                                     label.checkboxLabel(for='adultOnly' tabindex='0')
                                         span
-                                            i.fa.fa-check(aria-hidden='true')
                                         .
                                             Только для совершеннолетних
                             label.label(for='price') Прайс или меню
@@ -124,13 +118,11 @@ html(lang='en')
                             input(type='checkbox')#biglion
                             label.checkboxLabel.checkboxLabel-inline(for='biglion')
                                 span
-                                    i.fa.fa-check(aria-hidden='true')
                                 .
                                     Biglion
                             input(type='checkbox')#frendi
                             label.checkboxLabel.checkboxLabel-inline(for='frendi')
                                 span
-                                    i.fa.fa-check(aria-hidden='true')
                                 .
                                     Frendi
                             label.label(for='direction') Направление
@@ -151,7 +143,6 @@ html(lang='en')
                             input(type="checkbox")#allCities
                             label.checkboxLabel(for="allCities")
                                 span
-                                    i.fa.fa.fa-check(aria-hidden="true")
                                 .
                                     Все города
                             label.label(for="city") Города размещения
@@ -174,13 +165,11 @@ html(lang='en')
                             input(type="checkbox")#discountCoupon
                             label.checkboxLabel(for="discountCoupon")
                                 span
-                                    i.fa.fa.fa-check(aria-hidden="true")
                                 .
                                     Купон на скидку
                             input(type="checkbox")#pinReport
                             label.checkboxLabel(for="pinReport")
                                 span
-                                    i.fa.fa.fa-check(aria-hidden="true")
                                 .
                                     Сообщить ПИН-код заранее
                         fieldset.fieldset#pricesBlock
@@ -207,7 +196,6 @@ html(lang='en')
                                     input(type="checkbox")#priceDiscountCoupon
                                     label.checkboxLabel(for="priceDiscountCoupon")
                                         span
-                                            i.fa.fa.fa-check(aria-hidden="true")
                                         .
                                             Купон на скидку
                             a.innerButton.innerButton-right(href="#") Сохранить
@@ -215,8 +203,14 @@ html(lang='en')
                             h2 Адреса
                             label.label(for="placeName") Название места
                             input.input.input-big(type="text")#placeName
-                            label.label(for="coordinates") Координаты
-                            input.input.input-big(type="text")#coordinates
+                            .tabs
+                                label.label.label__tab.label__tab-active(for="address") Адрес
+                                label.label.label__tab(for="coordinates") Координаты
+                            .innerTabs
+                                div.input-active
+                                    input.input.input-big(type="text")#address
+                                div
+                                    input.input.input-big(type="text")#coordinates
                             div.formSplitter
                                 div.formSplitter__left
                                     .mapBlock#map
@@ -230,7 +224,6 @@ html(lang='en')
                                     input(type="checkbox")#dontShowOnMap
                                     label.checkboxLabel(for="dontShowOnMap")
                                         span
-                                            i.fa.fa.fa-check(aria-hidden="true")
                                         .
                                             Не показывать карте
                             a.innerButton.innerButton-right(href="#") Сохранить
@@ -242,3 +235,5 @@ html(lang='en')
                         button.submit Создать заявку
                         div.info.info-submit Заявка получит статус &laquo;Новая&raquo; и будет передана в сити-планирование
                         .clr
+    script(src="js/tabs.js")
+    script(src="js/yaMaps.js")

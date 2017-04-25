@@ -8,7 +8,7 @@ div.-inline {
   display: inline-block;
   margin-right: 19px;
 
-  &:nth-child(4n){
+  &:nth-child(4n) {
     margin-right: 0;
   }
 }
@@ -19,7 +19,8 @@ div.-inline {
   border-radius: 8px;
   background-color: #fff;
   padding: 28px 90px 24px;
-  margin-bottom: 16px;
+  margin-top: 16px;
+  //margin-bottom: 16px;
 }
 
 .label {
@@ -64,6 +65,10 @@ div.-inline {
     color: rgba(32, 36, 56, 0.4);
   }
 
+  &:hover {
+    .inputsHovers
+  }
+
   &:focus {
     .inputFocus
   }
@@ -92,7 +97,7 @@ div.-inline {
   -webkit-appearance: none;
   // IE
   -ms-appearance: none;
-  appearance: none!important;
+  appearance: none !important;
 
   &-big {
     width: @bigInputsWidth;
@@ -102,9 +107,18 @@ div.-inline {
     width: @midInputsWidth;
   }
 
+  &:hover {
+    .inputsHovers
+  }
+
   &:focus {
     .selectFocus
   }
+}
+
+.option {
+  width: 233px;
+  height: 56px;
 }
 
 select::-ms-expand {
@@ -162,6 +176,10 @@ option[disabled] {
     resize: vertical;
   }
 
+  &:hover {
+    .inputsHovers
+  }
+
   &:focus {
     .textareaFocus
   }
@@ -203,24 +221,36 @@ input[type='checkbox'] {
     margin-right: 8px;
     vertical-align: middle;
     margin-top: -5px;
-
-    & > i {
-      display: none;
-      color: #fff;
-    }
   }
 
   &:checked {
     & + label {
       color: #202438;
     }
-    
+
     & + label span {
       background: #1b68ff;
+      border: none;
+      position: relative;
 
-      & > i {
-        display: block;
+      &:hover {
+        background-color: #0048ff;
+        box-shadow: 0 2px 4px 0 rgba(0, 72, 255, 0.58);
       }
+    }
+
+    & + label span::after {
+      display: block;
+      content: "";
+      position: absolute;
+      top: 6%;
+      left: 32%;
+      width: .4em;
+      height: .8em;
+      border: 2px solid #fff;
+      border-top: none;
+      border-left: none;
+      transform: rotate(45deg);
     }
   }
 }
@@ -267,4 +297,31 @@ input[type='checkbox'] {
   margin-bottom: 8px;
   cursor: pointer;
   margin-right: 85px;
+}
+
+// Вкладки адрес / координаты
+.tabs {
+  & > * {
+    cursor: pointer;
+  }
+  
+  .label__tab {
+    float: left;
+    color: rgba(32, 36, 56, 0.2);
+    margin-right: 16px;
+
+    &-active {
+      color: rgba(32, 36, 56, 0.4);
+    }
+  }
+}
+
+.innerTabs {
+  & > div {
+    display: none;
+  }
+
+  .input-active {
+    display: block;
+  }
 }

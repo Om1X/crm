@@ -16,8 +16,8 @@
 		<!--endbuild-->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="//api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
-		<script src="js/scripts.js"></script>
-		<script src="js/yaMaps.js"></script>
+		<!--script(src="js/scripts.js")-->
+		<!--script(src="js/dropdown.js")-->
 	</head>
 	<body>
 		<div class="wrapper">
@@ -62,10 +62,18 @@
 							<label class="label" for="legalEntity">Юридическое лицо</label>
 							<!--Temporary select. Waiting for normal design.-->
 							<select class="select select-big" id="legalEntity">
-								<option>Первый партнер</option>
-								<option>Второй партнер</option>
-								<option>Третий партнер</option>
-								<option>Четвертый партнер</option>
+								<option>
+									<div class="option">Первый партнер</div>
+								</option>
+								<option>
+									<div class="option">Второй партнер</div>
+								</option>
+								<option>
+									<div class="option">Третий партнер</div>
+								</option>
+								<option>
+									<div class="option">Четвертый партнер</div>
+								</option>
 							</select>
 						</fieldset>
 						<fieldset class="fieldset" id="contractBlock">
@@ -105,21 +113,21 @@
 							<div class="formSplitter">
 								<div class="formSplitter__left">
 									<input type="checkbox" id="print">
-									<label class="checkboxLabel" for="print" tabindex="0"><span><i class="fa fa-check" aria-hidden="true"></i></span>Требуется распечатать купон</label>
+									<label class="checkboxLabel" for="print" tabindex="0"><span></span>Требуется распечатать купон</label>
 									<input type="checkbox" id="sms">
-									<label class="checkboxLabel" for="sms" tabindex="0"><span><i class="fa fa-check" aria-hidden="true"></i></span>Действует СМС-купон</label>
+									<label class="checkboxLabel" for="sms" tabindex="0"><span></span>Действует СМС-купон</label>
 									<input type="checkbox" id="delivery">
-									<label class="checkboxLabel" for="delivery" tabindex="0"><span><i class="fa fa-check" aria-hidden="true"></i></span>Доставка входит в стоимость</label>
+									<label class="checkboxLabel" for="delivery" tabindex="0"><span></span>Доставка входит в стоимость</label>
 									<input type="checkbox" id="ownDelivery">
-									<label class="checkboxLabel" for="ownDelivery" tabindex="0"><span><i class="fa fa-check" aria-hidden="true"></i></span>Самовывоз</label>
+									<label class="checkboxLabel" for="ownDelivery" tabindex="0"><span></span>Самовывоз</label>
 								</div>
 								<div class="formSplitter__right">
 									<input type="checkbox" id="pre">
-									<label class="checkboxLabel" for="pre" tabindex="0"><span><i class="fa fa-check" aria-hidden="true"></i></span>Предварительная запись</label>
+									<label class="checkboxLabel" for="pre" tabindex="0"><span></span>Предварительная запись</label>
 									<input type="checkbox" id="consult">
-									<label class="checkboxLabel" for="consult" tabindex="0"><span><i class="fa fa-check" aria-hidden="true"></i></span>Консультация врача</label>
+									<label class="checkboxLabel" for="consult" tabindex="0"><span></span>Консультация врача</label>
 									<input type="checkbox" id="adultOnly">
-									<label class="checkboxLabel" for="adultOnly" tabindex="0"><span><i class="fa fa-check" aria-hidden="true"></i></span>Только для совершеннолетних</label>
+									<label class="checkboxLabel" for="adultOnly" tabindex="0"><span></span>Только для совершеннолетних</label>
 								</div>
 							</div>
 							<label class="label" for="price">Прайс или меню</label>
@@ -131,9 +139,9 @@
 							<h2>Размещение акции</h2>
 							<div class="label">Площадка</div>
 							<input type="checkbox" id="biglion">
-							<label class="checkboxLabel checkboxLabel-inline" for="biglion"><span><i class="fa fa-check" aria-hidden="true"></i></span>Biglion</label>
+							<label class="checkboxLabel checkboxLabel-inline" for="biglion"><span></span>Biglion</label>
 							<input type="checkbox" id="frendi">
-							<label class="checkboxLabel checkboxLabel-inline" for="frendi"><span><i class="fa fa-check" aria-hidden="true"></i></span>Frendi</label>
+							<label class="checkboxLabel checkboxLabel-inline" for="frendi"><span></span>Frendi</label>
 							<label class="label" for="direction">Направление</label>
 							<select class="select select-mid" size="1" id="direction">
 								<option value="Услуги" selected disabled>Услуги</option>
@@ -157,7 +165,7 @@
 								</div>
 							</div>
 							<input type="checkbox" id="allCities">
-							<label class="checkboxLabel" for="allCities"><span><i class="fa fa fa-check" aria-hidden="true"></i></span>Все города</label>
+							<label class="checkboxLabel" for="allCities"><span></span>Все города</label>
 							<label class="label" for="city">Города размещения</label>
 							<input class="input input-mid" type="text" id="city">
 						</fieldset>
@@ -182,9 +190,9 @@
 								</div>
 							</div>
 							<input type="checkbox" id="discountCoupon">
-							<label class="checkboxLabel" for="discountCoupon"><span><i class="fa fa fa-check" aria-hidden="true"></i></span>Купон на скидку</label>
+							<label class="checkboxLabel" for="discountCoupon"><span></span>Купон на скидку</label>
 							<input type="checkbox" id="pinReport">
-							<label class="checkboxLabel" for="pinReport"><span><i class="fa fa fa-check" aria-hidden="true"></i></span>Сообщить ПИН-код заранее</label>
+							<label class="checkboxLabel" for="pinReport"><span></span>Сообщить ПИН-код заранее</label>
 						</fieldset>
 						<fieldset class="fieldset" id="pricesBlock">
 							<h2>Цены</h2>
@@ -213,7 +221,7 @@
 								</div>
 								<div class="-inline">
 									<input type="checkbox" id="priceDiscountCoupon">
-									<label class="checkboxLabel" for="priceDiscountCoupon"><span><i class="fa fa fa-check" aria-hidden="true"></i></span>Купон на скидку</label>
+									<label class="checkboxLabel" for="priceDiscountCoupon"><span></span>Купон на скидку</label>
 								</div>
 							</div><a class="innerButton innerButton-right" href="#">Сохранить</a>
 						</fieldset>
@@ -221,8 +229,18 @@
 							<h2>Адреса</h2>
 							<label class="label" for="placeName">Название места</label>
 							<input class="input input-big" type="text" id="placeName">
-							<label class="label" for="coordinates">Координаты</label>
-							<input class="input input-big" type="text" id="coordinates">
+							<div class="tabs">
+								<label class="label label__tab label__tab-active" for="address">Адрес</label>
+								<label class="label label__tab" for="coordinates">Координаты</label>
+							</div>
+							<div class="innerTabs">
+								<div class="input-active">
+									<input class="input input-big" type="text" id="address">
+								</div>
+								<div>
+									<input class="input input-big" type="text" id="coordinates">
+								</div>
+							</div>
 							<div class="formSplitter">
 								<div class="formSplitter__left">
 									<div class="mapBlock" id="map"></div>
@@ -235,7 +253,7 @@
 									<label class="label" for="workTime">Время работы</label>
 									<input class="input input-mid" type="text" id="workTime">
 									<input type="checkbox" id="dontShowOnMap">
-									<label class="checkboxLabel" for="dontShowOnMap"><span><i class="fa fa fa-check" aria-hidden="true"></i></span>Не показывать карте</label>
+									<label class="checkboxLabel" for="dontShowOnMap"><span></span>Не показывать карте</label>
 								</div>
 							</div><a class="innerButton innerButton-right" href="#">Сохранить</a>
 						</fieldset>
@@ -252,4 +270,6 @@
 			</div>
 		</div>
 	</body>
+	<script src="js/tabs.js"></script>
+	<script src="js/yaMaps.js"></script>
 </html>

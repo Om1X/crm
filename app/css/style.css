@@ -67,6 +67,8 @@ ul {
   font-weight: 600;
   color: #fff;
   line-height: 18px;
+  z-index: 1000;
+  min-height: 100%;
 }
 .leftMenu__logo {
   width: 190px;
