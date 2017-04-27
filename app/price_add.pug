@@ -1,0 +1,42 @@
+include pug/vars
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        title CRM
+        //build:css css/style.min.css
+        link(rel="stylesheet", href="css/style.css")
+        link(rel="stylesheet", href="css/forms.css")
+        link(rel="stylesheet", href="css/fonts.css")
+        link(rel="stylesheet", href="css/dropdown.css")
+        //endbuild
+        script(src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+        script(src="//api-maps.yandex.ru/2.1/?lang=ru_RU")
+    body
+        fieldset.fieldset#pricesBlock
+            h2 Цены
+            label.label(for="priceName") Название цены
+            input.input.input-big(type="text")#priceName
+            div
+                div.-inline
+                    label.label(for="priceBefore") Цена до скидки
+                    input.input.input-short(type="text")#priceBefore
+                div.-inline
+                    label.label(for="discount") Скидка в %
+                    input.input.input-short(type="text")#discount
+                div.-inline
+                    label.label(for="eventPrice") Цена по акции
+                    input.input.input-short(type="text")#eventPrice
+                div.-inline
+                    label.label(for="expDate") Действует до
+                    input.input.input-short(type="text")#expDate
+                div.-inline
+                    label.label(for="maxCoupons") Купонов максимум
+                    input.input.input-short(type="text")#maxCoupons
+                div.-inline
+                    input(type="checkbox")#priceDiscountCoupon
+                    label.checkboxLabel(for="priceDiscountCoupon")
+                        span
+                        .
+                            Купон на скидку
+            a.innerButton.innerButton-right(href="#") Сохранить

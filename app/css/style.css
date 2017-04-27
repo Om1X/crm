@@ -23,6 +23,18 @@ h2 {
   color: #202438;
   margin: 13px 0 16px;
 }
+h3 {
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.5;
+  text-align: left;
+  color: #202438;
+  margin-bottom: 8px;
+}
+.ungroup {
+  color: rgba(32, 36, 56, 0.4);
+}
 ul {
   list-style: none;
 }
@@ -30,6 +42,7 @@ ul {
   clear: both;
 }
 .linkButton {
+  display: inline-block;
   font-family: 'Raleway', sans-serif;
   font-size: 12px;
   font-weight: 500;
@@ -42,13 +55,19 @@ ul {
   text-decoration: underline;
 }
 .linkButton-price {
-  display: block;
-  margin-bottom: 16px;
+  margin-bottom: 26px;
+  margin-right: 8px;
+}
+.linkButton-price-hidden {
+  display: none;
+}
+.linkButton-hide {
+  margin-bottom: 26px;
+  cursor: pointer;
 }
 .linkButton-comments {
   display: inline-block;
   margin-bottom: 16px;
-  margin-left: 8px;
 }
 .wrapper {
   display: flex;
@@ -107,19 +126,19 @@ ul {
 }
 .header-fixed {
   position: fixed;
-  top: -88px;
+  top: -100px;
   z-index: 999;
   background: #fff;
-  opacity: 0.8;
+  opacity: 0.9;
 }
-.headerMenu li {
-  float: left;
-  margin-right: 33px;
+.topMenu {
+  display: flex;
+  justify-content: space-between;
 }
-.headerMenu li:last-child {
+.topMenu li:last-child {
   margin-right: 0;
 }
-.headerMenu__link {
+.topMenu__link {
   text-decoration: none;
   font-size: 14px;
   font-weight: 600;
@@ -161,4 +180,101 @@ ul {
   height: 336px;
   border-radius: 4px;
   border: solid 1px rgba(32, 36, 56, 0.2);
+}
+.tag {
+  box-sizing: border-box;
+  padding: 0 35px 0 16px;
+  display: inline-block;
+  height: 40px;
+  border-radius: 100px;
+  background: url("../images/x.svg") top 12px right 12px no-repeat;
+  background-color: rgba(32, 36, 56, 0.05);
+  line-height: 40px;
+  cursor: pointer;
+  margin-right: 8px;
+  font-family: "Raleway", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #181a2a;
+}
+.tag:hover {
+  background-color: rgba(32, 35, 56, 0.1);
+}
+.tag:active {
+  background-color: rgba(32, 35, 56, 0.2);
+  color: rgba(32, 36, 56, 0.8);
+}
+.price__Row {
+  display: flex;
+  margin-left: -23px;
+  margin-bottom: 8px;
+  color: #202438;
+  cursor: pointer;
+}
+.price__Row-unactive {
+  color: rgba(32, 36, 56, 0.4);
+}
+.price__num {
+  box-sizing: border-box;
+  width: 23px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.43;
+  text-align: right;
+  padding: 16px 8px 0 0;
+  color: rgba(32, 36, 56, 0.4);
+}
+.price__Item {
+  padding: 16px;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 4px;
+  border: solid 1px rgba(32, 36, 56, 0.2);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.43;
+  text-align: left;
+}
+.price__Item:hover {
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+}
+.price__head {
+  width: 550px;
+  margin-bottom: 11px;
+}
+.priceInfo {
+  display: inline-block;
+  width: 100px;
+}
+.priceInfo__head {
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 1px;
+  color: rgba(32, 36, 56, 0.4);
+  text-transform: uppercase;
+}
+.priceInfo__value {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.43;
+  text-align: left;
+}
+.photos {
+  width: 696px;
+  height: 156px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+.photos__wrap {
+  width: 1000px;
+}
+.photos__photo {
+  float: left;
+  width: 156px;
+  height: 156px;
+  border-radius: 4px;
+  margin-right: 24px;
+  background: #ff5721;
+  cursor: pointer;
 }

@@ -12,12 +12,11 @@
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/forms.css">
 		<link rel="stylesheet" href="css/fonts.css">
-		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/dropdown.css">
+		<!--link(rel="stylesheet", href="css/font-awesome.min.css")-->
 		<!--endbuild-->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="//api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
-		<!--script(src="js/scripts.js")-->
-		<!--script(src="js/dropdown.js")-->
 	</head>
 	<body>
 		<div class="wrapper">
@@ -35,16 +34,16 @@
 				<header class="header" id="header">
 					<div class="innerWrapper">
 						<h1>Создание акции</h1>
-						<nav class="headerMenu">
-							<ul>
-								<li><a class="headerMenu__link" href="#partnerBlock">Партнер</a></li>
-								<li><a class="headerMenu__link" href="#contractBlock">Договор</a></li>
-								<li><a class="headerMenu__link" href="#conditionsBlock">Условия</a></li>
-								<li><a class="headerMenu__link" href="#share">Размещение</a></li>
-								<li><a class="headerMenu__link" href="#couponConditions">Условия действия купонов</a></li>
-								<li><a class="headerMenu__link" href="#pricesBlock">Цены</a></li>
-								<li><a class="headerMenu__link" href="#placesBlock">Адреса</a></li>
-								<li><a class="headerMenu__link" href="#comments">Коментарии</a></li>
+						<nav>
+							<ul class="topMenu">
+								<li><a class="topMenu__link" href="#partnerBlock">Партнер</a></li>
+								<li><a class="topMenu__link" href="#contractBlock">Договор</a></li>
+								<li><a class="topMenu__link" href="#conditionsBlock">Условия</a></li>
+								<li><a class="topMenu__link" href="#share">Размещение</a></li>
+								<li><a class="topMenu__link" href="#couponConditions">Условия действия купонов</a></li>
+								<li><a class="topMenu__link" href="#pricesBlock">Цены</a></li>
+								<li><a class="topMenu__link" href="#placesBlock">Адреса</a></li>
+								<li><a class="topMenu__link" href="#comments">Комментарии</a></li>
 							</ul>
 						</nav>
 					</div>
@@ -60,7 +59,6 @@
 							<label class="label" for="partner">Название партнера</label>
 							<input class="input input-big" type="text" id="partner">
 							<label class="label" for="legalEntity">Юридическое лицо</label>
-							<!--Temporary select. Waiting for normal design.-->
 							<select class="select select-big" id="legalEntity">
 								<option>
 									<div class="option">Первый партнер</div>
@@ -106,8 +104,8 @@
 						</fieldset>
 						<fieldset class="fieldset" id="conditionsBlock">
 							<h2>Условия</h2>
-							<label class="label" for="nom">Номер договора</label>
-							<textarea class="textarea" id="nom"></textarea>
+							<label class="label" for="condName">Название</label>
+							<textarea class="textarea" id="condName"></textarea>
 							<label class="label" for="conditions">Условия</label>
 							<textarea class="textarea textarea-big" id="conditions"></textarea>
 							<div class="formSplitter">
@@ -131,7 +129,7 @@
 								</div>
 							</div>
 							<label class="label" for="price">Прайс или меню</label>
-							<input class="input input-big" id="price"><a class="linkButton linkButton-price" href="#">Прикрепить</a>
+							<input class="input input-big input-price" id="price"><a class="linkButton linkButton-price" href="#">Прикрепить</a>
 							<label class="label" for="socialSite">Сайт или страница в соц. сетях</label>
 							<input class="input input-big" id="socialSite">
 						</fieldset>
@@ -181,7 +179,7 @@
 									<input class="input input-short" type="text" id="endCoupon">
 								</div>
 								<div class="-inline">
-									<label class="label" for="couponLink">Ссылка на страницу</label>
+									<label class="label" for="couponLink">Количество дней</label>
 									<input class="input input-short" type="text" id="couponLink">
 								</div>
 								<div class="-inline">
@@ -262,7 +260,9 @@
 							<textarea class="textarea textarea-small" placeholder="Комментарий по оформлению или закреплению акции. Ссылки на фото или видео."></textarea><a class="linkButton linkButton-comments" href="#">Добавить фотографии</a>
 							<div class="info">Минимальный размер — 832 х 422 px</div>
 						</fieldset>
-						<button class="submit">Создать заявку</button>
+						<div class="buttons">
+							<button class="submit submit-emptyForm">Создать заявку</button>
+						</div>
 						<div class="info info-submit">Заявка получит статус &laquo;Новая&raquo; и будет передана в сити-планирование</div>
 						<div class="clr"></div>
 					</form>
@@ -270,6 +270,10 @@
 			</div>
 		</div>
 	</body>
+	<!--build:js js/main.min.js-->
+	<script src="js/scripts.js"></script>
 	<script src="js/tabs.js"></script>
 	<script src="js/yaMaps.js"></script>
+	<script src="js/dropdown.js"></script>
+	<!--endbuild-->
 </html>

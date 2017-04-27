@@ -1,0 +1,43 @@
+include pug/vars
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        title CRM
+        //build:css css/style.min.css
+        link(rel="stylesheet", href="css/style.css")
+        link(rel="stylesheet", href="css/forms.css")
+        link(rel="stylesheet", href="css/fonts.css")
+        link(rel="stylesheet", href="css/dropdown.css")
+        //endbuild
+        script(src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+        script(src="//api-maps.yandex.ru/2.1/?lang=ru_RU")
+    body
+        fieldset.fieldset#placesBlock
+            h2 Адреса
+            label.label(for="placeName") Название места
+            input.input.input-big(type="text")#placeName
+            .tabs
+                label.label.label__tab.label__tab-active(for="address") Адрес
+                label.label.label__tab(for="coordinates") Координаты
+            .innerTabs
+                div.input-active
+                    input.input.input-big(type="text")#address
+                div
+                    input.input.input-big(type="text")#coordinates
+            div.formSplitter
+                div.formSplitter__left
+                    .mapBlock#map
+                div.formSplitter__right
+                    label.label(for="metro") Метро
+                    input.input.input-mid(type="text")#metro
+                    label.label(for="phone") Телефон
+                    input.input.input-mid(type="text")#phone
+                    label.label(for="workTime") Время работы
+                    input.input.input-mid(type="text")#workTime
+                    input(type="checkbox")#dontShowOnMap
+                    label.checkboxLabel(for="dontShowOnMap")
+                        span
+                        .
+                            Не показывать карте
+            a.innerButton.innerButton-right(href="#") Сохранить

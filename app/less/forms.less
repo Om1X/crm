@@ -1,9 +1,5 @@
 @import "mixins";
 // Vars
-@bigInputsWidth: 696px;
-@midInputsWidth: 336px;
-@shortInputsWidth: 156px;
-
 div.-inline {
   display: inline-block;
   margin-right: 19px;
@@ -47,6 +43,10 @@ div.-inline {
   text-align: left;
   color: #202438;
 
+  &-price {
+    margin-bottom: 8px;
+  }
+
   &-mid {
     width: @midInputsWidth;
   }
@@ -57,6 +57,10 @@ div.-inline {
 
   &-big {
     width: @bigInputsWidth;
+  }
+
+  &-ok {
+    border: solid 1px #43d167;
   }
 
   &::placeholder {
@@ -78,7 +82,7 @@ div.-inline {
   box-sizing: border-box;
   padding: 0 16px;
   margin-bottom: 16px;
-  font-family: 'ralewaymedium', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 500;
   border-radius: 4px;
   border: solid 1px rgba(32, 36, 56, 0.2);
@@ -87,17 +91,6 @@ div.-inline {
   line-height: 1.43;
   text-align: left;
   color: #202438;
-  background: url("../images/dropdownRow.png") no-repeat;
-  background-position: right;
-  // FF
-  -moz-appearance: none;
-  text-indent: 0.01px;
-  text-overflow: '';
-  // webkit
-  -webkit-appearance: none;
-  // IE
-  -ms-appearance: none;
-  appearance: none !important;
 
   &-big {
     width: @bigInputsWidth;
@@ -202,61 +195,71 @@ input[type='checkbox'] {
     cursor: pointer;
     outline: none;
 
+    & > span {
+      box-sizing: border-box;
+      display: inline-block;
+      text-align: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      border: solid 1px rgba(32, 36, 56, 0.2);
+      cursor: pointer;
+      padding-top: 2px;
+      margin-right: 8px;
+      vertical-align: middle;
+      margin-top: -5px;
+    }
+
     &-inline {
       display: inline-block;
       margin-right: 34px;
     }
+
+    &:hover > span {
+      border: solid 1px rgba(32, 36, 56, 0.4);
+    }
+    &:active > span {
+      background-color: rgba(32, 35, 56, 0.1);
+      border: solid 1px rgba(32, 35, 56, 0.1);
+    }
   }
 
-  & + label span {
-    box-sizing: border-box;
-    display: inline-block;
-    text-align: center;
-    width: 24px;
-    height: 24px;
-    border-radius: 4px;
-    border: solid 1px rgba(32, 36, 56, 0.2);
-    cursor: pointer;
-    padding-top: 2px;
-    margin-right: 8px;
-    vertical-align: middle;
-    margin-top: -5px;
-  }
 
   &:checked {
-    & + label {
+    & + .checkboxLabel {
       color: #202438;
-    }
 
-    & + label span {
-      background: #1b68ff;
-      border: none;
-      position: relative;
+      & > span {
+        background: #1b68ff;
+        border: none;
+        position: relative;
+      }
 
-      &:hover {
+      &:hover > span {
         background-color: #0048ff;
         box-shadow: 0 2px 4px 0 rgba(0, 72, 255, 0.58);
       }
-    }
 
-    & + label span::after {
-      display: block;
-      content: "";
-      position: absolute;
-      top: 6%;
-      left: 32%;
-      width: .4em;
-      height: .8em;
-      border: 2px solid #fff;
-      border-top: none;
-      border-left: none;
-      transform: rotate(45deg);
+      & > span::after {
+        display: block;
+        content: "";
+        position: absolute;
+        top: 6%;
+        left: 32%;
+        width: .4em;
+        height: .8em;
+        border: 2px solid #fff;
+        border-top: none;
+        border-left: none;
+        transform: rotate(45deg);
+      }
     }
   }
 }
 
 .innerButton {
-  width: 103px;
+  display: inline-block;
+  cursor: pointer;
   height: 32px;
   border-radius: 100px;
   background-color: rgba(32, 36, 56, 0.05);
@@ -267,9 +270,15 @@ input[type='checkbox'] {
   font-size: 14px;
   color: #202438;
   margin-bottom: 10px;
+  padding: 0 16px;
+  margin-top: 10px;
 
   &-right {
     float: right;
+  }
+  
+  &-left {
+    float: left;
   }
 
   &:hover {
@@ -282,13 +291,19 @@ input[type='checkbox'] {
   }
 }
 
-.submit {
+.buttons {
   float: right;
+  width: 418px;
+  margin-right: 73px;
+}
+
+.submit {
+  float: left;
   border: none;
   width: 195px;
   height: 48px;
   border-radius: 100px;
-  background-color: #ff7642;
+  background: url("../images/up.png") no-repeat top 12px right 24px, #ff7642;
   font-family: "Raleway", sans-serif;
   font-size: 16px;
   font-weight: 700;
@@ -296,9 +311,53 @@ input[type='checkbox'] {
   color: #fff;
   margin-bottom: 8px;
   cursor: pointer;
-  margin-right: 85px;
+  margin-top: 16px;
+  padding-left: 24px;
+  text-align: left;
+
+  &-emptyForm {
+    float: right;
+    margin-right: 16px;
+  }
+
+  &:hover {
+    background-color: #ff5721;
+    box-shadow: 0 2px 4px 0 #ff5721;
+  }
+
+  &:active {
+    background-color: #e86d41;
+  }
 }
 
+.preview {
+  float: left;
+  border: none;
+  width: 195px;
+  height: 48px;
+  border-radius: 100px;
+  background: url("../images/prev.png") no-repeat top 12px right 24px, rgba(32, 36, 56, 0.6);
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #fff;
+  margin-right: 16px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  margin-top: 16px;
+  padding-left: 24px;
+  text-align: left;
+
+  &:hover {
+    background-color: rgba(32, 35, 56, 0.8);
+  }
+
+  &:active {
+    color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(32, 35, 56, 0.6);
+  }
+}
 // Вкладки адрес / координаты
 .tabs {
   & > * {

@@ -1,0 +1,446 @@
+include pug/vars
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        title CRM
+        //build:css css/style.min.css
+        link(rel="stylesheet", href="css/style.css")
+        link(rel="stylesheet", href="css/forms.css")
+        link(rel="stylesheet", href="css/fonts.css")
+        link(rel="stylesheet", href="css/dropdown.css")
+        //endbuild
+        script(src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+        script(src="//api-maps.yandex.ru/2.1/?lang=ru_RU")
+    body
+        .wrapper
+            .leftMenu
+                .leftMenu__logo
+                ul
+                    for name in leftMenu
+                        li
+                            a.leftMenu__link(href='#') #{name['description']}
+            .content
+                header.header#header
+                    .innerWrapper
+                        h1 Создание акции
+                        nav
+                            ul.topMenu
+                                for name in headerMenu
+                                    li
+                                        a.topMenu__link(href='#' + name.anchor) #{name.name}
+                .innerWrapper#rContent
+                    form
+                        fieldset.fieldset
+                            label.label(for='restart') Перезапуск акции
+                            input.input.input-big(type='text' placeholder='Ссылка на сайте, номер SPO или DO' name="")#restart
+                        fieldset.fieldset#partnerBlock
+                            h2 Партнер
+                            label.label(for='partner') Название партнера
+                            input.input.input-big.input-ok(type='text' value='Массажный салон на Пятницкой')#partner
+                            label.label(for='legalEntity') Юридическое лицо
+                            //Temporary select. Waiting for normal design.
+                            select.select.select-big#legalEntity
+                                for name in legalEntity
+                                    option
+                                        .option #{name}
+                        fieldset.fieldset#contractBlock
+                            h2 Договор
+                            div.formSplitter
+                                div.formSplitter__left
+                                    label.label(for='contract') Номер договора
+                                    select.select.select-mid#contract
+                                        for name in contracts
+                                            option #{name}
+                                div.formSplitter__right.formSplitter__right-uppercase Заявка к договору
+                                    div.contractNumber А6, 01.02.2017
+                                    div.comissionBlock
+                                        div Комиссия, %
+                                            div.counts 50
+                                        div Комиссия, руб.
+                                            div.counts 0
+                                        div Аванс, %
+                                            div.counts 0
+                        fieldset.fieldset#conditionsBlock
+                            h2 Условия
+                            label.label(for='condName') Название
+                            textarea.textarea#condName
+                                .
+                                    До 10 сеансов массажа, пилинг с обертыванием и SPA-программы на выбор
+                                    в «Массажном салоне на Пятницкой»
+                            label.label(for='conditions') Условия
+                            textarea.textarea.textarea-big#conditions
+                                .
+                                    В стоимость купона входят 11 видов массажа на выбор (массаж можно чередовать):
+                                    — массаж головы и шеи,
+                                    — массаж спины и ног,
+                                    — массаж шейно-воротниковой зоны,
+                                    — спортивный массаж,
+                                    — классический массаж,
+                                    — общий массаж,
+                                    — процедура «Бразильская попка»,
+                                    — процедура «Бразильские ножки»,
+                                    — антицеллюлитный массаж,
+                                    — креольский массаж,
+                                    — баночный массаж.
+                                    Виды скрабов:
+                                    — фруктовый,
+                                    — морской,
+                                    — медовый,
+                                    — водорослевый.
+                                    Виды обертывания:
+                                    — шоколадное,
+                                    — фруктовое,
+                                    — медовое,
+                                    — горячее,
+                                    — криообертывание (холодное обертывание).
+                            div.formSplitter
+                                div.formSplitter__left
+                                    input(type='checkbox')#print
+                                    label.checkboxLabel(for='print' tabindex='0')
+                                        span
+                                        .
+                                            Требуется распечатать купон
+                                    input(type='checkbox')#sms
+                                    label.checkboxLabel(for='sms' tabindex='0')
+                                        span
+                                        .
+                                            Действует СМС-купон
+                                    input(type='checkbox' checked=)#delivery
+                                    label.checkboxLabel(for='delivery' tabindex='0')
+                                        span
+                                        .
+                                            Доставка входит в стоимость
+                                    input(type='checkbox')#ownDelivery
+                                    label.checkboxLabel(for='ownDelivery' tabindex='0')
+                                        span
+                                        .
+                                            Самовывоз
+                                div.formSplitter__right
+                                    input(type='checkbox' checked)#pre
+                                    label.checkboxLabel(for='pre' tabindex='0')
+                                        span
+                                        .
+                                            Предварительная запись
+                                    input(type='checkbox' checked)#consult
+                                    label.checkboxLabel(for='consult' tabindex='0')
+                                        span
+                                        .
+                                            Консультация врача
+                                    input(type='checkbox')#adultOnly
+                                    label.checkboxLabel(for='adultOnly' tabindex='0')
+                                        span
+                                        .
+                                            Только для совершеннолетних
+                            label.label(for='price') Прайс или меню
+                            input.input.input-big.input-price#price
+                            a.linkButton.linkButton-price(href='#')#priceFile massage_price.pdf
+                            div.linkButton.linkButton-hide(href='#')#hidePrice Скрыть
+                            label.label(for='socialSite') Сайт или страница в соц. сетях
+                            input.input.input-big#socialSite
+                        fieldset.fieldset#share
+                            h2 Размещение акции
+                            div.label Площадка
+                            input(type='checkbox' checked)#biglion
+                            label.checkboxLabel.checkboxLabel-inline(for='biglion')
+                                span
+                                .
+                                    Biglion
+                            input(type='checkbox' checked)#frendi
+                            label.checkboxLabel.checkboxLabel-inline(for='frendi')
+                                span
+                                .
+                                    Frendi
+                            label.label(for='direction') Направление
+                            select.select.select-mid.dropdown-ok(size="1")#direction
+                                option(value='Услуги' selected disabled) Услуги
+                                for name in service
+                                    option #{name}
+                            div
+                                div.-inline
+                                    label.label(for="startEvent") Дата старта
+                                    input.input.input-short(type="text" value="01.02.2017")#startEvent
+                                div.-inline
+                                    label.label(for="endEvent") Дата завершения
+                                    input.input.input-short(type="text" value="27.02.2017")#endEvent
+                                div.-inline
+                                    label.label(for="days") Срок размещения
+                                    input.input.input-short(type="text" placeholder="Дней" value="27")#days
+                            input(type="checkbox")#allCities
+                            label.checkboxLabel(for="allCities")
+                                span
+                                .
+                                    Все города
+                            div.formSplitter
+                                div.formSplitter__left
+                                    label.label(for="city") Города размещения
+                                    input.input.input-mid(type="text")#city
+                                    div.tag Москва
+                                    div.tag Москва ***
+                                div.formSplitter__right
+                                    label.label(for="exCity") Кроме городов
+                                    input.input.input-mid(type="text")#exCity
+                                    div.tag Москва
+                                    div.tag Москва ***
+                        fieldset.fieldset#couponConditions
+                            h2 Условия действия купонов
+                            div
+                                div.-inline
+                                    label.label(for="startCoupon") Купон действует с
+                                    input.input.input-short(type="text" value="01.02.2017")#startCoupon
+                                div.-inline
+                                    label.label(for="endCoupon") по
+                                    input.input.input-short(type="text" value="01.05.2017")#endCoupon
+                                div.-inline
+                                    label.label(for="couponLink") Количество дней
+                                    input.input.input-short(type="text" value="90")#couponLink
+                                div.-inline
+                                    label.label(for="couponMax") Максимум купонов
+                                    input.input.input-short(type="text")#couponMax
+                            input(type="checkbox")#discountCoupon
+                            label.checkboxLabel(for="discountCoupon")
+                                span
+                                .
+                                    Купон на скидку
+                            input(type="checkbox")#pinReport
+                            label.checkboxLabel(for="pinReport")
+                                span
+                                .
+                                    Сообщить ПИН-код заранее
+                        fieldset.fieldset#pricesBlock
+                            h2 Цены
+                            h3 Массаж на выбор
+                            div.price__Row
+                                div.price__num 1
+                                div.price__Item
+                                    div.price__head
+                                        .
+                                            1 сеанс массажа на выбор в «Массажном салоне на Пятницкой»  (455 руб. вместо 1 300 руб.)
+                                    div.priceInfo
+                                        div.priceInfo__head Цена
+                                        div.priceInfo__value 455
+                                    div.priceInfo
+                                        div.priceInfo__head Скидка
+                                        div.priceInfo__value 65%
+                                    div.priceInfo
+                                        div.priceInfo__head До скидки
+                                        div.priceInfo__value 1300
+                                    div.priceInfo
+                                        div.priceInfo__head Куплено
+                                        div.priceInfo__value 0
+                            div.price__Row
+                                div.price__num 2
+                                div.price__Item
+                                    div.price__head
+                                        .
+                                            5 сеансов массажа на выбор в «Массажном салоне на Пятницкой» (1 950 руб. вместо 6 500 руб.)
+                                    div.priceInfo
+                                        div.priceInfo__head Цена
+                                        div.priceInfo__value 1950
+                                    div.priceInfo
+                                        div.priceInfo__head Скидка
+                                        div.priceInfo__value 70%
+                                    div.priceInfo
+                                        div.priceInfo__head До скидки
+                                        div.priceInfo__value 6500
+                                    div.priceInfo
+                                        div.priceInfo__head Куплено
+                                        div.priceInfo__value 0
+                                    div.priceInfo
+                                        div.priceInfo__head Действует до
+                                        div.priceInfo__value 17.12.2016
+                                    div.priceInfo
+                                        div.priceInfo__head Максимум
+                                        div.priceInfo__value 16
+                            div.price__Row
+                                div.price__num 3
+                                div.price__Item
+                                    div.price__head
+                                        .
+                                            10 сеансов массажа на выбор в «Массажном салоне на Пятницкой» (3 510 руб. вместо 13 000 руб.)
+                                    div.priceInfo
+                                        div.priceInfo__head Цена
+                                        div.priceInfo__value 3150
+                                    div.priceInfo
+                                        div.priceInfo__head Скидка
+                                        div.priceInfo__value 70%
+                                    div.priceInfo
+                                        div.priceInfo__head До скидки
+                                        div.priceInfo__value 13000
+                                    div.priceInfo
+                                        div.priceInfo__head Куплено
+                                        div.priceInfo__value 0
+                            h3 Антицеллюлитный массаж
+                            div.price__Row
+                                div.price__num 4
+                                div.price__Item
+                                    div.price__head
+                                        .
+                                            3 сеанса ручного антицеллюлитного массажа с глубокой проработкой «проблемных зон», 3 сеанса обертывания «проблемных зон» и 3 сеанса массажа шейно-воротниковой зоны в «Массажном салоне на Пятницкой» (1 800 руб. вместо 18 000 руб.)
+                                    div.priceInfo
+                                        div.priceInfo__head Цена
+                                        div.priceInfo__value 1800
+                                    div.priceInfo
+                                        div.priceInfo__head Скидка
+                                        div.priceInfo__value 90%
+                                    div.priceInfo
+                                        div.priceInfo__head До скидки
+                                        div.priceInfo__value 18000
+                                    div.priceInfo
+                                        div.priceInfo__head Куплено
+                                        div.priceInfo__value 0
+                                    div.priceInfo
+                                        div.priceInfo__head Действует до
+                                        div.priceInfo__value 17.12.2016
+                                    div.priceInfo
+                                        div.priceInfo__head Максимум
+                                        div.priceInfo__value 16
+                            div.price__Row
+                                div.price__num 5
+                                div.price__Item
+                                    div.price__head
+                                        .
+                                            5 сеансов ручного антицеллюлитного массажа с глубокой проработкой «проблемных зон», 5 сеансов обертывания «проблемных зон» и 5 сеансов массажа шейно-воротниковой зоны в «Массажном салоне на Пятницкой» (2 700 руб. вместо 30 000 руб.)
+                                    div.priceInfo
+                                        div.priceInfo__head Цена
+                                        div.priceInfo__value 2700
+                                    div.priceInfo
+                                        div.priceInfo__head Скидка
+                                        div.priceInfo__value 91%
+                                    div.priceInfo
+                                        div.priceInfo__head До скидки
+                                        div.priceInfo__value 30000
+                                    div.priceInfo
+                                        div.priceInfo__head Куплено
+                                        div.priceInfo__value 0
+                            div.price__Row.price__Row-unactive
+                                div.price__num 6
+                                div.price__Item
+                                    div.price__head
+                                        .
+                                            7 сеансов ручного антицеллюлитного массажа с глубокой проработкой «проблемных зон», 7 сеансов обертывания «проблемных зон» и 7 сеансов массажа шейно-воротниковой зоны в «Массажном салоне на Пятницкой» (3 360 руб. вместо 42 000 руб.)
+                                    div.priceInfo
+                                        div.priceInfo__head Цена
+                                        div.priceInfo__value 455
+                                    div.priceInfo
+                                        div.priceInfo__head Скидка
+                                        div.priceInfo__value 65%
+                                    div.priceInfo
+                                        div.priceInfo__head До скидки
+                                        div.priceInfo__value 1300
+                                    div.priceInfo
+                                        div.priceInfo__head Куплено
+                                        div.priceInfo__value 0
+                                    div.priceInfo
+                                        div.priceInfo__head Действует до
+                                        div.priceInfo__value 01.12.2016
+                                    div.priceInfo
+                                        div.priceInfo__head Максимум
+                                        div.priceInfo__value 16
+                            div.price__Row
+                                div.price__num 7
+                                div.price__Item
+                                    div.price__head
+                                        .
+                                            10 сеансов ручного антицеллюлитного массажа с глубокой проработкой «проблемных зон», 7 сеансов обертывания «проблемных зон» и 7 сеансов массажа шейно-воротниковой зоны в «Массажном салоне на Пятницкой» (4 200 руб. вместо 60 000 руб.)
+                                    div.priceInfo
+                                        div.priceInfo__head Цена
+                                        div.priceInfo__value 4200
+                                    div.priceInfo
+                                        div.priceInfo__head Скидка
+                                        div.priceInfo__value 93%
+                                    div.priceInfo
+                                        div.priceInfo__head До скидки
+                                        div.priceInfo__value 60000
+                                    div.priceInfo
+                                        div.priceInfo__head Куплено
+                                        div.priceInfo__value 0
+                            h3.ungroup Нет группы
+                            div.price__Row
+                                div.price__num 8
+                                div.price__Item
+                                    div.price__head
+                                        .
+                                            1 сеанс массажа на выбор и пилинг с обертыванием в «Массажном салоне на Пятницкой» (960 руб. вместо 4 800 руб.)
+                                    div.priceInfo
+                                        div.priceInfo__head Цена
+                                        div.priceInfo__value 960
+                                    div.priceInfo
+                                        div.priceInfo__head Скидка
+                                        div.priceInfo__value 65%
+                                    div.priceInfo
+                                        div.priceInfo__head До скидки
+                                        div.priceInfo__value 4800
+                                    div.priceInfo
+                                        div.priceInfo__head Куплено
+                                        div.priceInfo__value 0
+                            div.price__Row
+                                div.price__num 15
+                                div.price__Item
+                                    div.price__head
+                                        .
+                                            5 сеансов массажа на выбор и пилинг с обертыванием в «Массажном салоне на Пятницкой» (2 160 руб. вместо 24 000 руб.)
+                                    div.priceInfo
+                                        div.priceInfo__head Цена
+                                        div.priceInfo__value 2160
+                                    div.priceInfo
+                                        div.priceInfo__head Скидка
+                                        div.priceInfo__value 70%
+                                    div.priceInfo
+                                        div.priceInfo__head До скидки
+                                        div.priceInfo__value 24000
+                                    div.priceInfo
+                                        div.priceInfo__head Куплено
+                                        div.priceInfo__value 0
+                            div.innerButton  Добавить цену
+                        fieldset.fieldset#placesBlock
+                            h2 Адреса
+                            label.label(for="placeName") Название места
+                            input.input.input-big.input-ok(type="text" value="Массажный салон на Пятницкой")#placeName
+                            div.price__Row
+                                div.price__num 1
+                                div.price__Item
+                                    p г. Москва, ул. Валовая, д. 8/18 
+                                    p м. Павелецкая 
+                                    p ежедневно, 10:00–23:00
+                                    p +7 (495) 342-67-78
+                            div.price__Row
+                                div.price__num 2
+                                div.price__Item
+                                    p г. Москва, Центральный пр. Хорошёвского Серебрянного Бора, д. 5/1
+                                    p  м. Полежаевская 
+                                    p ежедневно, 10:00–23:00 
+                                    p +7 (495) 342-67-78, +7 (916) 972-69-66, +7 (967) 169-67-54
+                            div.price__Row
+                                div.price__num 3
+                                div.price__Item
+                                    p г. Санкт-Петербург, ул. Краснобогатырская, д. 13 
+                                    p м. Преображенская площадь 
+                                    p ежедневно, 10:00–23:00
+                                    p  +7 (916) 972-69-66, +7 (967) 169-67-54
+                        fieldset.fieldset#comments
+                            h2 Комментарии
+                            textarea.textarea.textarea-small(placeholder="Комментарий по оформлению или закреплению акции. Ссылки на фото или видео.")
+                            div.photos
+                                div.photos__wrap
+                                    div.photos__photo
+                                        img(src="images/1.png")
+                                    div.photos__photo
+                                        img(src="images/2.png")
+                                    div.photos__photo
+                                        img(src="images/3.png")
+                                    div.photos__photo
+                                        img(src="images/4.png")
+                            a.linkButton.linkButton-comments(href="#") Добавить фотографии
+                            div.info Минимальный размер — 832 х 422 px
+                        div.buttons
+                            button.preview Предпросмотр
+                            button.submit Создать заявку
+                        div.info.info-submit Заявка получит статус &laquo;Новая&raquo; и будет передана в сити-планирование
+                        .clr
+    //build:js js/main.min.js
+    script(src="js/scripts.js")
+    script(src="js/tabs.js")
+    //script(src="js/yaMaps.js")
+    script(src="js/dropdown.js")
+    //endbuild

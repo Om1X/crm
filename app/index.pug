@@ -8,12 +8,11 @@ html(lang='en')
         link(rel="stylesheet", href="css/style.css")
         link(rel="stylesheet", href="css/forms.css")
         link(rel="stylesheet", href="css/fonts.css")
-        link(rel="stylesheet", href="css/font-awesome.min.css")
+        link(rel="stylesheet", href="css/dropdown.css")
+        //link(rel="stylesheet", href="css/font-awesome.min.css")
         //endbuild
         script(src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
         script(src="//api-maps.yandex.ru/2.1/?lang=ru_RU")
-        //script(src="js/scripts.js")
-        //script(src="js/dropdown.js")
     body
         .wrapper
             .leftMenu
@@ -26,11 +25,11 @@ html(lang='en')
                 header.header#header
                     .innerWrapper
                         h1 Создание акции
-                        nav.headerMenu
-                            ul
+                        nav
+                            ul.topMenu
                                 for name in headerMenu
                                     li
-                                        a.headerMenu__link(href='#'+name.anchor) #{name.name}
+                                        a.topMenu__link(href='#'+name.anchor) #{name.name}
                 .innerWrapper#rContent
                     form
                         fieldset.fieldset
@@ -41,7 +40,6 @@ html(lang='en')
                             label.label(for='partner') Название партнера
                             input.input.input-big(type='text')#partner
                             label.label(for='legalEntity') Юридическое лицо
-                            //Temporary select. Waiting for normal design.
                             select.select.select-big#legalEntity
                                 for name in legalEntity
                                     option
@@ -65,8 +63,8 @@ html(lang='en')
                                             div.counts 0
                         fieldset.fieldset#conditionsBlock
                             h2 Условия
-                            label.label(for='nom') Номер договора
-                            textarea.textarea#nom
+                            label.label(for='condName') Название
+                            textarea.textarea#condName
                             label.label(for='conditions') Условия
                             textarea.textarea.textarea-big#conditions
                             div.formSplitter
@@ -108,7 +106,7 @@ html(lang='en')
                                         .
                                             Только для совершеннолетних
                             label.label(for='price') Прайс или меню
-                            input.input.input-big#price
+                            input.input.input-big.input-price#price
                             a.linkButton.linkButton-price(href='#') Прикрепить
                             label.label(for='socialSite') Сайт или страница в соц. сетях
                             input.input.input-big#socialSite
@@ -157,7 +155,7 @@ html(lang='en')
                                     label.label(for="endCoupon") по
                                     input.input.input-short(type="text")#endCoupon
                                 div.-inline
-                                    label.label(for="couponLink") Ссылка на страницу
+                                    label.label(for="couponLink") Количество дней
                                     input.input.input-short(type="text")#couponLink
                                 div.-inline
                                     label.label(for="couponMax") Максимум купонов
@@ -232,8 +230,13 @@ html(lang='en')
                             textarea.textarea.textarea-small(placeholder="Комментарий по оформлению или закреплению акции. Ссылки на фото или видео.")
                             a.linkButton.linkButton-comments(href="#") Добавить фотографии
                             div.info Минимальный размер — 832 х 422 px
-                        button.submit Создать заявку
+                        div.buttons
+                            button.submit.submit-emptyForm Создать заявку
                         div.info.info-submit Заявка получит статус &laquo;Новая&raquo; и будет передана в сити-планирование
                         .clr
+    //build:js js/main.min.js
+    script(src="js/scripts.js")
     script(src="js/tabs.js")
     script(src="js/yaMaps.js")
+    script(src="js/dropdown.js")
+    //endbuild

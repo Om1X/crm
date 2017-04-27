@@ -58,3 +58,21 @@ gulp.task('fonts', function() {
     return gulp.src('app/fonts/**/*')
         .pipe(gulp.dest('dist/fonts'));
 });
+
+gulp.task('useref', function () {
+    return gulp.src('app/*.html')
+        .pipe(useref())
+        .pipe(gulpIf('*.js', uglify()))
+        .pipe(gulpIf('*.css', minifyCSS()))
+        .pipe(gulp.dest('dist'));
+});
+
+gulp.task('images', function() {
+    return gulp.src('app/images/**/*')
+        .pipe(gulp.dest('dist/images'));
+});
+
+gulp.task('fonts', function() {
+    return gulp.src('app/fonts/**/*')
+        .pipe(gulp.dest('dist/fonts'));
+});

@@ -13,32 +13,31 @@ window.onload = function () {
         }
 
         function getInfo() {
-            var adress,
-                myPlacemark,
-                addrInputVal = addressInput.value;
+            var myPlacemark,
+                addrInputVal = addressInput.value,
+                metroList = '',
+                metroCounter = 3,
+                metroInput = document.getElementById('metro'),
+                coorInput = document.getElementById('coordinates');
             ymaps.geocode(addrInputVal).then(function (res) { // Ковертация адреса в координаты
 
-                adress = res.geoObjects.get(0).geometry.getCoordinates();
-                // поиск ближайших станций
-                ymaps.geocode(adress, {
+                coordinates = res.geoObjects.get(0).geometry.getCoordinates();
+                // поиск ближайших станций и вывод в поле "Метро"
+                ymaps.geocode(coordinates, {
                     kind: 'metro',
-                    results: 1
+                    results: metroCounter
                 }).then(function (met) {
                     met.geoObjects.options.set('preset', 'islands#redCircleIcon');
-
-                    var res = '';
                     met.geoObjects.each(function (obj) {
-                        res += obj.properties.get('name') + '\n';
+                        metroList += obj.properties.get('name').split('метро ')[1] + '|';
                     });
 
-                    var metro = document.getElementById('metro'),
-                        coordinates = document.getElementById('coordinates');
-                    metro.value = res.split('метро')[1];
-                    coordinates.value = adress;
+                    metroInput.value = metroList.split('|').splice(0, 3).join(', ');
+                    coorInput.value = coordinates;
                 });
 
                 // Преобразуем координаты в адрес
-                ymaps.geocode(adress).then(function (adr) {
+                ymaps.geocode(coordinates).then(function (adr) {
                     var address;
                     address = adr.geoObjects.get(0).properties.get('description') + ", ";
                     address += adr.geoObjects.get(0).properties.get('name');
@@ -46,9 +45,9 @@ window.onload = function () {
                 });
 
                 // ставим балун который обозначает точку нашего адреса на карте
-                myPlacemark = new ymaps.Placemark(adress);
+                myPlacemark = new ymaps.Placemark(coordinates);
                 myMap.geoObjects.add(myPlacemark);
-                myMap.setCenter(adress);
+                myMap.setCenter(coordinates);
             }, function (err) {
                 console.log(err);
             });
