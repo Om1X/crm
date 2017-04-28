@@ -207,7 +207,7 @@ input[type='checkbox']:checked + .checkboxLabel > span::after {
   display: block;
   content: "";
   position: absolute;
-  top: 6%;
+  top: 15%;
   left: 32%;
   width: .4em;
   height: .8em;
@@ -253,6 +253,7 @@ input[type='checkbox']:checked + .checkboxLabel > span::after {
 .submit {
   float: left;
   border: none;
+  outline: none;
   width: 195px;
   height: 48px;
   border-radius: 100px;
@@ -282,6 +283,7 @@ input[type='checkbox']:checked + .checkboxLabel > span::after {
 .preview {
   float: left;
   border: none;
+  outline: none;
   width: 195px;
   height: 48px;
   border-radius: 100px;

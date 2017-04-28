@@ -15,5 +15,3 @@ $(document).ready(function(){
         $menu.css('width', $('.content').css('width'));
     })
 });
-
-// Клик по кнопке Скрыть

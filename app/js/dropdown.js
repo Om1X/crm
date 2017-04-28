@@ -1,12 +1,13 @@
 function optionsRender(id) {
-    var select = document.getElementById(id),
-        options,
+    var select = document.getElementById(id), // Ищем селект
+        selectStyles = select.classList, // Смотрим стили
+        options = select.children, // Получаем список селекта
         parentBlock = select.parentNode,
         optionsBlock = document.createElement('div'),
         ul = document.createElement('ul');
 
     // Click on dropdown
-    function dropdown() {
+    function show() {
         var ul = this.children[0];
         ul.classList.toggle('dropdownList-visible');
 
@@ -21,22 +22,22 @@ function optionsRender(id) {
                 }
             }
         }
+    }
 
+    function hide() {
+        var ul = this.children[0];
+        ul.classList.remove('dropdownList-visible');
     }
 
     select.style.display = 'none';
-    optionsBlock.id = 'optionsBlock';
-    ul.id = 'dropdownList';
     ul.className = 'dropdownList';
-    parentBlock.appendChild(optionsBlock);
+    parentBlock.insertBefore(optionsBlock, select);
     optionsBlock.appendChild(ul);
-    optionsBlock.className = 'dropdown';
-    // костыль
-    if (id === 'legalEntity') optionsBlock.classList.add('dropdown-ok');
-    // --
+    optionsBlock.classList = selectStyles;
+    optionsBlock.classList.add('dropdown');
     optionsBlock.tabIndex = 0;
-    optionsBlock.addEventListener('click', dropdown);
-    options = select.children;
+    optionsBlock.addEventListener('click', show);
+    optionsBlock.addEventListener('blur', hide);
 
     for (var key in options) {
         if (key < options.length) {
@@ -46,10 +47,9 @@ function optionsRender(id) {
         }
     }
 
-    var defaultHTML = optionsBlock.innerHTML;
+    var defaultHTML = optionsBlock.innerHTML; // Запоминаем дефолтное состояние списка
 }
 
 optionsRender('contract');
 optionsRender('legalEntity');
-
-// optionRender('direction');
+optionsRender('direction');
