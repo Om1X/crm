@@ -1,53 +1,55 @@
 function optionsRender(id) {
     var select = document.getElementById(id), // Ищем селект
-        selectStyles = select.classList, // Смотрим стили
-        options = select.children, // Получаем список селекта
-        parentBlock = select.parentNode,
-        optionsBlock = document.createElement('div'),
-        ul = document.createElement('ul');
-
-    // Click on dropdown
-    function show() {
-        var ul = this.children[0];
-        ul.classList.toggle('dropdownList-visible');
-
-        if (event.target !== this) {
-
-            for (var i = 0; i < ul.children.length; i++) {
-                select.getElementsByTagName('option')[i].removeAttribute('selected');
-                if (ul.children[i] === event.target) {
-                    select.getElementsByTagName('option')[i].setAttribute('selected', 'selected');
-                    optionsBlock.innerHTML = select.children[i].innerText + defaultHTML;
-                    optionsBlock.children[0].children[i].classList.add('selected');
-                }
-            }
-        }
-    }
-
-    function hide() {
-        var ul = this.children[0];
-        ul.classList.remove('dropdownList-visible');
-    }
-
-    select.style.display = 'none';
-    ul.className = 'dropdownList';
+        selectStyles = select.classList, // Получаем стили селекта
+        options = select.children, // Получаем список селектов
+        parentBlock = select.parentNode, // Вычисляем родителя
+        optionsBlock = document.createElement('div'), // Блок селектов
+        selectedOption = document.createElement('div'), // Блок для вывода "selected"
+        ul = document.createElement('ul'); // Список для селектов
+    select.style.display = 'none'; // Скрываем стандартный селект
     parentBlock.insertBefore(optionsBlock, select);
-    optionsBlock.appendChild(ul);
     optionsBlock.classList = selectStyles;
     optionsBlock.classList.add('dropdown');
-    optionsBlock.tabIndex = 0;
-    optionsBlock.addEventListener('click', show);
-    optionsBlock.addEventListener('blur', hide);
+    optionsBlock.tabIndex = 0; // Добавляем возможность фокуса
+    optionsBlock.appendChild(selectedOption);
+    selectedOption.style.height = getComputedStyle(select).height;
+    optionsBlock.appendChild(ul);
+    ul.className = 'dropdownList';
 
     for (var key in options) {
         if (key < options.length) {
             var newOption = document.createElement('li');
-            newOption.innerText = options[key].innerText.replace(/\n/g, '');
+            newOption.innerHTML = options[key].innerHTML.replace(/\n/g, '').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
             ul.appendChild(newOption);
         }
     }
 
-    var defaultHTML = optionsBlock.innerHTML; // Запоминаем дефолтное состояние списка
+    // Click on dropdown
+    function show() {
+        var ul = this.children[1];
+        ul.classList.toggle('dropdownList-visible');
+        if (event.target !== selectedOption && optionsBlock) {
+            for (var i = 0; i < ul.children.length; i++) {
+                select.getElementsByTagName('option')[i].removeAttribute('selected');
+                optionsBlock.children[1].children[i].classList.remove('selected');
+                if (ul.children[i] === event.target) {
+                    select.getElementsByTagName('option')[i].setAttribute('selected', 'selected');
+                    optionsBlock.children[1].children[i].classList.add('selected');
+                    selectedOption.innerHTML = ul.children[i].innerHTML;
+                }
+            }
+        } else {
+            console.log('click outer!');
+        }
+    }
+
+    function hide() {
+        var ul = this.children[1];
+        ul.classList.remove('dropdownList-visible');
+    }
+
+    optionsBlock.addEventListener('click', show);
+    optionsBlock.addEventListener('blur', hide);
 }
 
 optionsRender('contract');

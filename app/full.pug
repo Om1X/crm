@@ -42,8 +42,7 @@ html(lang='en')
                             //Temporary select. Waiting for normal design.
                             select.select.select-big#legalEntity
                                 for name in legalEntity
-                                    option
-                                        .option #{name}
+                                    option #{name}
                         fieldset.fieldset#contractBlock
                             h2 Договор
                             div.formSplitter
@@ -53,7 +52,8 @@ html(lang='en')
                                         for name in contracts
                                             option #{name}
                                 div.formSplitter__right.formSplitter__right-uppercase Заявка к договору
-                                    div.contractNumber А6, 01.02.2017
+                                    div.contractNumber
+                                        div А6, 01.02.2017
                                     div.comissionBlock
                                         div Комиссия, %
                                             div.counts 50
@@ -133,11 +133,11 @@ html(lang='en')
                                         .
                                             Только для совершеннолетних
                             label.label(for='price') Прайс или меню
-                            input.input.input-big.input-price#price
+                            input.input.input-big.input-price(placeholder='https://')#price
                             a.linkButton.linkButton-price(href='#')#priceFile massage_price.pdf
-                            div.linkButton.linkButton-hide(href='#')#hidePrice Скрыть
+                            div.linkButton.linkButton-hide#hidePrice Скрыть
                             label.label(for='socialSite') Сайт или страница в соц. сетях
-                            input.input.input-big#socialSite
+                            input.input.input-big(placeholder='https://')#socialSite
                         fieldset.fieldset#share
                             h2 Размещение акции
                             div.label Площадка

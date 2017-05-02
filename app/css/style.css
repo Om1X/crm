@@ -154,6 +154,12 @@ ul {
   text-align: left;
   color: #202438;
 }
+.contractNumber > div {
+  cursor: pointer;
+  display: inline-block;
+  color: #1b68ff;
+  border-bottom: 1px solid rgba(16, 127, 255, 0.3);
+}
 .comissionBlock {
   display: flex;
   padding-top: 19px;
@@ -277,4 +283,16 @@ ul {
   margin-right: 24px;
   background: #ff5721;
   cursor: pointer;
+}
+.red,
+.green {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 8px;
+  background: #ff4355;
+  margin-left: 8px;
+}
+.green {
+  background: #43d167;
 }
