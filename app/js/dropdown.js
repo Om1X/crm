@@ -38,8 +38,6 @@ function optionsRender(id) {
                     selectedOption.innerHTML = ul.children[i].innerHTML;
                 }
             }
-        } else {
-            console.log('click outer!');
         }
     }
 
