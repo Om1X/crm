@@ -3,7 +3,7 @@ doctype html
 html(lang='en')
     head
         meta(charset='UTF-8')
-        title CRM
+        title CRM // Biglion
         //build:css css/style.min.css
         link(rel="stylesheet", href="css/style.css")
         link(rel="stylesheet", href="css/forms.css")
@@ -23,51 +23,83 @@ html(lang='en')
             .content
                 header.header#header
                     .innerWrapper
-                        h1 Создание акции
+                        h1 Редактирование акции
+                        div.editInfo
+                            div.editInfo__cell
+                                div.editInfo__row
+                                    div
+                                        div.editInfo__head id
+                                        div DO1209099
+                                    div
+                                    div
+                                        div.editInfo__head на сайте
+                                        div 365 дней
+                                    div
+                                div
+                                    div.editInfo__head статус
+                                    div Подтверждена партнером
+                            div.editInfo__cell
+                                div
+                                    div.editInfo__head редактирует
+                                    div Екатерина Семенищева
+                                div
+                                    div.editInfo__head менеджер
+                                    div Евгения Кухта, @ekukhta
+                            div.editInfo__cell
+                                div
+                                    div.editInfo__head площадка
+                                    div Biglion
+                                div
+                                    div.editInfo__head город менеджера
+                                    div
+                                        a(href="#").editInfo__city Москва
                         nav
                             ul.topMenu
-                                for name in headerMenu
+                                for name in headerMenuBgln
                                     li
                                         a.topMenu__link(href='#' + name.anchor) #{name.name}
                 .innerWrapper#rContent
                     form
-                        fieldset.fieldset
-                            label.label(for='restart') Перезапуск акции
-                            input.input.input-big(type='text' placeholder='Ссылка на сайте, номер SPO или DO' name="")#restart
-                        fieldset.fieldset#partnerBlock
-                            h2 Партнер
-                            label.label(for='partner') Название партнера
-                            input.input.input-big.input-ok(type='text' value='Массажный салон на Пятницкой')#partner
-                            label.label(for='legalEntity') Юридическое лицо
-                            select.select.select-big#legalEntity
-                                for name in legalEntity
-                                    option #{name}
-                        fieldset.fieldset#contractBlock
-                            h2 Договор
-                            div.formSplitter
-                                div.formSplitter__left
-                                    label.label(for='contract') Номер договора
-                                    select.select.select-mid#contract
-                                        for name in contracts
-                                            option #{name}
-                                div.formSplitter__right.formSplitter__right-uppercase Заявка к договору
-                                    div.contractNumber
-                                        div А6, 01.02.2017
-                                    div.comissionBlock
-                                        div Комиссия, %
-                                            div.counts 50
-                                        div Комиссия, руб.
-                                            div.counts 0
-                                        div Аванс, %
-                                            div.counts 0
+                        div.mComments
+                            div.mComments__header
+                                div.mComments__head Комментарий менеджера
+                                div
+                                    a(href='#').viewButtons Посмотреть все
+                            div.mComments__row
+                                div
+                                    div.mComments__name Евгения Кухта
+                                    div.mComments__txt
+                                        .
+                                            Добавьте, пожалуйста, фотографии заведения.
+                                div.mComments__date 31.01.2017 17:05
                         fieldset.fieldset#conditionsBlock
                             h2 Условия
-                            label.label(for='condName') Название
+                            label.label(for='condName') Название акции
                             textarea.textarea#condName
                                 .
                                     До 10 сеансов массажа, пилинг с обертыванием и SPA-программы на выбор
                                     в «Массажном салоне на Пятницкой»
-                            label.label(for='conditions') Условия
+                            label.label(for='nameForList')
+                                div Название для списка
+                                div
+                                    a(href='#').viewButtons Посмотреть
+                                    div.counter 0/75
+                            input(type='text' name='' maxlength='75').input.input-big#nameForList
+                            label.label(for='nameForMailing')
+                                div Название для рассылки
+                                div
+                                    a(href='#').viewButtons Посмотреть
+                                    div.counter 0/25
+                            input(type='text' name='' maxlength='25').input.input-big#nameForMailing
+                            label.label(for='nameForLink')
+                                div Название для ссылки
+                                div
+                                    div.counter 0/40
+                            input(type='text' name='' maxlength='40').input.input-big#nameForLink
+                            label.label(for='conditions')
+                                div Условия
+                                div
+                                    a(href='#').viewButtons Код условия для сайта партнера
                             textarea.textarea.textarea-big#conditions
                                 .
                                     В стоимость купона входят 11 видов массажа на выбор (массаж можно чередовать):
@@ -137,24 +169,41 @@ html(lang='en')
                             div.linkButton.linkButton-hide#hidePrice Скрыть
                             label.label(for='socialSite') Сайт или страница в соц. сетях
                             input.input.input-big(placeholder='https://')#socialSite
+                            label.label(for='description') Описание
+                            textarea.textarea.textarea-description#description
+                                .
+                                    Общий массаж — это отличная профилактическая процедура для каждого современного человека. Цель такого массажа — релаксация, снятие зажимов с мышц и их расслабление.
+
+                                    Массаж может способствовать исчезновению головных болей и хронической усталости, дарит легкость и хорошее настроение, помогает восстановить силу мышц и повысить их работоспособность, улучшает лимфо- и кровообращение.
+
+                                    Общий классический массаж тела особенно рекомендуется для людей, которые ведут малоактивный образ жизни и большую часть времени посвящают работе. Процедура поможет держать мышцы в тонусе, сохранить осанку и здоровье спины, а также подарит вам отличное самочувствие и заряд бодрости!
+
+                                    Антицеллюлитный массаж — это способ борьбы с проблемными зонами. Он поможет вам избавиться от надоедливой «апельсиновой корки» и значительно улучшить свой внешний вид!
                         fieldset.fieldset#share
                             h2 Размещение акции
-                            div.label Площадка
-                            input(type='checkbox' checked)#biglion
-                            label.checkboxLabel.checkboxLabel-inline(for='biglion')
+                            label.label(for="category") Категория и подкатегория
+                            input(type='text').input.input-category#category
+                            div.cats
+                                div.cat Красота/SPA, массаж, уход за лицом
+                                div.cat Рестораны/Доставка еды
+                            input(type="checkbox")#allCities
+                            label.checkboxLabel(for="allCities")
                                 span
                                 .
-                                    Biglion
-                            input(type='checkbox' checked)#frendi
-                            label.checkboxLabel.checkboxLabel-inline(for='frendi')
-                                span
-                                .
-                                    Frendi
-                            label.label(for='direction') Направление
-                            select.select.select-mid.dropdown-ok(size="1")#direction
-                                option(value='Услуги' selected disabled) Услуги
-                                for name in service
-                                    option #{name}
+                                    Все города
+                            div.formSplitter
+                                div.formSplitter__left
+                                    label.label(for="city") Города размещения
+                                    input.input.input-mid(type="text")#city
+                                    div.cities
+                                        div.city Москва
+                                        div.city Москва ***
+                                div.formSplitter__right
+                                    label.label(for="exCity") Кроме городов
+                                    input.input.input-mid(type="text")#exCity
+                                    div.cities
+                                        div.city Москва
+                                        div.city Москва ***
                             div
                                 div.-inline
                                     label.label(for="startEvent") Дата старта
@@ -165,22 +214,26 @@ html(lang='en')
                                 div.-inline
                                     label.label(for="days") Срок размещения
                                     input.input.input-short(type="text" placeholder="Дней" value="27")#days
-                            input(type="checkbox")#allCities
-                            label.checkboxLabel(for="allCities")
+                            input(type="checkbox")#stubAct
+                            label.checkboxLabel(for="stubAct")
                                 span
                                 .
-                                    Все города
+                                    Акция-заглушка
+                            label.label(for="pageLink") Ссылка на страницу
                             div.formSplitter
                                 div.formSplitter__left
-                                    label.label(for="city") Города размещения
-                                    input.input.input-mid(type="text")#city
-                                    div.tag Москва
-                                    div.tag Москва ***
+                                    input.input.input-mid(type="text")#pageLink
                                 div.formSplitter__right
-                                    label.label(for="exCity") Кроме городов
-                                    input.input.input-mid(type="text")#exCity
-                                    div.tag Москва
-                                    div.tag Москва ***
+                                    input(type="checkbox")#mailingOn
+                                    label.checkboxLabel(for="mailingOn")
+                                        span
+                                        .
+                                            Включить в рассылку
+                            input(type="checkbox")#holidayAct
+                            label.checkboxLabel(for="holidayAct")
+                                span
+                                .
+                                    Праздничная акция
                         fieldset.fieldset#couponConditions
                             h2 Условия действия купонов
                             div
@@ -196,16 +249,29 @@ html(lang='en')
                                 div.-inline
                                     label.label(for="couponMax") Максимум купонов
                                     input.input.input-short(type="text")#couponMax
-                            input(type="checkbox")#discountCoupon
-                            label.checkboxLabel(for="discountCoupon")
-                                span
-                                .
-                                    Купон на скидку
-                            input(type="checkbox")#pinReport
-                            label.checkboxLabel(for="pinReport")
-                                span
-                                .
-                                    Сообщить ПИН-код заранее
+                            div.formSplitter
+                                div.formSplitter__left
+                                    input(type="checkbox")#discountCoupon
+                                    label.checkboxLabel(for="discountCoupon")
+                                        span
+                                        .
+                                            Купон на скидку
+                                    input(type="checkbox")#pinReport
+                                    label.checkboxLabel(for="pinReport")
+                                        span
+                                        .
+                                            Сообщить ПИН-код заранее
+                                div.formSplitter__right
+                                    input(type="checkbox")#withoutPIN
+                                    label.checkboxLabel(for="withoutPIN")
+                                        span
+                                        .
+                                            Не требовать ввода ПИН-кода
+                                    input(type="checkbox")#partnerCoupNums
+                                    label.checkboxLabel(for="partnerCoupNums")
+                                        span
+                                        .
+                                            Партнерские номера купонов
                         fieldset.fieldset#pricesBlock
                             h2 Цены
                             h3 Массаж на выбор
@@ -391,7 +457,15 @@ html(lang='en')
                                     div.priceInfo
                                         div.priceInfo__head Куплено
                                         div.priceInfo__value 0
-                            div.innerButton  Добавить цену
+                            div.innerButton.innerButton-right  Добавить цену
+                        fieldset.fieldset#partnerBlock
+                            h2 Партнер
+                            label.label(for='partner') Название партнера
+                            input.input.input-big.input-ok(type='text' value='Массажный салон на Пятницкой')#partner
+                            label.label(for='legalEntity') Юридическое лицо
+                            select.select.select-big.dropdown-ok#legalEntity
+                                for name in legalEntity
+                                    option #{name}
                         fieldset.fieldset#placesBlock
                             h2 Адреса
                             label.label(for="placeName") Название места

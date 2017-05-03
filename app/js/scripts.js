@@ -1,13 +1,22 @@
 $(document).ready(function(){
     var $menu = $('#header'),
-        $rContent = $('#rContent');
+        $rContent = $('#rContent'),
+        $headerH = +$menu.css('height').replace(/px/g, ''),
+        $topMenuH = +$('.topMenu').css('height').replace(/px/g, ''),
+        $scrollH = $headerH - $topMenuH,
+        $marginTop = '-'+$scrollH+'px';
     $(window).scroll(function(){
-        if ( $(this).scrollTop() > 100 ){
+        if ( $(this).scrollTop() > $scrollH){
             $menu.addClass('header-fixed');
-            $rContent.css('padding-top', '148px');
+            $menu.css('position', 'fixed');
+            $menu.css('top', $marginTop);
+            $menu.css('z-index', '999');
+            $rContent.css('padding-top', $headerH+'px');
             $menu.css('width', $('.content').css('width'));
-        } else if($(this).scrollTop() <= 88) {
+        } else if($(this).scrollTop() <= $scrollH) {
             $menu.removeClass('header-fixed');
+            $menu.css('position', 'relative');
+            $menu.css('top', '0');
             $rContent.css('padding-top', "0")
         }
     });

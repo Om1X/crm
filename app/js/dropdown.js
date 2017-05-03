@@ -1,4 +1,5 @@
 function optionsRender(id) {
+    if (!document.getElementById(id)) return;
     var select = document.getElementById(id), // Ищем селект
         selectStyles = select.classList, // Получаем стили селекта
         options = select.children, // Получаем список селектов
@@ -6,6 +7,7 @@ function optionsRender(id) {
         optionsBlock = document.createElement('div'), // Блок селектов
         selectedOption = document.createElement('div'), // Блок для вывода "selected"
         ul = document.createElement('ul'); // Список для селектов
+
     select.style.display = 'none'; // Скрываем стандартный селект
     parentBlock.insertBefore(optionsBlock, select);
     optionsBlock.classList = selectStyles;
@@ -19,6 +21,14 @@ function optionsRender(id) {
     for (var key in options) {
         if (key < options.length) {
             var newOption = document.createElement('li');
+
+            if (options[key].selected){
+                selectedOption.innerHTML = options[key].innerHTML.replace(/\n/g, '').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+            }
+
+            if (options[key].disabled) {
+                newOption.classList.add('disabled');
+            }
             newOption.innerHTML = options[key].innerHTML.replace(/\n/g, '').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
             ul.appendChild(newOption);
         }
@@ -27,8 +37,8 @@ function optionsRender(id) {
     // Click on dropdown
     function show() {
         var ul = this.children[1];
-        ul.classList.toggle('dropdownList-visible');
-        if (event.target !== selectedOption && optionsBlock) {
+        if (event.target.tagName = 'li' && event.target.className !== 'disabled') {
+            ul.classList.toggle('dropdownList-visible');
             for (var i = 0; i < ul.children.length; i++) {
                 select.getElementsByTagName('option')[i].removeAttribute('selected');
                 optionsBlock.children[1].children[i].classList.remove('selected');

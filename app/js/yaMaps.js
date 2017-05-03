@@ -2,7 +2,7 @@ window.onload = function () {
     ymaps.ready(function () {
         var myMap,
             addressInput = document.getElementById('address');
-
+        if (!addressInput) return;
         function crMap() {
             var state = {
                 center: [55.751574, 37.573856],

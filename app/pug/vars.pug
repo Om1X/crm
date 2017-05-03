@@ -1,95 +1,148 @@
 // Left menu
 -
     var leftMenu = {
-        create:{
-            type: 'create',
-            description: 'Создать акцию'
-        },
-        shares:{
-            type: 'shares',
-            description: 'Акции'
-        },
-        partners:{
-            type: 'partners',
-            description: 'Партнеры'
-        },
-        docs:{
-            type: 'docs',
-            description: 'Договоры'
-        },
-        fin:{
-            type: 'fin',
-            description: 'Фин. заявки'
-        }
+    create:{
+    type: 'create',
+    description: 'Создать акцию'
+    },
+    shares:{
+    type: 'shares',
+    description: 'Акции'
+    },
+    partners:{
+    type: 'partners',
+    description: 'Партнеры'
+    },
+    docs:{
+    type: 'docs',
+    description: 'Договоры'
+    },
+    fin:{
+    type: 'fin',
+    description: 'Фин. заявки'
+    }
     };
 // Header menu
 
 -
     var headerMenu = {
+    0:{
+    name: 'Партнер',
+    anchor: 'partnerBlock'
+    },
+
+    1:{
+    name: 'Договор',
+    anchor: 'contractBlock'
+    },
+
+    2:{
+    name: 'Условия',
+    anchor: 'conditionsBlock'
+    },
+
+    3:{
+    name: 'Размещение',
+    anchor: 'share'
+    },
+
+    4:{
+    name: 'Условия действия купонов',
+    anchor: 'couponConditions'
+    },
+
+    5:{
+    name: 'Цены',
+    anchor: 'pricesBlock'
+    },
+
+    6:{
+    name: 'Адреса',
+    anchor: 'placesBlock'
+    },
+
+    7:{
+    name: 'Комментарии',
+    anchor: 'comments'
+    }
+    }
+
+-
+    var headerMenuBgln = {
         0:{
-            name: 'Партнер',
-            anchor: 'partnerBlock'
+        name: 'Условия',
+        anchor: 'conditionsBlock'
         },
 
         1:{
-            name: 'Договор',
-            anchor: 'contractBlock'
+        name: 'Размещение',
+        anchor: 'share'
         },
 
         2:{
-            name: 'Условия',
-            anchor: 'conditionsBlock'
+        name: 'Купоны',
+        anchor: 'coupons'
         },
 
         3:{
-            name: 'Размещение',
-            anchor: 'share'
+        name: 'Цены',
+        anchor: 'pricesBlock'
         },
 
         4:{
-            name: 'Условия действия купонов',
-            anchor: 'couponConditions'
+        name: 'Партнер',
+        anchor: 'partnerBlock'
         },
 
         5:{
-            name: 'Цены',
-            anchor: 'pricesBlock'
+        name: 'Адреса',
+        anchor: 'placesBlock'
         },
 
         6:{
-            name: 'Адреса',
-            anchor: 'placesBlock'
+        name: 'Фотографии',
+        anchor: 'photos'
         },
 
         7:{
-            name: 'Комментарии',
-            anchor: 'comments'
+        name: 'Теги',
+        anchor: 'tags'
+        },
+
+        8:{
+        name: 'Закрепление',
+        anchor: 'fix'
+        },
+
+        9:{
+        name: 'Комментарии',
+        anchor: 'comments'
         }
     }
 
 // Partner
 -
     var legalEntity = [
-        'Первый партнер',
-        'Второй партнер<div class="red"></div>',
-        'Третий партнер',
-        'Четвертый партнер<div class="green"></div>'
+    'Первый партнер',
+    'Второй партнер<div class="red"></div>',
+    'Третий партнер',
+    'Четвертый партнер<div class="green"></div>'
     ]
 
 // Contract
 -
     var contracts = [
-        '112233',
-        '223344',
-        '334455',
-        '445566'
+    '112233',
+    '223344',
+    '334455',
+    '445566'
     ]
 
 // Services
 -
     var service = [
-        'первая услуга',
-        'вторая услуга',
-        'третья услуга',
-        'четвертая услуга'
+    'первая услуга',
+    'вторая услуга',
+    'третья услуга',
+    'четвертая услуга'
     ]

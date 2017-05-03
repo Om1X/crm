@@ -16,7 +16,8 @@ div.-inline:nth-child(4n) {
 .label {
   font-family: 'Raleway', sans-serif;
   font-weight: 600;
-  display: block;
+  display: flex;
+  justify-content: space-between;
   font-size: 14px;
   line-height: 14px;
   color: rgba(32, 36, 56, 0.4);
@@ -50,6 +51,9 @@ div.-inline:nth-child(4n) {
 }
 .input-ok {
   border: solid 1px #43d167;
+}
+.input-category {
+  width: 516px;
 }
 .input::placeholder {
   font-family: 'Raleway', sans-serif;
@@ -151,6 +155,9 @@ option[disabled] {
   padding: 16px 24px 14px 15px;
   outline: none;
 }
+.textarea-description {
+  height: 312px;
+}
 input[type='checkbox'] {
   display: none;
 }
@@ -209,7 +216,7 @@ input[type='checkbox']:checked + .checkboxLabel > span::after {
   content: "";
   position: absolute;
   top: 15%;
-  left: 32%;
+  left: 38%;
   width: .4em;
   height: .8em;
   border: 2px solid #fff;
