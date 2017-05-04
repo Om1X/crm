@@ -18,6 +18,7 @@ function optionsRender(id) {
     optionsBlock.appendChild(ul);
     ul.className = 'dropdownList';
 
+    // Генерация выпадающего списка
     for (var key in options) {
         if (key < options.length) {
             var newOption = document.createElement('li');
@@ -34,10 +35,10 @@ function optionsRender(id) {
         }
     }
 
-    // Click on dropdown
+    // Обработчик клика по дропу
     function show() {
         var ul = this.children[1];
-        if (event.target.tagName = 'li' && event.target.className !== 'disabled') {
+        if (event.target.tagName = 'li' && event.target.className !== 'disabled') { // Отсеиваем ненужные клики
             ul.classList.toggle('dropdownList-visible');
             for (var i = 0; i < ul.children.length; i++) {
                 select.getElementsByTagName('option')[i].removeAttribute('selected');
@@ -51,6 +52,7 @@ function optionsRender(id) {
         }
     }
 
+    // Обработка потери фокуса дропом
     function hide() {
         var ul = this.children[1];
         ul.classList.remove('dropdownList-visible');

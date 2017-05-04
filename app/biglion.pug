@@ -9,6 +9,7 @@ html(lang='en')
         link(rel="stylesheet", href="css/forms.css")
         link(rel="stylesheet", href="css/fonts.css")
         link(rel="stylesheet", href="css/dropdown.css")
+        link(rel="stylesheet", href="css/metroLines.css")
         //endbuild
         script(src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
         script(src="//api-maps.yandex.ru/2.1/?lang=ru_RU")
@@ -184,8 +185,8 @@ html(lang='en')
                             label.label(for="category") Категория и подкатегория
                             input(type='text').input.input-category#category
                             div.cats
-                                div.cat Красота/SPA, массаж, уход за лицом
-                                div.cat Рестораны/Доставка еды
+                                div.tag Красота/SPA, массаж, уход за лицом
+                                div.tag Рестораны/Доставка еды
                             input(type="checkbox")#allCities
                             label.checkboxLabel(for="allCities")
                                 span
@@ -473,39 +474,182 @@ html(lang='en')
                             div.price__Row
                                 div.price__num 1
                                 div.price__Item
-                                    p г. Москва, ул. Валовая, д. 8/18 
-                                    p м. Павелецкая 
-                                    p ежедневно, 10:00–23:00
-                                    p +7 (495) 342-67-78
+                                    div.addressRow
+                                        div
+                                            div.address__head адрес
+                                            div.address__txt г. Москва, Центральный пр. Хорошёвского Серебрянного Бора, д. 5/1
+                                        div
+                                            div.address__head метро
+                                            div.metroMarks
+                                                div.lineDot._9
+                                            .
+                                                Менделеевская
+                                    div.addressRow
+                                        div
+                                            div.address__head телефон
+                                            div.address__txt +7 (495) 728-56-02,
+                                                br
+                                                .
+                                                    +7 (495) 342-67-78,
+                                                br
+                                                .
+                                                    +7 (499) 426-08-30
+                                        div
+                                            div.address__head время работы
+                                            div.address__txt пн-чт: с 15:00 до 02:00,
+                                                br
+                                                .
+                                                    пт: с 15:00 до 18:00,
+                                                br
+                                                .
+                                                    вс: с 20:00 до 02:00
                             div.price__Row
                                 div.price__num 2
                                 div.price__Item
-                                    p г. Москва, Центральный пр. Хорошёвского Серебрянного Бора, д. 5/1
-                                    p  м. Полежаевская 
-                                    p ежедневно, 10:00–23:00 
-                                    p +7 (495) 342-67-78, +7 (916) 972-69-66, +7 (967) 169-67-54
+                                    div.addressRow
+                                        div
+                                            div.address__head адрес
+                                            div.address__txt г. Москва, ул. Валовая, д. 8/10
+                                        div
+                                            div.address__head метро
+                                            div.metroMarks
+                                                div.lineDot._2
+                                                div.lineDot._5
+                                            .
+                                                Павелецкая
+                                    div.addressRow
+                                        div
+                                            div.address__head телефон
+                                            div.address__txt +7 (916) 972-69-66,
+                                                br
+                                                .
+                                                    +7 (967) 169-67-54
+                                        div
+                                            div.address__head время работы
+                                            div.address__txt ежедневно, 10:00–23:00
                             div.price__Row
                                 div.price__num 3
                                 div.price__Item
-                                    p г. Санкт-Петербург, ул. Краснобогатырская, д. 13 
-                                    p м. Преображенская площадь 
-                                    p ежедневно, 10:00–23:00
-                                    p  +7 (916) 972-69-66, +7 (967) 169-67-54
+                                    div.addressRow
+                                        div
+                                            div.address__head адрес
+                                            div.address__txt г. Санкт-Петербург,
+                                                br
+                                                .
+                                                    ул. Краснобогатырская, д. 13
+                                        div
+                                            div.address__head метро
+                                            div.metroMarks
+                                                div.lineDot._1
+                                            .
+                                                Менделеевская
+                                    div.addressRow
+                                        div
+                                            div.address__head телефон
+                                            div.address__txt +7 (916) 972-69-66
+                                        div
+                                            div.address__head время работы
+                                            div.address__txt ежедневно, 10:00–23:00
+                            div.addressHideButton Скрытые адреса
+                            div.price__Row.price__Row-unactive
+                                div.price__num 3
+                                div.price__Item
+                                    div.addressRow
+                                        div
+                                            div.address__head адрес
+                                            div.address__txt г. Санкт-Петербург,
+                                                br
+                                                .
+                                                    ул. Краснобогатырская, д. 13
+                                        div
+                                            div.address__head метро
+                                            div.metroMarks
+                                                div.lineDot._1
+                                            .
+                                                Менделеевская
+                                    div.addressRow
+                                        div
+                                            div.address__head телефон
+                                            div.address__txt +7 (916) 972-69-66
+                                        div
+                                            div.address__head время работы
+                                            div.address__txt ежедневно, 10:00–23:00
+                            div.innerButton.innerButton-right Добавить адрес
+                        fieldset.fieldset#photos
+                            h2 Фотографии
+                            div.mPhotos__Row
+                                div.mPhotos__count 1/7
+                                div.mPhotos__block
+                                    div
+                                        img(src="images/gallery/big.png").mPhotos__img
+                                    div.mPhotos__smallImgs
+                                        div.mPhotos__add
+                                        div.mPhotos__mini
+                                            img(src="images/gallery/1_min.png")
+                                        div.mPhotos__mini
+                                            img(src="images/gallery/2_min.png")
+                                        div.mPhotos__mini
+                                            img(src="images/gallery/3_min.png")
+                                        div.mPhotos__mini
+                                            img(src="images/gallery/4_min.png")
+                            label.label(for="photoID") ID фотографии из фотобанка
+                            div.tooltip__holder
+                                input(type="text").input.input-mid#photoID
+                                div.tooltip
+                                    .
+                                        Указывайте ID, если загружаете фотографию из фотобанка с логотипом или плашкой.
+                        fieldset.fieldset#share
+                            h2 Теги
+                            label.label(for="tags") Категория и подкатегория
+                            input(type='text').input.input-category#tags
+                            div.cats
+                                div.tag Антицеллюлитный массаж
+                                div.tag Банночный массаж
+                                div.tag Криомассаж
+                                div.tag Массаж воротниковой зоны
+                                div.tag Ручной массаж
+                                div.tag Спортивный массаж
+                                div.tag Шоколадное обертывание
+                                div.tag Холодное обертывание
+                                div.tag Массаж спины
+                                div.tag Массаж стоп
+                        fieldset.fieldset#photos
+                            h2 Закрепление акции
+                            input(type="checkbox")#fix_allCities
+                            label.checkboxLabel(for="fix_allCities")
+                                span
+                                .
+                                    Все города
+                            div.formSplitter
+                                div.formSplitter__left
+                                    label.label(for="fix_city") Выбор города
+                                    input.input.input-mid(type="text" disabled)#fix_city
+                                div.formSplitter__right
+                                    label.label(for="fix_exCity") Кроме городов
+                                    input.input.input-mid(type="text")#fix_exCity
+                                    div.cities
+                                        div.city Москва
+                                        div.city Москва ***
+                            label.label(for="fix_category") Категория и подкатегория
+                            input(type='text').input.input-category#fix_category
+                            div.cats
+                                div.tag Красота/SPA, массаж, уход за лицом
+                                div.tag Рестораны/Доставка еды
+                            div.fixDates
+                                div.fixDates__row
+                                    div
+                                        label.label(for="position") Место
+                                        input.input.input-short(type="text" value="3")#position
+                                    div
+                                        label.label(for="endEvent") Период действия закрепления
+                                        input.input.input-short(type="text" value="13.01.2017")#fixStart
+                                        div.splitter -
+                                        input.input.input-short(type="text" value="28.02.2017")#fixEnd
+                            div.innerButton.innerButton-right Сохранить
                         fieldset.fieldset#comments
                             h2 Комментарии
-                            textarea.textarea.textarea-small(placeholder="Комментарий по оформлению или закреплению акции. Ссылки на фото или видео.")
-                            div.photos
-                                div.photos__wrap
-                                    div.photos__photo
-                                        img(src="images/1.png")
-                                    div.photos__photo
-                                        img(src="images/2.png")
-                                    div.photos__photo
-                                        img(src="images/3.png")
-                                    div.photos__photo
-                                        img(src="images/4.png")
-                            a.linkButton.linkButton-comments(href="#") Добавить фотографии
-                            div.info Минимальный размер — 832 х 422 px
+                            label.label(for="commentText") Комментарий для менеджера или руководителя
+                            textarea.textarea.textarea-small(placeholder="Комментарий по оформлению или закреплению акции. Ссылки на фото или видео.")#commentText
                         div.buttons
                             button.preview Предпросмотр
                             button.submit Создать заявку

@@ -1,0 +1,89 @@
+.metroMarks {
+  height: 10px;
+  display: inline-block;
+  margin-right: 3px;
+}
+.lineDot {
+  width: 8px;
+  height: 8px;
+  border: solid 1px #fff;
+  float: left;
+  border-radius: 8px;
+}
+.lineDot:nth-child(n+1) {
+  margin-left: -3px;
+}
+._1 {
+  background: #EE2E22;
+}
+._2 {
+  background: #43B85E;
+}
+._3 {
+  background: #0077BF;
+}
+._4 {
+  background: #1AC1F3;
+}
+._5 {
+  background: #9B553D;
+}
+._6 {
+  background: #F48231;
+}
+._7 {
+  background: #8D479B;
+}
+._8 {
+  background: #FECB2F;
+}
+._9 {
+  background: #A0A2A3;
+}
+._10 {
+  background: #B3D345;
+}
+._11 {
+  background: #231F20;
+}
+._11a {
+  background: #78CCCD;
+}
+._12 {
+  background: #ABBEE1;
+}
+._13 {
+  background: #0077BF;
+}
+._14 {
+  position: relative;
+  background-color: #ef161e;
+  border: 1px solid #fff;
+}
+._14:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 2px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+}
+._14:before {
+  content: "";
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  width: 6px;
+  height: 6px;
+  background: #ef161e;
+  border: 1px solid #fff;
+  border-radius: 6px;
+}
+._15 {
+  background: #CC0066;
+}
