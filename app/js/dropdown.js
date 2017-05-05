@@ -1,10 +1,4 @@
 function optionsRender(id) {
-
-    function getCoords(elem) { // определение Y координаты генерируемого селекта
-        var box = elem.getBoundingClientRect();
-        return box.top + pageYOffset;
-    }
-
     if (!document.getElementById(id)) return;
     var select = document.getElementById(id), // Ищем селект
         selectStyles = select.classList, // Получаем стили селекта
@@ -24,6 +18,11 @@ function optionsRender(id) {
     selectedOption.style.height = getComputedStyle(select).height;
     optionsBlock.appendChild(ul);
     ul.className = 'dropdownList';
+
+    function getCoords(elem) { // определение Y координаты генерируемого селекта
+        var box = elem.getBoundingClientRect();
+        return box.top + pageYOffset;
+    }
 
     // Генерация выпадающего списка ↓↓
     for (var key in options) {
@@ -45,7 +44,8 @@ function optionsRender(id) {
 
     // Обработчик клика по дропу
     function show() {
-        var ul = this.children[1];
+        var ul = this.children[1],
+            newPos;
         if (event.target.className !== 'disabled') { // Отсеиваем клики по неактивным полям
             // ul.classList.toggle('dropdownList-visible');
             if(event.target.tagName === 'LI') selectedOption.classList.remove('dropdown-disabledTxt');
