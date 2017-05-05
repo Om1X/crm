@@ -37,6 +37,9 @@ div.-inline:nth-child(4n) {
   text-align: left;
   color: #202438;
 }
+.input[disabled] {
+  background-color: rgba(32, 36, 56, 0.05);
+}
 .input-price {
   margin-bottom: 8px;
 }

@@ -1,4 +1,10 @@
 function optionsRender(id) {
+
+    function getCoords(elem) { // определение Y координаты генерируемого селекта
+        var box = elem.getBoundingClientRect();
+        return box.top + pageYOffset;
+    }
+
     if (!document.getElementById(id)) return;
     var select = document.getElementById(id), // Ищем селект
         selectStyles = select.classList, // Получаем стили селекта
@@ -6,7 +12,8 @@ function optionsRender(id) {
         parentBlock = select.parentNode, // Вычисляем родителя
         optionsBlock = document.createElement('div'), // Блок селектов
         selectedOption = document.createElement('div'), // Блок для вывода "selected"
-        ul = document.createElement('ul'); // Список для селектов
+        ul = document.createElement('ul'), // Список для селектов
+        docHeight = document.body.offsetHeight; // Высота отрендеренного документа
 
     select.style.display = 'none'; // Скрываем стандартный селект
     parentBlock.insertBefore(optionsBlock, select);
@@ -18,7 +25,7 @@ function optionsRender(id) {
     optionsBlock.appendChild(ul);
     ul.className = 'dropdownList';
 
-    // Генерация выпадающего списка
+    // Генерация выпадающего списка ↓↓
     for (var key in options) {
         if (key < options.length) {
             var newOption = document.createElement('li');
@@ -29,6 +36,7 @@ function optionsRender(id) {
 
             if (options[key].disabled) {
                 newOption.classList.add('disabled');
+                selectedOption.classList.add('dropdown-disabledTxt');
             }
             newOption.innerHTML = options[key].innerHTML.replace(/\n/g, '').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
             ul.appendChild(newOption);
@@ -38,8 +46,9 @@ function optionsRender(id) {
     // Обработчик клика по дропу
     function show() {
         var ul = this.children[1];
-        if (event.target.tagName = 'li' && event.target.className !== 'disabled') { // Отсеиваем ненужные клики
-            ul.classList.toggle('dropdownList-visible');
+        if (event.target.className !== 'disabled') { // Отсеиваем клики по неактивным полям
+            // ul.classList.toggle('dropdownList-visible');
+            if(event.target.tagName === 'LI') selectedOption.classList.remove('dropdown-disabledTxt');
             for (var i = 0; i < ul.children.length; i++) {
                 select.getElementsByTagName('option')[i].removeAttribute('selected');
                 optionsBlock.children[1].children[i].classList.remove('selected');
@@ -48,6 +57,13 @@ function optionsRender(id) {
                     optionsBlock.children[1].children[i].classList.add('selected');
                     selectedOption.innerHTML = ul.children[i].innerHTML;
                 }
+            }
+
+            ul.classList.toggle('dropdownList-visible');
+
+            if (getCoords(ul) + ul.offsetHeight > docHeight) {
+                newPos = '-' + (ul.offsetHeight + 5) + 'px';
+                ul.style.top = newPos;
             }
         }
     }
@@ -65,3 +81,4 @@ function optionsRender(id) {
 optionsRender('contract');
 optionsRender('legalEntity');
 optionsRender('direction');
+optionsRender('status');

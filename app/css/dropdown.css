@@ -14,6 +14,10 @@
   color: #202438;
   background-position: right;
   cursor: pointer;
+  background: #fff;
+}
+.dropdown-disabledTxt {
+  color: rgba(32, 36, 56, 0.2);
 }
 .dropdown::after {
   content: '';
@@ -47,6 +51,9 @@
 }
 .dropdown:focus li {
   padding: 0 15px;
+}
+.dropdown:active {
+  background-color: rgba(32, 35, 56, 0.1);
 }
 .dropdown-ok {
   border: solid 1px #43d167;
@@ -89,7 +96,7 @@
 .dropdownList .disabled {
   background: #fff;
   color: rgba(32, 36, 56, 0.2);
-  cursor: default;
+  cursor: text;
 }
 .dropdownList .disabled:hover,
 .dropdownList .disabled:active {
@@ -100,4 +107,14 @@
 }
 .dropdownList-visible {
   display: block;
+}
+.footerRow {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  padding-top: 16px;
+}
+.footerRow__right {
+  display: flex;
+  padding: 5px 0 0 133px;
 }

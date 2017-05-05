@@ -3,7 +3,7 @@ doctype html
 html(lang='en')
     head
         meta(charset='UTF-8')
-        title CRM // Biglion
+        title CRM // Frendi
         //build:css css/style.min.css
         link(rel="stylesheet", href="css/style.css")
         link(rel="stylesheet", href="css/forms.css")
@@ -49,7 +49,7 @@ html(lang='en')
                             div.editInfo__cell
                                 div
                                     div.editInfo__head площадка
-                                    div Biglion
+                                    div Frendi
                                 div
                                     div.editInfo__head город менеджера
                                     div
@@ -126,6 +126,8 @@ html(lang='en')
                                     — медовое,
                                     — горячее,
                                     — криообертывание (холодное обертывание).
+                            label.label(for='description') Особенности
+                            textarea.textarea.textarea-description#description
                             div.formSplitter
                                 div.formSplitter__left
                                     input(type='checkbox')#print
@@ -164,22 +166,12 @@ html(lang='en')
                                         span
                                         .
                                             Только для совершеннолетних
-                            label.label(for='price') Ссылка на сайт или страницу в соц. сетях
+                            label.label(for='price') Ссылка на прайс или меню
                             input.input.input-big.input-price(placeholder='https://')#price
                             a.linkButton.linkButton-price(href='#')#priceFile massage_price.pdf
                             div.linkButton.linkButton-hide#hidePrice Скрыть
-                            label.label(for='socialSite') Сайт или страница в соц. сетях
+                            label.label(for='socialSite') Ссылка на сайт или страницу в соц. сетях
                             input.input.input-big(placeholder='https://')#socialSite
-                            label.label(for='description') Описание
-                            textarea.textarea.textarea-description#description
-                                .
-                                    Общий массаж — это отличная профилактическая процедура для каждого современного человека. Цель такого массажа — релаксация, снятие зажимов с мышц и их расслабление.
-
-                                    Массаж может способствовать исчезновению головных болей и хронической усталости, дарит легкость и хорошее настроение, помогает восстановить силу мышц и повысить их работоспособность, улучшает лимфо- и кровообращение.
-
-                                    Общий классический массаж тела особенно рекомендуется для людей, которые ведут малоактивный образ жизни и большую часть времени посвящают работе. Процедура поможет держать мышцы в тонусе, сохранить осанку и здоровье спины, а также подарит вам отличное самочувствие и заряд бодрости!
-
-                                    Антицеллюлитный массаж — это способ борьбы с проблемными зонами. Он поможет вам избавиться от надоедливой «апельсиновой корки» и значительно улучшить свой внешний вид!
                         fieldset.fieldset#share
                             h2 Размещение акции
                             label.label(for="category") Категория и подкатегория
@@ -647,6 +639,38 @@ html(lang='en')
                                         div.splitter -
                                         input.input.input-short(type="text" value="28.02.2017")#fixEnd
                             div.innerButton.innerButton-right Сохранить
+                        fieldset.fieldset#forMailing
+                            h2 Для рассылки
+                            label.label(for="followUp")
+                                div Название для блока “Недавно вы смотрели” (Название Follow Up)
+                                div
+                                    div.counter 0/52
+                            input.input.input-big(type="text" value="Массаж на выбор. Скидка до 93%")#followUp
+                            div.formSplitter
+                                div.formSplitter__left
+                                    label.label(for="wow_1")
+                                        div Преимущество 1 (Wow 1)
+                                        div
+                                            div.counter 0/33
+                                    input.input.input-mid(type="text" value="Охлаждающее обертывание")#wow_1
+                                    label.label(for="wow_3")
+                                        div Преимущество 3 (Wow 3)
+                                        div
+                                            div.counter 0/33
+                                    input.input.input-mid(type="text" value="Горячий душ")#wow_3
+                                div.formSplitter__right
+                                    label.label(for="wow_2")
+                                        div Преимущество 2 (Wow 2)
+                                        div
+                                            div.counter 0/33
+                                    input.input.input-mid(type="text" value="Оздоровительный массаж")#wow_2
+                            label.label(for="shortTxt")
+                                div Краткое описание (Nutshell)
+                                div
+                                    div.counter 0/240
+                            textarea.textarea.textarea-small#shortTxt
+                                .
+                                    Опытные мастера массажа помогут привести тело в порядок, а мышцы в тонус. Разнообразные методы и приемы, используемые в массаже, способствуют снятию напряжения, болевых ощущений, расслаблению и релаксации.
                         fieldset.fieldset#comments
                             h2 Комментарии
                             label.label(for="commentText") Комментарий для менеджера или руководителя

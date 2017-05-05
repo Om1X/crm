@@ -15,6 +15,11 @@
   color: #202438;
   background-position: right;
   cursor: pointer;
+  background: #fff;
+
+  &-disabledTxt {
+    color: rgba(32, 36, 56, 0.2);
+  }
 
   &::after {
     content: '';
@@ -53,6 +58,10 @@
     & li {
       padding: 0 15px;
     }
+  }
+
+  &:active {
+    background-color: rgba(32, 35, 56, 0.1);
   }
 
   &-ok {
@@ -103,7 +112,7 @@
   .disabled {
     background: #fff;
     color: rgba(32, 36, 56, 0.2);
-    cursor: default;
+    cursor: text;
 
     &:hover,
     &:active {
@@ -117,5 +126,17 @@
 
   &-visible {
     display: block;
+  }
+}
+
+.footerRow {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  padding-top: 16px;
+
+  &__right {
+    display: flex;
+    padding: 5px 0 0 133px;
   }
 }
