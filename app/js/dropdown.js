@@ -53,7 +53,6 @@ function selectRender() {
             var ul = this.children[1],
                 newPos;
             if (event.target.className !== 'disabled') { // Отсеиваем клики по неактивным полям
-                // ul.classList.toggle('dropdownList-visible');
                 if (event.target.tagName === 'LI') selectedOption.classList.remove('dropdown-disabledTxt');
                 for (var i = 0; i < ul.children.length; i++) {
                     select.getElementsByTagName('option')[i].removeAttribute('selected');
@@ -67,7 +66,7 @@ function selectRender() {
 
                 ul.classList.toggle('dropdownList-visible');
 
-                if (getCoords(ul) + ul.offsetHeight > docHeight) {
+                if (getCoords(ul) + ul.offsetHeight > docHeight) { // Проверяем, не выходит ли выпадающий список за пределы документа
                     newPos = '-' + (ul.offsetHeight + 5) + 'px';
                     ul.style.top = newPos;
                 }
