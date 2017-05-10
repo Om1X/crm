@@ -26,7 +26,7 @@ $(document).ready(function () {
 
         var header = document.getElementById('header');
 
-        if (header.style.position === 'relative') {
+        if (!header.style.position || header.style.position === 'relative') {
             header.style.width = 'auto';
         } else {
             $menu.css('width', $('.content').css('width'));
