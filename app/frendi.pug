@@ -55,7 +55,7 @@ html(lang='en')
                                     div
                                         a(href="#").editInfo__city Москва
                         nav
-                            ul.topMenu
+                            ul.topMenu#topMenu
                                 for name in headerMenuBgln
                                     li
                                         a.topMenu__link(href='#' + name.anchor) #{name.name}
@@ -90,42 +90,11 @@ html(lang='en')
                                 div Название для рассылки
                                 div
                                     a(href='#').viewButtons Посмотреть
-                                    div.counter 0/25
-                            input(type='text' name='' maxlength='25').input.input-big#nameForMailing
-                            label.label(for='nameForLink')
-                                div Название для ссылки
-                                div
                                     div.counter 0/40
-                            input(type='text' name='' maxlength='40').input.input-big#nameForLink
-                            label.label(for='conditions')
-                                div Условия
-                                div
-                                    a(href='#').viewButtons Код условия для сайта партнера
-                            textarea.textarea.textarea-big#conditions
-                                .
-                                    В стоимость купона входят 11 видов массажа на выбор (массаж можно чередовать):
-                                    — массаж головы и шеи,
-                                    — массаж спины и ног,
-                                    — массаж шейно-воротниковой зоны,
-                                    — спортивный массаж,
-                                    — классический массаж,
-                                    — общий массаж,
-                                    — процедура «Бразильская попка»,
-                                    — процедура «Бразильские ножки»,
-                                    — антицеллюлитный массаж,
-                                    — креольский массаж,
-                                    — баночный массаж.
-                                    Виды скрабов:
-                                    — фруктовый,
-                                    — морской,
-                                    — медовый,
-                                    — водорослевый.
-                                    Виды обертывания:
-                                    — шоколадное,
-                                    — фруктовое,
-                                    — медовое,
-                                    — горячее,
-                                    — криообертывание (холодное обертывание).
+                            input(type='text' name='' maxlength='25').input.input-big#nameForMailing
+                            label.label(for='conditionsDesc')
+                                div Описание
+                            textarea.textarea.textarea-big#conditionsDesc
                             label.label(for='description') Особенности
                             textarea.textarea.textarea-description#description
                             div.formSplitter
@@ -329,7 +298,7 @@ html(lang='en')
                                     div.priceInfo
                                         div.priceInfo__head Куплено
                                         div.priceInfo__value 0
-                            h3 Антицеллюлитный массаж
+                            h3.groups Антицеллюлитный массаж
                             div.price__Row
                                 div.price__num 4
                                 div.price__Item
@@ -414,7 +383,7 @@ html(lang='en')
                                     div.priceInfo
                                         div.priceInfo__head Куплено
                                         div.priceInfo__value 0
-                            h3.ungroup Нет группы
+                            h3.groups.ungroup Нет группы
                             div.price__Row
                                 div.price__num 8
                                 div.price__Item
@@ -691,4 +660,5 @@ html(lang='en')
     script(src="js/tabs.js")
     //script(src="js/yaMaps.js")
     script(src="js/dropdown.js")
+    script(src="js/scrollTo.js")
     //endbuild
