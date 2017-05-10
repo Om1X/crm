@@ -6,7 +6,7 @@ $(document).ready(function () {
         $scrollH = $headerH - $topMenuH,
         $marginTop = '-' + $scrollH + 'px';
 
-    $(window).scroll(function () {
+    function refresh() {
         if ($(this).scrollTop() > $scrollH) {
             $menu.addClass('header-fixed');
             $menu.css('position', 'fixed');
@@ -20,7 +20,11 @@ $(document).ready(function () {
             $menu.css('top', '0');
             $rContent.css('padding-top', "0")
         }
-    });
+    }
+
+    refresh();
+
+    $(window).scroll(refresh);
 
     $(window).resize(function () {
 

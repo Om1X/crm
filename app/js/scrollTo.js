@@ -1,6 +1,8 @@
 function menuScroll() {
     var topMenu = document.getElementById('topMenu');
 
+    if (!topMenu) return;
+
     function getCoords(elem) { // определение Y координаты генерируемого селекта
         var box = elem.getBoundingClientRect();
         return box.top + pageYOffset;
