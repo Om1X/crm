@@ -55,7 +55,7 @@ html(lang='en')
                                     div
                                         a(href="#").editInfo__city Москва
                         nav
-                            ul.topMenu
+                            ul.topMenu#topMenu
                                 for name in headerMenuBgln
                                     li
                                         a.topMenu__link(href='#' + name.anchor) #{name.name}
@@ -236,7 +236,7 @@ html(lang='en')
                                 span
                                 .
                                     Праздничная акция
-                        fieldset.fieldset#couponConditions
+                        fieldset.fieldset#coupons
                             h2 Условия действия купонов
                             div
                                 div.-inline
