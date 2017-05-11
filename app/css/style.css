@@ -146,6 +146,11 @@ ul {
   line-height: 1.43;
   color: rgba(32, 36, 56, 0.4);
 }
+.topMenu__link:hover,
+.topMenu__link:focus,
+.topMenu__link:active {
+  color: rgba(32, 36, 56, 0.8);
+}
 .contractNumber,
 .counts {
   font-family: 'Raleway', sans-serif;

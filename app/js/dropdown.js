@@ -53,18 +53,23 @@ function selectRender() {
             var ul = this.children[1],
                 newPos;
             if (event.target.className !== 'disabled') { // Отсеиваем клики по неактивным полям
-                if (event.target.tagName === 'LI') selectedOption.classList.remove('dropdown-disabledTxt');
-                for (var i = 0; i < ul.children.length; i++) {
-                    select.getElementsByTagName('option')[i].removeAttribute('selected');
-                    optionsBlock.children[1].children[i].classList.remove('selected');
-                    if (ul.children[i] === event.target) {
-                        select.getElementsByTagName('option')[i].setAttribute('selected', 'selected');
-                        optionsBlock.children[1].children[i].classList.add('selected');
-                        selectedOption.innerHTML = ul.children[i].innerHTML;
+
+                if (event.target.tagName === 'DIV') {
+                    ul.classList.toggle('dropdownList-visible');
+                } else {
+                    selectedOption.classList.remove('dropdown-disabledTxt');
+                    ul.classList.toggle('dropdownList-visible');
+                    for (var i = 0; i < ul.children.length; i++) {
+                        select.getElementsByTagName('option')[i].removeAttribute('selected');
+                        optionsBlock.children[1].children[i].classList.remove('selected');
+                        optionsBlock.children[1].children[i].removeAttribute('class');
+                        if (ul.children[i] === event.target) {
+                            select.getElementsByTagName('option')[i].setAttribute('selected', 'selected');
+                            optionsBlock.children[1].children[i].classList.add('selected');
+                            selectedOption.innerHTML = ul.children[i].innerHTML;
+                        }
                     }
                 }
-
-                ul.classList.toggle('dropdownList-visible');
 
                 if (getCoords(ul) + ul.offsetHeight > docHeight) { // Проверяем, не выходит ли выпадающий список за пределы документа
                     newPos = '-' + (ul.offsetHeight + 5) + 'px';
