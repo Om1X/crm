@@ -29,7 +29,11 @@ window.onload = function () {
                 }).then(function (met) {
                     met.geoObjects.options.set('preset', 'islands#redCircleIcon');
                     met.geoObjects.each(function (obj) {
-                        metroList += obj.properties.get('name').split('метро ')[1] + '|';
+                        if (obj.properties.get('name').split('метро ')[1]) {
+                            metroList += obj.properties.get('name').split('метро ')[1] + '|';
+                        } else {
+                            metroList += obj.properties.get('name').split('станция ')[1] + '|';
+                        }
                     });
 
                     metroInput.value = metroList.split('|').splice(0, 3).join(', ');

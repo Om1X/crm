@@ -142,8 +142,15 @@ html(lang='en')
                                 span
                                 .
                                     Все города
-                            label.label(for="city") Города размещения
-                            input.input.input-mid(type="text")#city
+                            div.formSplitter
+                                div.formSplitter__left
+                                    label.label(for="city") Города размещения
+                                    input.input.input-mid(type="text")#city
+                                    div.cities
+                                div.formSplitter__right
+                                    label.label(for="exCity") Кроме городов
+                                    input.input.input-mid(type="text" disabled)#exCity
+                                    div.cities
                         fieldset.fieldset#coupons
                             h2 Условия действия купонов
                             div
@@ -239,4 +246,5 @@ html(lang='en')
     script(src="js/yaMaps.js")
     script(src="js/dropdown.js")
     script(src="js/scrollTo.js")
+    script(src="js/cityCheck.js")
     //endbuild

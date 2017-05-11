@@ -85,16 +85,53 @@ html(lang='en')
                                 div
                                     a(href='#').viewButtons Посмотреть
                                     div.counter 0/75
-                            input(type='text' name='' maxlength='75').input.input-big#nameForList
+                            input(type='text' name='' maxlength='75' value="Сеансы массажа на выбор и другое в «Массажном салоне на Пятницкой»").input.input-big#nameForList
                             label.label(for='nameForMailing')
                                 div Название для рассылки
                                 div
                                     a(href='#').viewButtons Посмотреть
                                     div.counter 0/40
-                            input(type='text' name='' maxlength='40').input.input-big#nameForMailing
+                            input(type='text' name='' maxlength='40' value="Массаж, пилинг и SPA").input.input-big#nameForMailing
                             label.label(for='conditionsDesc')
                                 div Описание
-                            textarea.textarea.textarea-big#conditionsDesc
+                            textarea.textarea.textarea-description#conditionsDesc
+                                .
+                                    Общий массаж — это отличная профилактическая процедура для каждого современного человека. Цель такого массажа — релаксация, снятие зажимов с мышц и их расслабление.
+
+                                    Массаж может способствовать исчезновению головных болей и хронической усталости, дарит легкость и хорошее настроение, помогает восстановить силу мышц и повысить их работоспособность, улучшает лимфо- и кровообращение.
+
+                                    Общий классический массаж тела особенно рекомендуется для людей, которые ведут малоактивный образ жизни и большую часть времени посвящают работе. Процедура поможет держать мышцы в тонусе, сохранить осанку и здоровье спины, а также подарит вам отличное самочувствие и заряд бодрости!
+
+                                    Антицеллюлитный массаж — это способ борьбы с проблемными зонами. Он поможет вам избавиться от надоедливой «апельсиновой корки» и значительно улучшить свой внешний вид!
+                            label.label(for='conditions')
+                                div Условия
+                                div
+                                    a(href='#').viewButtons Код условия для сайта партнера
+                            textarea.textarea.textarea-big#conditions
+                                .
+                                    В стоимость купона входят 11 видов массажа на выбор (массаж можно чередовать):
+                                    — массаж головы и шеи,
+                                    — массаж спины и ног,
+                                    — массаж шейно-воротниковой зоны,
+                                    — спортивный массаж,
+                                    — классический массаж,
+                                    — общий массаж,
+                                    — процедура «Бразильская попка»,
+                                    — процедура «Бразильские ножки»,
+                                    — антицеллюлитный массаж,
+                                    — креольский массаж,
+                                    — баночный массаж.
+                                    Виды скрабов:
+                                    — фруктовый,
+                                    — морской,
+                                    — медовый,
+                                    — водорослевый.
+                                    Виды обертывания:
+                                    — шоколадное,
+                                    — фруктовое,
+                                    — медовое,
+                                    — горячее,
+                                    — криообертывание (холодное обертывание).
                             label.label(for='description') Особенности
                             textarea.textarea.textarea-description#description
                             div.formSplitter
@@ -163,17 +200,17 @@ html(lang='en')
                                         div.city Москва ***
                                 div.formSplitter__right
                                     label.label(for="exCity") Кроме городов
-                                    input.input.input-mid(type="text")#exCity
+                                    input.input.input-mid(type="text" disabled)#exCity
                                     div.cities
                                         div.city Москва
                                         div.city Москва ***
                             div
                                 div.-inline
                                     label.label(for="startEvent") Дата старта
-                                    input.input.input-short(type="text" value="01.02.2017")#startEvent
+                                    input.input.input-short.input-calendar(type="text" value="01.02.2017" maxlength="8")#startEvent
                                 div.-inline
                                     label.label(for="endEvent") Дата завершения
-                                    input.input.input-short(type="text" value="27.02.2017")#endEvent
+                                    input.input.input-short.input-calendar(type="text" value="27.02.2017" maxlength="8")#endEvent
                                 div.-inline
                                     label.label(for="days") Срок размещения
                                     input.input.input-short(type="text" placeholder="Дней" value="27")#days
@@ -585,10 +622,10 @@ html(lang='en')
                             div.formSplitter
                                 div.formSplitter__left
                                     label.label(for="fix_city") Выбор города
-                                    input.input.input-mid(type="text" disabled)#fix_city
+                                    input.input.input-mid(type="text")#fix_city
                                 div.formSplitter__right
                                     label.label(for="fix_exCity") Кроме городов
-                                    input.input.input-mid(type="text")#fix_exCity
+                                    input.input.input-mid(type="text" disabled)#fix_exCity
                                     div.cities
                                         div.city Москва
                                         div.city Москва ***
@@ -614,30 +651,30 @@ html(lang='en')
                                 div Название для блока “Недавно вы смотрели” (Название Follow Up)
                                 div
                                     div.counter 0/52
-                            input.input.input-big(type="text" value="Массаж на выбор. Скидка до 93%")#followUp
+                            input.input.input-big(type="text" maxlength="52" value="Массаж на выбор. Скидка до 93%")#followUp
                             div.formSplitter
                                 div.formSplitter__left
                                     label.label(for="wow_1")
                                         div Преимущество 1 (Wow 1)
                                         div
                                             div.counter 0/33
-                                    input.input.input-mid(type="text" value="Охлаждающее обертывание")#wow_1
+                                    input.input.input-mid(type="text" maxlength="33" value="Охлаждающее обертывание")#wow_1
                                     label.label(for="wow_3")
                                         div Преимущество 3 (Wow 3)
                                         div
                                             div.counter 0/33
-                                    input.input.input-mid(type="text" value="Горячий душ")#wow_3
+                                    input.input.input-mid(type="text" maxlength="33" value="Горячий душ")#wow_3
                                 div.formSplitter__right
                                     label.label(for="wow_2")
                                         div Преимущество 2 (Wow 2)
                                         div
                                             div.counter 0/33
-                                    input.input.input-mid(type="text" value="Оздоровительный массаж")#wow_2
+                                    input.input.input-mid(type="text" maxlength="33" value="Оздоровительный массаж")#wow_2
                             label.label(for="shortTxt")
                                 div Краткое описание (Nutshell)
                                 div
                                     div.counter 0/240
-                            textarea.textarea.textarea-small#shortTxt
+                            textarea.textarea.textarea-small(maxlength="240")#shortTxt
                                 .
                                     Опытные мастера массажа помогут привести тело в порядок, а мышцы в тонус. Разнообразные методы и приемы, используемые в массаже, способствуют снятию напряжения, болевых ощущений, расслаблению и релаксации.
                         fieldset.fieldset#comments
@@ -661,4 +698,5 @@ html(lang='en')
     //script(src="js/yaMaps.js")
     script(src="js/dropdown.js")
     script(src="js/scrollTo.js")
+    script(src="js/cityCheck.js")
     //endbuild

@@ -71,6 +71,14 @@ div.-inline {
     width: 516px;
   }
 
+  &-calendar {
+    background: url("../images/calendar.svg") top 16px right 16px no-repeat;
+
+    &:focus {
+      background: url("../images/calendar.svg") top 15px right 15px no-repeat;
+    }
+  }
+
   &::placeholder {
     font-family: 'Raleway', sans-serif;
     font-weight: 500;
@@ -82,7 +90,7 @@ div.-inline {
   }
 
   &:focus {
-    .inputFocus
+    .inputFocus;
   }
 }
 

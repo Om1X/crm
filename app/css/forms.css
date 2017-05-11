@@ -58,6 +58,12 @@ div.-inline:nth-child(4n) {
 .input-category {
   width: 516px;
 }
+.input-calendar {
+  background: url("../images/calendar.svg") top 16px right 16px no-repeat;
+}
+.input-calendar:focus {
+  background: url("../images/calendar.svg") top 15px right 15px no-repeat;
+}
 .input::placeholder {
   font-family: 'Raleway', sans-serif;
   font-weight: 500;

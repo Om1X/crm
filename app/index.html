@@ -39,7 +39,7 @@
 								<li><a class="topMenu__link" href="#contractBlock">Договор</a></li>
 								<li><a class="topMenu__link" href="#conditionsBlock">Условия</a></li>
 								<li><a class="topMenu__link" href="#share">Размещение</a></li>
-								<li><a class="topMenu__link" href="#couponConditions">Условия действия купонов</a></li>
+								<li><a class="topMenu__link" href="#coupons">Условия действия купонов</a></li>
 								<li><a class="topMenu__link" href="#pricesBlock">Цены</a></li>
 								<li><a class="topMenu__link" href="#placesBlock">Адреса</a></li>
 								<li><a class="topMenu__link" href="#comments">Комментарии</a></li>
@@ -163,8 +163,18 @@
 							</div>
 							<input type="checkbox" id="allCities">
 							<label class="checkboxLabel" for="allCities"><span></span>Все города</label>
-							<label class="label" for="city">Города размещения</label>
-							<input class="input input-mid" type="text" id="city">
+							<div class="formSplitter">
+								<div class="formSplitter__left">
+									<label class="label" for="city">Города размещения</label>
+									<input class="input input-mid" type="text" id="city">
+									<div class="cities"></div>
+								</div>
+								<div class="formSplitter__right">
+									<label class="label" for="exCity">Кроме городов</label>
+									<input class="input input-mid" type="text" disabled id="exCity">
+									<div class="cities"></div>
+								</div>
+							</div>
 						</fieldset>
 						<fieldset class="fieldset" id="coupons">
 							<h2>Условия действия купонов</h2>
@@ -275,5 +285,6 @@
 	<script src="js/yaMaps.js"></script>
 	<script src="js/dropdown.js"></script>
 	<script src="js/scrollTo.js"></script>
+	<script src="js/cityCheck.js"></script>
 	<!--endbuild-->
 </html>
