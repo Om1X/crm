@@ -14,7 +14,9 @@
 		<link rel="stylesheet" href="css/fonts.css">
 		<link rel="stylesheet" href="css/dropdown.css">
 		<!--endbuild-->
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 		<script src="//api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
 	</head>
 	<body>
@@ -149,11 +151,11 @@
 							<div>
 								<div class="-inline">
 									<label class="label" for="startEvent">Дата старта</label>
-									<input class="input input-short" type="text" id="startEvent">
+									<input class="input input-short input-calendar" type="text" placeholder="ДД.ММ.ГГГГ" maxlength="10" id="startEvent">
 								</div>
 								<div class="-inline">
 									<label class="label" for="endEvent">Дата завершения</label>
-									<input class="input input-short" type="text" id="endEvent">
+									<input class="input input-short input-calendar" type="text" placeholder="ДД.ММ.ГГГГ" maxlength="10" id="endEvent">
 								</div>
 								<div class="-inline">
 									<label class="label" for="days">Срок размещения</label>
@@ -180,11 +182,11 @@
 							<div>
 								<div class="-inline">
 									<label class="label" for="startCoupon">Купон действует с</label>
-									<input class="input input-short" type="text" id="startCoupon">
+									<input class="input input-short" type="text" placeholder="ДД.ММ.ГГГГ" maxlength="10" id="startCoupon">
 								</div>
 								<div class="-inline">
 									<label class="label" for="endCoupon">по</label>
-									<input class="input input-short" type="text" id="endCoupon">
+									<input class="input input-short" type="text" placeholder="ДД.ММ.ГГГГ" maxlength="10" id="endCoupon">
 								</div>
 								<div class="-inline">
 									<label class="label" for="couponLink">Количество дней</label>
@@ -285,5 +287,6 @@
 	<script src="js/dropdown.js"></script>
 	<script src="js/scrollTo.js"></script>
 	<script src="js/cityCheck.js"></script>
+	<script src="js/datePicker.js"></script>
 	<!--endbuild-->
 </html>

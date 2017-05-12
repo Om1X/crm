@@ -10,7 +10,9 @@ html(lang='en')
         link(rel="stylesheet", href="css/fonts.css")
         link(rel="stylesheet", href="css/dropdown.css")
         //endbuild
+        link(rel="stylesheet", href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css")
         script(src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+        script(src="//code.jquery.com/ui/1.12.1/jquery-ui.js")
         script(src="//api-maps.yandex.ru/2.1/?lang=ru_RU")
     body
         .wrapper
@@ -158,10 +160,10 @@ html(lang='en')
                             div
                                 div.-inline
                                     label.label(for="startEvent") Дата старта
-                                    input.input.input-short(type="text" value="01.02.2017")#startEvent
+                                    input.input.input-short(type="text" placeholder="ДД.ММ.ГГГГ" maxlength="10")#startEvent
                                 div.-inline
                                     label.label(for="endEvent") Дата завершения
-                                    input.input.input-short(type="text" value="27.02.2017")#endEvent
+                                    input.input.input-short(type="text" placeholder="ДД.ММ.ГГГГ" maxlength="10")#endEvent
                                 div.-inline
                                     label.label(for="days") Срок размещения
                                     input.input.input-short(type="text" placeholder="Дней" value="27")#days
@@ -186,10 +188,10 @@ html(lang='en')
                             div
                                 div.-inline
                                     label.label(for="startCoupon") Купон действует с
-                                    input.input.input-short(type="text" value="01.02.2017")#startCoupon
+                                    input.input.input-short(type="text" placeholder="ДД.ММ.ГГГГ" maxlength="10")#startCoupon
                                 div.-inline
                                     label.label(for="endCoupon") по
-                                    input.input.input-short(type="text" value="01.05.2017")#endCoupon
+                                    input.input.input-short(type="text" placeholder="ДД.ММ.ГГГГ" maxlength="10")#endCoupon
                                 div.-inline
                                     label.label(for="couponLink") Количество дней
                                     input.input.input-short(type="text" value="90")#couponLink
@@ -443,4 +445,5 @@ html(lang='en')
     //script(src="js/yaMaps.js")
     script(src="js/dropdown.js")
     script(src="js/scrollTo.js")
+    script(src="js/datePicker.js")
     //endbuild

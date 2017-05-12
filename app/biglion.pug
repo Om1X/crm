@@ -11,7 +11,9 @@ html(lang='en')
         link(rel="stylesheet", href="css/dropdown.css")
         link(rel="stylesheet", href="css/metroLines.css")
         //endbuild
+        link(rel="stylesheet", href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css")
         script(src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+        script(src="//code.jquery.com/ui/1.12.1/jquery-ui.js")
         script(src="//api-maps.yandex.ru/2.1/?lang=ru_RU")
     body
         .wrapper
@@ -209,10 +211,10 @@ html(lang='en')
                             div
                                 div.-inline
                                     label.label(for="startEvent") Дата старта
-                                    input.input.input-short(type="text" value="01.02.2017")#startEvent
+                                    input.input.input-short(type="text" placeholder="ДД.ММ.ГГГГ" maxlength="10")#startEvent
                                 div.-inline
                                     label.label(for="endEvent") Дата завершения
-                                    input.input.input-short(type="text" value="27.02.2017")#endEvent
+                                    input.input.input-short(type="text" placeholder="ДД.ММ.ГГГГ" maxlength="10")#endEvent
                                 div.-inline
                                     label.label(for="days") Срок размещения
                                     input.input.input-short(type="text" placeholder="Дней" value="27")#days
@@ -624,10 +626,10 @@ html(lang='en')
                             div.formSplitter
                                 div.formSplitter__left
                                     label.label(for="fix_city") Выбор города
-                                    input.input.input-mid(type="text" disabled)#fix_city
+                                    input.input.input-mid(type="text")#fix_city
                                 div.formSplitter__right
                                     label.label(for="fix_exCity") Кроме городов
-                                    input.input.input-mid(type="text")#fix_exCity
+                                    input.input.input-mid(type="text" disabled)#fix_exCity
                                     div.cities
                                         div.city Москва
                                         div.city Москва ***
@@ -643,9 +645,9 @@ html(lang='en')
                                         input.input.input-short(type="text" value="3")#position
                                     div
                                         label.label(for="endEvent") Период действия закрепления
-                                        input.input.input-short(type="text" value="13.01.2017")#fixStart
+                                        input.input.input-short(type="text" placeholder="ДД.ММ.ГГГГ" maxlength="10")#fixStart
                                         div.splitter -
-                                        input.input.input-short(type="text" value="28.02.2017")#fixEnd
+                                        input.input.input-short(type="text" placeholder="ДД.ММ.ГГГГ" maxlength="10")#fixEnd
                             div.innerButton.innerButton-right Сохранить
                         fieldset.fieldset#comments
                             h2 Комментарии
@@ -669,4 +671,5 @@ html(lang='en')
     script(src="js/dropdown.js")
     script(src="js/scrollTo.js")
     script(src="js/cityCheck.js")
+    script(src="js/datePicker.js")
     //endbuild

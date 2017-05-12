@@ -62,7 +62,7 @@ function selectRender() {
                     for (var i = 0; i < ul.children.length; i++) {
                         select.getElementsByTagName('option')[i].removeAttribute('selected');
                         optionsBlock.children[1].children[i].classList.remove('selected');
-                        optionsBlock.children[1].children[i].removeAttribute('class');
+                        // optionsBlock.children[1].children[i].removeAttribute('class');
                         if (ul.children[i] === event.target) {
                             select.getElementsByTagName('option')[i].setAttribute('selected', 'selected');
                             optionsBlock.children[1].children[i].classList.add('selected');
