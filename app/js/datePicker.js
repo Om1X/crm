@@ -38,20 +38,44 @@
 
     function datesChange() {
         setTimeout(function () {
-            var startDate = Date.parse(start.value.replace(regExp, '$2.$1.$3')),
+            var today = Date.now(),
+                startDate = Date.parse(start.value.replace(regExp, '$2.$1.$3')),
                 endDate = Date.parse(end.value.replace(regExp, '$2.$1.$3')),
                 startTime,
                 endTime,
                 day,
-                month;
+                month,
+                nStartDate,
+                nEndDate;
 
-            if (!isNaN(startDate) && !isNaN(endDate) && endDate > startDate) {
+            if (!isNaN(startDate) && isNaN(endDate) && startDate < today) {
+                nStartDate = new Date(today);
+                day = nStartDate.getDate() < 10 ? '0' + nStartDate.getDate() : nStartDate.getDate();
+                month = nStartDate.getMonth() + 1 < 10 ? '0' + (nStartDate.getMonth() + 1) : nStartDate.getMonth() + 1;
+                start.value = day + '.' + month + '.' + nStartDate.getFullYear();
+                if (allDays.value) {
+                    startDate = Date.parse(start.value.replace(regExp, '$2.$1.$3'));
+                    endTime = (startDate + allDays.value * 24 * 60 * 60 * 1000);
+                    endDate = new Date(endTime);
+                    day = endDate.getDate() < 10 ? '0' + endDate.getDate() : endDate.getDate();
+                    month = endDate.getMonth() + 1 < 10 ? '0' + (endDate.getMonth() + 1) : endDate.getMonth() + 1;
+                    end.value = day + '.' + month + '.' + endDate.getFullYear();
+                }
+            } else if (isNaN(startDate) && !isNaN(endDate) && endDate <= today) {
+                nEndDate = new Date(today + 24*60*60*1000);
+                day = nEndDate.getDate() < 10 ? '0' + nEndDate.getDate() : nEndDate.getDate();
+                month = nEndDate.getMonth() + 1 < 10 ? '0' + (nEndDate.getMonth() + 1) : nEndDate.getMonth() + 1;
+                end.value = day + '.' + month + '.' + nEndDate.getFullYear();
+                allDays.value = '';
+            } else if (!isNaN(startDate) && !isNaN(endDate) && endDate && endDate > startDate >= today) {
                 allDays.value = (endDate - startDate) / 86400000;
             } else if (!isNaN(startDate) && !isNaN(endDate)){
                 startTime = Math.min(startDate, endDate);
+                startTime = startTime > today ? startTime : today;
                 endTime = Math.max(startDate, endDate);
-                var nStartDate = new Date(startTime),
-                    nEndDate = new Date(endTime);
+                endTime = endTime > today ? endTime : today + 24*60*60*1000;
+                nEndDate = new Date(endTime);
+                nStartDate = new Date(startTime);
                 day = nStartDate.getDate() < 10 ? '0' + nStartDate.getDate() : nStartDate.getDate();
                 month = nStartDate.getMonth() + 1 < 10 ? '0' + (nStartDate.getMonth() + 1) : nStartDate.getMonth() + 1;
                 start.value = day + '.' + month + '.' + nStartDate.getFullYear();
