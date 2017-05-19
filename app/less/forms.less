@@ -384,6 +384,8 @@ input[type='checkbox'] {
 
 // Вкладки адрес / координаты
 .tabs {
+  height: 14px;
+
   & > * {
     cursor: pointer;
   }
@@ -405,6 +407,15 @@ input[type='checkbox'] {
   }
 
   .input-active {
+    display: block;
+    position: relative;
+  }
+}
+
+.stubActBlock {
+  display: none;
+
+  &-active {
     display: block;
   }
 }

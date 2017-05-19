@@ -160,13 +160,16 @@ html(lang='en')
                             div
                                 div.-inline
                                     label.label(for="startEvent") Дата старта
-                                    input.input.input-short(type="text" placeholder="ДД.ММ.ГГГГ" maxlength="10")#startEvent
+                                    input.input.input-short.input-calendar(type="text" placeholder="ДД.ММ.ГГГГ" maxlength="10")#startEvent
                                 div.-inline
                                     label.label(for="endEvent") Дата завершения
-                                    input.input.input-short(type="text" placeholder="ДД.ММ.ГГГГ" maxlength="10")#endEvent
+                                    input.input.input-short.input-calendar(type="text" placeholder="ДД.ММ.ГГГГ" maxlength="10")#endEvent
                                 div.-inline
                                     label.label(for="days") Срок размещения
                                     input.input.input-short(type="text" placeholder="Дней" maxlength="3")#days
+                                div.-inline
+                                    label.label(for="success") Порог успешности
+                                    input.input.input-short(type="text" placeholder="Дней" maxlength="3")#success
                             input(type="checkbox")#allCities
                             label.checkboxLabel(for="allCities")
                                 span

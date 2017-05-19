@@ -145,8 +145,6 @@
 							<select class="select select-mid" size="1" id="direction">
 								<option>Услуги</option>
 								<option>Туризм</option>
-								<option>третья услуга</option>
-								<option>четвертая услуга</option>
 							</select>
 							<div>
 								<div class="-inline">
@@ -161,12 +159,16 @@
 									<label class="label" for="days">Срок размещения</label>
 									<input class="input input-short" type="text" placeholder="Дней" maxlength="3" id="days">
 								</div>
+								<div class="-inline">
+									<label class="label" for="success">Порог успешности</label>
+									<input class="input input-short" type="text" placeholder="Дней" maxlength="3" id="success">
+								</div>
 							</div>
 							<input type="checkbox" id="allCities">
 							<label class="checkboxLabel" for="allCities"><span></span>Все города</label>
 							<div class="formSplitter">
 								<div class="formSplitter__left">
-									<label class="label" for="city">Города размещения</label>
+									<label class="label" for="city">Выбор города</label>
 									<input class="input input-mid" type="text" id="city">
 									<div class="cities"></div>
 								</div>
@@ -261,7 +263,7 @@
 									<label class="label" for="workTime">Время работы</label>
 									<input class="input input-mid" type="text" id="workTime">
 									<input type="checkbox" id="dontShowOnMap">
-									<label class="checkboxLabel" for="dontShowOnMap"><span></span>Не показывать карте</label>
+									<label class="checkboxLabel" for="dontShowOnMap"><span></span>Не показывать карту</label>
 								</div>
 							</div><a class="innerButton innerButton-right" href="#">Сохранить</a>
 						</fieldset>
@@ -288,5 +290,7 @@
 	<script src="js/scrollTo.js"></script>
 	<script src="js/cityCheck.js"></script>
 	<script src="js/datePicker.js"></script>
+	<script src="js/stubActions.js"></script>
+	<script src="js/tagsSelect.js"></script>
 	<!--endbuild-->
 </html>
