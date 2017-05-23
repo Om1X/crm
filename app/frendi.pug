@@ -194,17 +194,15 @@ html(lang='en')
                                     Все города
                             div.formSplitter
                                 div.formSplitter__left
-                                    label.label(for="city") Выбор города
-                                    input.input.input-mid(type="text")#city
-                                    div.cities
-                                        div.city Москва
-                                        div.city Москва ***
+                                    div#cityBlock
+                                        label.label(for="city") Выбор города
+                                        input.input.input-mid(type="text")#city
+                                        div.cities#cities
                                 div.formSplitter__right
-                                    label.label(for="exCity") Кроме городов
-                                    input.input.input-mid(type="text" disabled)#exCity
-                                    div.cities
-                                        div.city Москва
-                                        div.city Москва ***
+                                    div#exCityBlock
+                                        label.label(for="exCity") Кроме городов
+                                        input.input.input-mid(type="text" disabled)#exCity
+                                        div.cities#exCities
                             div
                                 div.-inline
                                     label.label(for="startEvent") Дата старта
@@ -619,37 +617,38 @@ html(lang='en')
                                 div.tag Массаж стоп
                         fieldset.fieldset#fix
                             h2 Закрепление акции
-                            input(type="checkbox")#fix_allCities
-                            label.checkboxLabel(for="fix_allCities")
+                            label.label(for="fixCity") Города закрепления
+                            input(type="checkbox")#fixAllCities
+                            label.checkboxLabel(for="fixAllCities")
                                 span
                                 .
                                     Все города
                             div.formSplitter
                                 div.formSplitter__left
-                                    label.label(for="fix_city") Выбор города
-                                    input.input.input-mid(type="text")#fix_city
+                                    div#fixCityBlock
+                                        label.label(for="fixCity") Выбор города
+                                        input.input.input-mid(type="text")#fixCity
+                                        div.cities#fixCities
                                 div.formSplitter__right
-                                    label.label(for="fix_exCity") Кроме городов
-                                    input.input.input-mid(type="text" disabled)#fix_exCity
-                                    div.cities
-                                        div.city Москва
-                                        div.city Москва ***
-                            label.label(for="fix_category") Категория и подкатегория
-                            input(type='text').input.input-category#fix_category
-                            div.cats
-                                div.tag Красота/SPA, массаж, уход за лицом
-                                div.tag Рестораны/Доставка еды
+                                    div#fixExCityBlock
+                                        label.label(for="fixExCity") Кроме городов
+                                        input.input.input-mid(type="text" disabled)#fixExCity
+                                        div.cities#fixExCities
+                            label.label(for="fixCat") Категория и подкатегория
+                            div#fixCatsBlock
+                                input(type='text').input.input-category#fixCat
+                            div.cats#fixCats
                             div.fixDates
                                 div.fixDates__row
                                     div
                                         label.label(for="position") Место
                                         input.input.input-short(type="text" value="3")#position
                                     div
-                                        label.label(for="endEvent") Период действия закрепления
-                                        input.input.input-short.input-calendar(type="text" placeholder="ДД.ММ.ГГГГ" maxlength="10")#fixStart
+                                        label.label(for="fixEventStart") Период закрепления
+                                        input.input.input-short.input-calendar(type="text" placeholder="ДД.ММ.ГГГГ" maxlength="10")#fixEventStart
                                         div.splitter -
-                                        input.input.input-short.input-calendar(type="text" placeholder="ДД.ММ.ГГГГ" maxlength="10")#fixEnd
-                            div.innerButton.innerButton-right Сохранить
+                                        input.input.input-short.input-calendar(type="text" placeholder="ДД.ММ.ГГГГ" maxlength="10")#fixEventEnd
+                            div.innerButton.innerButton-right Добавить
                         fieldset.fieldset#forMailing
                             h2 Для рассылки
                             label.label(for="followUp")

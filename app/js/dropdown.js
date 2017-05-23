@@ -49,13 +49,14 @@ function selectRender() {
         }
 
         // Обработчик клика по дропу
-        function show() {
+        function show(event) {
             var ul = this.children[1],
                 newPos;
             if (event.target.className !== 'disabled') { // Отсеиваем клики по неактивным полям
 
                 if (event.target.tagName === 'DIV') {
                     ul.classList.toggle('dropdownList-visible');
+                    optionsBlock.style.background = 'rgba(32, 35, 56, 0.1)';
                 } else {
                     selectedOption.classList.remove('dropdown-disabledTxt');
                     ul.classList.toggle('dropdownList-visible');
@@ -66,6 +67,8 @@ function selectRender() {
                         if (ul.children[i] === event.target) {
                             select.getElementsByTagName('option')[i].setAttribute('selected', 'selected');
                             optionsBlock.children[1].children[i].classList.add('selected');
+                            optionsBlock.classList.add('dropdown-ok');
+                            optionsBlock.style.background = '#fff';
                             selectedOption.innerHTML = ul.children[i].innerHTML;
                         }
                     }
@@ -79,7 +82,7 @@ function selectRender() {
         }
 
         // Обработка потери фокуса дропом
-        function hide() {
+        function hide(event) {
             var ul = this.children[1];
             ul.classList.remove('dropdownList-visible');
         }

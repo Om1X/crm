@@ -8,7 +8,7 @@ function menuScroll() {
         return box.top + pageYOffset;
     }
 
-    function mScrollTo() {
+    function mScrollTo(event) {
         if (event.target.tagName !== 'A') return;
         var href = event.target.href,
             id = document.getElementById(href.substr(href.indexOf('#') + 1));

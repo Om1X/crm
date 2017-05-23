@@ -54,7 +54,8 @@ html(lang='en')
                                         for name in contracts
                                             option #{name}
                                 div.formSplitter__right.formSplitter__right-uppercase Заявка к договору
-                                    div.contractNumber А6, 01.02.2017
+                                    div.contractNumber
+                                        div А6, 01.02.2017
                                     div.comissionBlock
                                         div Комиссия, %
                                             div.counts 50
@@ -148,22 +149,24 @@ html(lang='en')
                                     Все города
                             div.formSplitter
                                 div.formSplitter__left
-                                    label.label(for="city") Выбор города
-                                    input.input.input-mid(type="text")#city
-                                    div.cities
+                                    div#cityBlock
+                                        label.label(for="city") Выбор города
+                                        input.input.input-mid(type="text")#city
+                                        div.cities#cities
                                 div.formSplitter__right
-                                    label.label(for="exCity") Кроме городов
-                                    input.input.input-mid(type="text" disabled)#exCity
-                                    div.cities
+                                    div#exCityBlock
+                                        label.label(for="exCity") Кроме городов
+                                        input.input.input-mid(type="text" disabled)#exCity
+                                        div.cities#exCities
                         fieldset.fieldset#coupons
                             h2 Условия действия купонов
                             div
                                 div.-inline
                                     label.label(for="startCoupon") Купон действует с
-                                    input.input.input-short(type="text" placeholder="ДД.ММ.ГГГГ" maxlength="10")#startCoupon
+                                    input.input.input-short.input-calendar(type="text" placeholder="ДД.ММ.ГГГГ" maxlength="10")#startCoupon
                                 div.-inline
                                     label.label(for="endCoupon") по
-                                    input.input.input-short(type="text" placeholder="ДД.ММ.ГГГГ" maxlength="10")#endCoupon
+                                    input.input.input-short.input-calendar(type="text" placeholder="ДД.ММ.ГГГГ" maxlength="10")#endCoupon
                                 div.-inline
                                     label.label(for="couponLink") Количество дней
                                     input.input.input-short(type="text")#couponLink
@@ -254,4 +257,5 @@ html(lang='en')
     script(src="js/datePicker.js")
     script(src="js/stubActions.js")
     script(src="js/tagsSelect.js")
+    script(src="js/fixAct.js")
     //endbuild

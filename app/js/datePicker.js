@@ -1,8 +1,7 @@
-(function ($) {
+function datePicker(id) {
+    if (!document.getElementById(id)) return;
     var regExp = /(\d+)\S(\d+)\S(\d+)/,
-        start = document.getElementById('startEvent'),
-        end = document.getElementById('endEvent'),
-        allDays = document.getElementById('days');
+        start, end, allDays;
 
     // Создание и описание русской локали
     $.datepicker.regional['ru'] = {
@@ -24,14 +23,26 @@
         showMonthAfterYear: false,
         yearSuffix: ''
     };
-
     // Применение настроек
     $.datepicker.setDefaults($.datepicker.regional['ru']);
+    switch (id) {
 
-    $('#startEvent').datepicker();
-    $('#endEvent').datepicker();
-    $('#fixStart').datepicker();
-    $('#fixEnd').datepicker();
+        case 'startEvent':
+            start = document.getElementById('startEvent');
+            end = document.getElementById('endEvent');
+            allDays = document.getElementById('days');
+            $('#startEvent').datepicker();
+            $('#endEvent').datepicker();
+            break;
+
+        case 'fixEventStart':
+            start = document.getElementById('fixEventStart');
+            end = document.getElementById('fixEventEnd');
+            $('#fixEventStart').datepicker();
+            $('#fixEventEnd').datepicker();
+            break;
+    }
+
     $('#startCoupon').datepicker();
     $('#endCoupon').datepicker();
 
@@ -39,22 +50,22 @@
     function datesChange() {
         setTimeout(function () {
             var today = Date.now(),
-                startDate = Date.parse(start.value.replace(regExp, '$2.$1.$3')),
-                endDate = Date.parse(end.value.replace(regExp, '$2.$1.$3')),
+                startDate = Date.parse(start.value.replace(regExp, '$3-$2-$1')),
+                endDate = Date.parse(end.value.replace(regExp, '$3-$2-$1')),
                 startTime,
                 endTime,
                 day,
                 month,
                 nStartDate,
                 nEndDate;
-
             if (!isNaN(startDate) && isNaN(endDate) && startDate < today) {
                 nStartDate = new Date(today);
                 day = nStartDate.getDate() < 10 ? '0' + nStartDate.getDate() : nStartDate.getDate();
                 month = nStartDate.getMonth() + 1 < 10 ? '0' + (nStartDate.getMonth() + 1) : nStartDate.getMonth() + 1;
                 start.value = day + '.' + month + '.' + nStartDate.getFullYear();
-                if (allDays.value) {
-                    startDate = Date.parse(start.value.replace(regExp, '$2.$1.$3'));
+                if (allDays && allDays.value) {
+
+                    startDate = Date.parse(start.value.replace(regExp, '$3-$2-$1'));
                     endTime = (startDate + allDays.value * 24 * 60 * 60 * 1000);
                     endDate = new Date(endTime);
                     day = endDate.getDate() < 10 ? '0' + endDate.getDate() : endDate.getDate();
@@ -62,18 +73,18 @@
                     end.value = day + '.' + month + '.' + endDate.getFullYear();
                 }
             } else if (isNaN(startDate) && !isNaN(endDate) && endDate <= today) {
-                nEndDate = new Date(today + 24*60*60*1000);
+                nEndDate = new Date(today + 24 * 60 * 60 * 1000);
                 day = nEndDate.getDate() < 10 ? '0' + nEndDate.getDate() : nEndDate.getDate();
                 month = nEndDate.getMonth() + 1 < 10 ? '0' + (nEndDate.getMonth() + 1) : nEndDate.getMonth() + 1;
                 end.value = day + '.' + month + '.' + nEndDate.getFullYear();
-                allDays.value = '';
+                if (allDays) allDays.value = '';
             } else if (!isNaN(startDate) && !isNaN(endDate) && endDate && endDate > startDate >= today) {
                 allDays.value = (endDate - startDate) / 86400000;
-            } else if (!isNaN(startDate) && !isNaN(endDate)){
+            } else if (!isNaN(startDate) && !isNaN(endDate)) {
                 startTime = Math.min(startDate, endDate);
                 startTime = startTime > today ? startTime : today;
                 endTime = Math.max(startDate, endDate);
-                endTime = endTime > today ? endTime : today + 24*60*60*1000;
+                endTime = endTime > today ? endTime : today + 24 * 60 * 60 * 1000;
                 nEndDate = new Date(endTime);
                 nStartDate = new Date(startTime);
                 day = nStartDate.getDate() < 10 ? '0' + nStartDate.getDate() : nStartDate.getDate();
@@ -82,15 +93,15 @@
                 day = nEndDate.getDate() < 10 ? '0' + nEndDate.getDate() : nEndDate.getDate();
                 month = nEndDate.getMonth() + 1 < 10 ? '0' + (nEndDate.getMonth() + 1) : nEndDate.getMonth() + 1;
                 end.value = day + '.' + month + '.' + nEndDate.getFullYear();
-                startDate = Date.parse(start.value.replace(regExp, '$2.$1.$3'));
-                endDate = Date.parse(end.value.replace(regExp, '$2.$1.$3'));
-                allDays.value = (endDate - startDate) / 86400000;
+                startDate = Date.parse(start.value.replace(regExp, '$3-$2-$1'));
+                endDate = Date.parse(end.value.replace(regExp, '$3-$2-$1'));
+                if (allDays) allDays.value = (endDate - startDate) / 86400000;
             }
         }, 200);
     }
 
     function daysChange() {
-        var startDate = Date.parse(start.value.replace(regExp, '$2.$1.$3')),
+        var startDate = Date.parse(start.value.replace(regExp, '$3-$2-$1')),
             endTime,
             day,
             month;
@@ -101,7 +112,7 @@
             day = endDate.getDate() < 10 ? '0' + endDate.getDate() : endDate.getDate();
             month = endDate.getMonth() + 1 < 10 ? '0' + (endDate.getMonth() + 1) : endDate.getMonth() + 1;
             end.value = day + '.' + month + '.' + endDate.getFullYear();
-        } else if(!isNaN(startDate) && !isNaN(allDays.value) && allDays.value && allDays.value <= 0) {
+        } else if (!isNaN(startDate) && !isNaN(allDays.value) && allDays.value && allDays.value <= 0) {
             allDays.value = 1;
             daysChange()
         } else {
@@ -111,5 +122,9 @@
 
     start.addEventListener('blur', datesChange);
     end.addEventListener('blur', datesChange);
-    allDays.addEventListener('keyup', daysChange);
-})(jQuery);
+
+    if (allDays) allDays.addEventListener('keyup', daysChange);
+}
+
+datePicker('startEvent');
+datePicker('fixEventStart');

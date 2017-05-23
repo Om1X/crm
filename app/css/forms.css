@@ -16,16 +16,21 @@ div.-inline:nth-child(4n) {
 .label {
   font-family: 'Raleway', sans-serif;
   font-weight: 600;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   font-size: 14px;
   line-height: 14px;
   color: rgba(32, 36, 56, 0.4);
   margin-bottom: 8px;
 }
 .input {
-  box-sizing: border-box;
-  padding: 25px 15px 21px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0 15px 0;
   margin-bottom: 16px;
   font-family: 'Raleway', sans-serif;
   font-weight: 500;
@@ -64,6 +69,21 @@ div.-inline:nth-child(4n) {
 .input-calendar:focus {
   background: url("../images/calendar.svg") top 15px right 15px no-repeat;
 }
+.input::-webkit-input-placeholder {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+  color: rgba(32, 36, 56, 0.4);
+}
+.input::-moz-placeholder {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+  color: rgba(32, 36, 56, 0.4);
+}
+.input:-ms-input-placeholder {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+  color: rgba(32, 36, 56, 0.4);
+}
 .input::placeholder {
   font-family: 'Raleway', sans-serif;
   font-weight: 500;
@@ -74,11 +94,12 @@ div.-inline:nth-child(4n) {
 }
 .input:focus {
   border: 2px solid #1b68ff;
-  padding: 23px 14px 19px;
+  padding: 0 14px 0;
   outline: none;
 }
 .select {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 0 16px;
   margin-bottom: 16px;
   font-family: 'Raleway', sans-serif;
@@ -100,11 +121,6 @@ div.-inline:nth-child(4n) {
 .select:hover {
   border: solid 1px rgba(32, 35, 56, 0.4);
 }
-.select:focus {
-  border: 2px solid #1b68ff;
-  padding: 0 15px;
-  outline: none;
-}
 .option {
   width: 233px;
   height: 56px;
@@ -116,6 +132,8 @@ option[disabled] {
   color: rgba(32, 36, 56, 0.4);
 }
 .formSplitter {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 .formSplitter__left {
@@ -123,19 +141,21 @@ option[disabled] {
 }
 .formSplitter__right {
   padding-left: 25px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   font-family: 'Raleway', sans-serif;
-  font-weight: 600;
   line-height: 1.4;
-  color: rgba(32, 36, 56, 0.4);
 }
 .formSplitter__right-uppercase {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 10px;
+  color: rgba(32, 36, 56, 0.4);
+  font-weight: 600;
 }
 .textarea {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 17px 25px 15px 16px;
   width: 696px;
   border-radius: 4px;
@@ -184,7 +204,8 @@ input[type='checkbox'] + .checkboxLabel {
   font-size: 14px;
 }
 input[type='checkbox'] + .checkboxLabel > span {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   display: inline-block;
   text-align: center;
   width: 24px;
@@ -218,7 +239,8 @@ input[type='checkbox']:checked + .checkboxLabel > span {
 }
 input[type='checkbox']:checked + .checkboxLabel:hover > span {
   background-color: #0048ff;
-  box-shadow: 0 2px 4px 0 rgba(0, 72, 255, 0.58);
+  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 72, 255, 0.58);
+          box-shadow: 0 2px 4px 0 rgba(0, 72, 255, 0.58);
 }
 input[type='checkbox']:checked + .checkboxLabel > span::after {
   display: block;
@@ -231,7 +253,9 @@ input[type='checkbox']:checked + .checkboxLabel > span::after {
   border: 2px solid #fff;
   border-top: none;
   border-left: none;
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 .innerButton {
   display: inline-block;
@@ -292,7 +316,8 @@ input[type='checkbox']:checked + .checkboxLabel > span::after {
 }
 .submit:hover {
   background-color: #ff5721;
-  box-shadow: 0 2px 4px 0 #ff5721;
+  -webkit-box-shadow: 0 2px 4px 0 #ff5721;
+          box-shadow: 0 2px 4px 0 #ff5721;
 }
 .submit:active {
   background-color: #e86d41;
@@ -350,4 +375,73 @@ input[type='checkbox']:checked + .checkboxLabel > span::after {
 }
 .stubActBlock-active {
   display: block;
+}
+.fixedActs {
+  margin-left: -23px;
+}
+.fixedActs__act {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 8px;
+}
+.fixedActs__act:hover > .trash {
+  display: block;
+}
+.fixedActs__num {
+  color: rgba(32, 36, 56, 0.4);
+  font-size: 14px;
+  font-weight: 600;
+  text-align: right;
+  padding: 16px 8px 0 0;
+  width: 23px;
+}
+.fixedActs__content {
+  padding: 16px 16px 20px;
+  width: 100%;
+  border-radius: 8px;
+  background-color: #fff;
+  -webkit-box-shadow: 0 2px 4px 0 rgba(32, 36, 56, 0.2);
+          box-shadow: 0 2px 4px 0 rgba(32, 36, 56, 0.2);
+}
+.fixedActs__head {
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 1px;
+  color: rgba(32, 36, 56, 0.4);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.fixedActs__text {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 14px;
+  text-align: left;
+  color: #202438;
+  margin-bottom: 16px;
+}
+.fixedActs__cats {
+  margin-bottom: 10px;
+}
+.fixedActs__dateRow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.fixedActs__place {
+  margin-right: 56px;
+}
+.trash {
+  width: 16px;
+  height: 20px;
+  background: url("../images/trash.svg");
+  cursor: pointer;
+}
+.trash-fixCats {
+  display: none;
+  position: absolute;
+  top: 16px;
+  right: 16px;
 }

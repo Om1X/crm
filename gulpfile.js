@@ -6,6 +6,7 @@ const gulpIf = require('gulp-if');
 const uglify = require('gulp-uglify');
 const minifyCSS = require('gulp-minify-css');
 const pug = require('gulp-pug');
+const autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('pug', function buildHTML() {
     return gulp.src('app/*.pug')
@@ -19,6 +20,7 @@ gulp.task('pug', function buildHTML() {
 gulp.task('less', function () {
     return gulp.src('app/less/**/*.less')
         .pipe(less())
+        .pipe(autoprefixer({browsers: ['last 4 versions']}))
         .pipe(gulp.dest('app/css'))
         .pipe(browserSync.reload({
             stream: true

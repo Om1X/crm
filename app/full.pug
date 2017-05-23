@@ -177,15 +177,15 @@ html(lang='en')
                                     Все города
                             div.formSplitter
                                 div.formSplitter__left
-                                    label.label(for="city") Города размещения
-                                    input.input.input-mid(type="text")#city
-                                    div.tag Москва
-                                    div.tag Москва ***
+                                    div#cityBlock
+                                        label.label(for="city") Выбор города
+                                        input.input.input-mid(type="text")#city
+                                        div.cities#cities
                                 div.formSplitter__right
-                                    label.label(for="exCity") Кроме городов
-                                    input.input.input-mid(type="text")#exCity
-                                    div.tag Москва
-                                    div.tag Москва ***
+                                    div#exCityBlock
+                                        label.label(for="exCity") Кроме городов
+                                        input.input.input-mid(type="text" disabled)#exCity
+                                        div.cities#exCities
                         fieldset.fieldset#coupons
                             h2 Условия действия купонов
                             div

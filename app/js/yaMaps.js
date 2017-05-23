@@ -12,22 +12,21 @@ ymaps.ready(function () {
 
     }
 
-
     // сделать общий блок для прослушки и навешать обработчики для перехвата событий
-
 
     function addressSuggest(id) {
         var sInput = document.getElementById(id);
         if (!sInput) return;
         var parentBlock = sInput.parentNode,
             ul = document.createElement('ul');
+        sInput.setAttribute('autocomplete', 'no');
         parentBlock.appendChild(ul);
         ul.classList.add('suggest');
+        ul.classList.add('suggest-address');
 
         function getInfo() {
             if (addressInput.value.length < 5) return;
             ul.style.display = 'none';
-            console.log(event.target);
             var addrInputVal = addressInput.value,
                 metroList = '',
                 metroCounter = 3,
@@ -95,8 +94,7 @@ ymaps.ready(function () {
             });
         }
 
-
-        function searchAddress() {
+        function searchAddress(event) {
             if (addressInput.value.length < 5) {
                 ul.innerHTML = '';
                 ul.style.display = 'none';
@@ -106,12 +104,10 @@ ymaps.ready(function () {
             var xhr = new XMLHttpRequest(),
                 search = addressInput.value,
                 url = 'https://geocode-maps.yandex.ru/1.x/?format=json&results=5&geocode=' + search,
-                res;
+                res,
+                regExp = new RegExp(search, 'ig');
 
-            console.log(url);
             xhr.open('GET', url, true);
-
-
             xhr.send();
             xhr.onreadystatechange = function () {
                 if (xhr.readyState !== 4) return;
@@ -127,35 +123,37 @@ ymaps.ready(function () {
                         ul.style.display = 'block';
                         ul.innerHTML = '';
                         res.forEach(function (item, i, res) {
-                            var li = document.createElement('li');
+                            var li = document.createElement('li'),
+                                result,
+                                replace;
                             ul.appendChild(li);
-                            li.innerText = res[i].GeoObject.description + ', ' + res[i].GeoObject.name;
+                            li.innerHTML = res[i].GeoObject.description + ', ' + res[i].GeoObject.name;
+                            result = li.innerHTML.match(regExp);
+                            if (!result) return; // Можно сделать автокоррекцию
+                            replace = new RegExp(result[0], 'gi');
+                            li.innerHTML = li.innerHTML.replace(replace, '<b>' + result[0] + '</b>')
                         });
                     }
                 }
             };
         }
 
-        function hide() {
+        function hide(event) {
             setTimeout(function () {
                 ul.innerHTML = '';
                 ul.style.display = 'none';
             }, 150);
         }
 
-        function suggestClick() {
+        function suggestClick(event) {
             ul.style.display = 'none';
-            console.log(event.target.innerText);
-            addressInput.value = event.target.innerText;
+            addressInput.value = event.target.tagName === 'B' ? event.target.parentNode.innerText : event.target.innerText;
             getInfo();
         }
-
 
         ul.addEventListener('click', suggestClick);
         addressInput.addEventListener('blur', hide);
         addressInput.addEventListener('keyup', searchAddress);
-
-
     }
 
     crMap();

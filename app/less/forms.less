@@ -31,7 +31,7 @@ div.-inline {
 
 .input {
   box-sizing: border-box;
-  padding: 25px 15px 21px;
+  padding: 0 15px 0;
   margin-bottom: 16px;
   font-family: 'Raleway', sans-serif;
   font-weight: 500;
@@ -43,7 +43,7 @@ div.-inline {
   text-align: left;
   color: #202438;
 
-  &[disabled]{
+  &[disabled] {
     background-color: rgba(32, 36, 56, 0.05);
   }
 
@@ -121,7 +121,7 @@ div.-inline {
   }
 
   &:focus {
-    .selectFocus
+    //.selectFocus
   }
 }
 
@@ -149,14 +149,14 @@ option[disabled] {
     padding-left: 25px;
     box-sizing: border-box;
     font-family: 'Raleway', sans-serif;
-    font-weight: 600;
     line-height: 1.4;
-    color: rgba(32, 36, 56, 0.4);
 
     &-uppercase {
       text-transform: uppercase;
       letter-spacing: 1px;
       font-size: 10px;
+      color: rgba(32, 36, 56, 0.4);
+      font-weight: 600;
     }
   }
 }
@@ -245,7 +245,6 @@ input[type='checkbox'] {
     }
   }
 
-
   &:checked {
     & + .checkboxLabel {
       color: #202438;
@@ -297,7 +296,7 @@ input[type='checkbox'] {
   &-right {
     float: right;
   }
-  
+
   &-left {
     float: left;
   }
@@ -389,7 +388,7 @@ input[type='checkbox'] {
   & > * {
     cursor: pointer;
   }
-  
+
   .label__tab {
     float: left;
     color: rgba(32, 36, 56, 0.2);
@@ -417,5 +416,85 @@ input[type='checkbox'] {
 
   &-active {
     display: block;
+  }
+}
+
+.fixedActs {
+  margin-left: -23px;
+
+  &__act {
+    position: relative;
+    display: flex;
+    margin-bottom: 8px;
+
+    &:hover > .trash {
+      display: block;
+    }
+  }
+
+  &__num {
+    color: rgba(32, 36, 56, 0.4);
+    font-size: 14px;
+    font-weight: 600;
+    text-align: right;
+    padding: 16px 8px 0 0;
+    width: 23px;
+  }
+
+  &__content {
+    padding: 16px 16px 20px;
+    width: 100%;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px 0 rgba(32, 36, 56, 0.2);
+  }
+
+  &__head {
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 1px;
+    color: rgba(32, 36, 56, 0.4);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  &__text {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 14px;
+    text-align: left;
+    color: #202438;
+    margin-bottom: 16px;
+  }
+
+  &__cats {
+    margin-bottom: 10px;
+  }
+
+  &__dateRow {
+    display: flex;
+  }
+
+  &__place {
+    margin-right: 56px;
+  }
+}
+
+.fixActForm {
+  //display: none;
+}
+
+.trash {
+  width: 16px;
+  height: 20px;
+  background: url("../images/trash.svg");
+  cursor: pointer;
+
+  &-fixCats {
+    display: none;
+    position: absolute;
+    top: 16px;
+    right: 16px;
   }
 }

@@ -88,7 +88,9 @@
 									</select>
 								</div>
 								<div class="formSplitter__right formSplitter__right-uppercase">Заявка к договору
-									<div class="contractNumber">А6, 01.02.2017</div>
+									<div class="contractNumber">
+										<div>А6, 01.02.2017</div>
+									</div>
 									<div class="comissionBlock">
 										<div>Комиссия, %
 											<div class="counts">50</div>
@@ -168,14 +170,18 @@
 							<label class="checkboxLabel" for="allCities"><span></span>Все города</label>
 							<div class="formSplitter">
 								<div class="formSplitter__left">
-									<label class="label" for="city">Выбор города</label>
-									<input class="input input-mid" type="text" id="city">
-									<div class="cities"></div>
+									<div id="cityBlock">
+										<label class="label" for="city">Выбор города</label>
+										<input class="input input-mid" type="text" id="city">
+										<div class="cities" id="cities"></div>
+									</div>
 								</div>
 								<div class="formSplitter__right">
-									<label class="label" for="exCity">Кроме городов</label>
-									<input class="input input-mid" type="text" disabled id="exCity">
-									<div class="cities"></div>
+									<div id="exCityBlock">
+										<label class="label" for="exCity">Кроме городов</label>
+										<input class="input input-mid" type="text" disabled id="exCity">
+										<div class="cities" id="exCities"></div>
+									</div>
 								</div>
 							</div>
 						</fieldset>
@@ -184,11 +190,11 @@
 							<div>
 								<div class="-inline">
 									<label class="label" for="startCoupon">Купон действует с</label>
-									<input class="input input-short" type="text" placeholder="ДД.ММ.ГГГГ" maxlength="10" id="startCoupon">
+									<input class="input input-short input-calendar" type="text" placeholder="ДД.ММ.ГГГГ" maxlength="10" id="startCoupon">
 								</div>
 								<div class="-inline">
 									<label class="label" for="endCoupon">по</label>
-									<input class="input input-short" type="text" placeholder="ДД.ММ.ГГГГ" maxlength="10" id="endCoupon">
+									<input class="input input-short input-calendar" type="text" placeholder="ДД.ММ.ГГГГ" maxlength="10" id="endCoupon">
 								</div>
 								<div class="-inline">
 									<label class="label" for="couponLink">Количество дней</label>
@@ -292,5 +298,6 @@
 	<script src="js/datePicker.js"></script>
 	<script src="js/stubActions.js"></script>
 	<script src="js/tagsSelect.js"></script>
+	<script src="js/fixAct.js"></script>
 	<!--endbuild-->
 </html>
