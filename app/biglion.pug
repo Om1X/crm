@@ -620,7 +620,23 @@ html(lang='en')
                         fieldset.fieldset#fix
                             h2 Закрепление акции
                             div.fixedActs#fixedActs
-                            div.fixActForm.hidden#fixActForm
+                                div.fixedActs__act.fixedActs-expire
+                                    div.fixedActs__num 1
+                                    div.fixedActs__content
+                                        div.fixedActs__head Города размещения
+                                        div.fixedActs__text.fixedActs-expire Новосибирск
+                                        div.fixedActs__head Категория и подкатегория
+                                        div.fixedActs__cats
+                                            span.tag.fixedActs-expire Красота/Уход за лицом
+                                        div.fixedActs__dateRow
+                                            div.fixedActs__place
+                                                div.fixedActs__head Место
+                                                div.fixedActs__text.fixedActs-expire 1
+                                            div
+                                                div.fixedActs__head Период закрепления
+                                                div.fixedActs__text.fixedActs-expire 01.05.2017 - 20.05.2017
+                                    div.trash.trash-fixCats
+                            div.fixActForm#fixActForm
                                 label.label(for="fixCity") Города закрепления
                                 input(type="checkbox")#fixAllCities
                                 label.checkboxLabel(for="fixAllCities")
@@ -631,12 +647,12 @@ html(lang='en')
                                     div.formSplitter__left
                                         div#fixCityBlock
                                             label.label(for="fixCity") Выбор города
-                                            input.input.input-mid(type="text")#fixCity
+                                            input.input.input-fixForm(type="text")#fixCity
                                             div.cities#fixCities
                                     div.formSplitter__right
                                         div#fixExCityBlock
                                             label.label(for="fixExCity") Кроме городов
-                                            input.input.input-mid(type="text" disabled)#fixExCity
+                                            input.input.input-fixForm(type="text" disabled)#fixExCity
                                             div.cities#fixExCities
                                 label.label(for="fixCat") Категория и подкатегория
                                 div#fixCatsBlock
@@ -646,13 +662,17 @@ html(lang='en')
                                     div.fixDates__row
                                         div
                                             label.label(for="position") Место
-                                            input.input.input-short(type="text" value="3")#position
+                                            input.input.input-short(type="text")#position
                                         div
                                             label.label(for="fixEventStart") Период закрепления
                                             input.input.input-short.input-calendar(type="text" placeholder="ДД.ММ.ГГГГ" maxlength="10")#fixEventStart
                                             div.splitter -
                                             input.input.input-short.input-calendar(type="text" placeholder="ДД.ММ.ГГГГ" maxlength="10")#fixEventEnd
-                            div.innerButton.innerButton-right#fixActButton Добавить
+                                div.innerButtonsHolder
+                                    div.innerButton#fixCancelButton Отмена
+                                    div.innerButton.innerButton-add#fixActButton Добавить
+                            div.innerButtonsHolder
+                                div.innerButton.hidden#fixShowForm Добавить
                         fieldset.fieldset#comments
                             h2 Комментарии
                             label.label(for="commentText") Комментарий для менеджера или руководителя

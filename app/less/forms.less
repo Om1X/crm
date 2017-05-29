@@ -51,6 +51,10 @@ div.-inline {
     margin-bottom: 8px;
   }
 
+  &-fixForm {
+    width: @fixFormInputsWidth;
+  }
+
   &-mid {
     width: @midInputsWidth;
   }
@@ -65,6 +69,10 @@ div.-inline {
 
   &-ok {
     border: solid 1px #43d167;
+  }
+
+  &-error {
+    color: #ff4355;
   }
 
   &-category {
@@ -277,6 +285,11 @@ input[type='checkbox'] {
   }
 }
 
+.innerButtonsHolder {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .innerButton {
   display: inline-block;
   cursor: pointer;
@@ -308,6 +321,43 @@ input[type='checkbox'] {
   &:active {
     background-color: rgba(32, 35, 56, 0.2);
     color: rgba(32, 36, 56, 0.8);
+  }
+
+  &-add {
+    color: #fff;
+    background-color: #ff7642;
+    margin-left: 8px;
+
+    &:hover {
+      background-color: #ff5721;
+      box-shadow: 0 2px 4px 0 #ff5721;
+    }
+
+    &:active {
+      border-radius: 100px;
+      background-color: #e96e41;
+      color: #fff;
+      opacity: 0.8;
+      box-shadow: none;
+    }
+  }
+
+  &-cancel {
+    background: none;
+    border: solid 1px #ff7642;
+    color: #ff7642;
+
+    &:hover {
+      background-color: #ff5721;
+      box-shadow: 0 2px 4px 0 #ff5721;
+      color: #fff;
+    }
+
+    &:active {
+      opacity: 0.8;
+      color: #fff;
+      background-color: #e96e41;
+    }
   }
 }
 
@@ -421,6 +471,7 @@ input[type='checkbox'] {
 
 .fixedActs {
   margin-left: -23px;
+  margin-bottom: 20px;
 
   &__act {
     position: relative;
@@ -446,7 +497,12 @@ input[type='checkbox'] {
     width: 100%;
     border-radius: 8px;
     background-color: #fff;
-    box-shadow: 0 2px 4px 0 rgba(32, 36, 56, 0.2);
+    color: #202438;
+    box-shadow: 1px 2px 6px 0 rgba(32, 36, 56, 0.12), 0 -1px 2px 0 rgba(32, 36, 56, 0.05);
+
+    &:hover {
+      box-shadow: 1px 2px 6px 0 rgba(32, 36, 56, 0.3);
+    }
   }
 
   &__head {
@@ -464,7 +520,6 @@ input[type='checkbox'] {
     font-weight: 500;
     line-height: 14px;
     text-align: left;
-    color: #202438;
     margin-bottom: 16px;
   }
 
@@ -479,10 +534,17 @@ input[type='checkbox'] {
   &__place {
     margin-right: 56px;
   }
+
+  &-expire {
+    color: rgba(32, 36, 56, 0.4);
+  }
 }
 
 .fixActForm {
-  //display: none;
+  padding: 16px 16px 20px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 1px 2px 6px 0 rgba(32, 36, 56, 0.12), 0 -1px 2px 0 rgba(32, 36, 56, 0.05);
 }
 
 .trash {
@@ -497,4 +559,9 @@ input[type='checkbox'] {
     top: 16px;
     right: 16px;
   }
+}
+
+.actDeleted {
+  display: inline-block;
+  line-height: 52px;
 }
