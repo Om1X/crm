@@ -1,25 +1,26 @@
 function fixAct() {
+    if (!document.getElementById('fixedActs')) return;
     var actsObj = {
-            1: {
-                cities: ['Санкт-Петербург'],
-                exCities: [],
-                cats: ['Красота/Уход за лицом'],
-                place: 3,
-                startDate: '01.06.2017',
-                endDate: '15.06.2017',
-                deleted: 'no'
-            },
-
-            2: {
-                cities: [],
-                exCities: ['Москва'],
-                cats: ['Красота/Уход за лицом'],
-                place: 2,
-                startDate: '25.04.2017',
-                endDate: '31.04.2017',
-                deleted: 'no'
-            },
-
+            // 1: {
+            //     cities: ['Санкт-Петербург'],
+            //     exCities: [],
+            //     cats: ['Красота/Уход за лицом'],
+            //     place: 3,
+            //     startDate: '01.06.2017',
+            //     endDate: '15.06.2017',
+            //     deleted: 'no'
+            // },
+            //
+            // 2: {
+            //     cities: [],
+            //     exCities: ['Москва'],
+            //     cats: ['Красота/Уход за лицом'],
+            //     place: 2,
+            //     startDate: '25.04.2017',
+            //     endDate: '31.04.2017',
+            //     deleted: 'no'
+            // },
+            //
             3: {
                 cities: ['Новосибирск'],
                 exCities: [],
@@ -28,17 +29,17 @@ function fixAct() {
                 startDate: '01.05.2017',
                 endDate: '20.05.2017',
                 deleted: 'no'
-            },
-
-            4: {
-                cities: ['Омск'],
-                exCities: [],
-                cats: ['Красота/Уход за лицом', 'Красота/Маникюр, педикюр'],
-                place: 5,
-                startDate: '01.06.2017',
-                endDate: '20.06.2017',
-                deleted: 'no'
             }
+            //
+            // 4: {
+            //     cities: ['Омск'],
+            //     exCities: [],
+            //     cats: ['Красота/Уход за лицом', 'Красота/Маникюр, педикюр'],
+            //     place: 5,
+            //     startDate: '01.06.2017',
+            //     endDate: '20.06.2017',
+            //     deleted: 'no'
+            // }
         },
         fixActForm = document.getElementById('fixActForm'),
         fixCities = document.getElementById('fixCities'),
@@ -53,24 +54,60 @@ function fixAct() {
         fixShowForm = document.getElementById('fixShowForm'),
         position = document.getElementById('position'),
         dateNow = Date.now();
-    // actsObj.reverse();
 
     function cancelButton() {
         if (fixedActs.children.length === 0) {
+            fixActForm.classList.remove('hidden');
+            fixShowForm.classList.add('hidden');
             fixCancelButton.classList.add('hidden');
             fixActButton.classList.remove('innerButton-add');
         } else {
+
             fixCancelButton.classList.remove('hidden');
             fixActButton.classList.add('innerButton-add');
         }
     }
 
+    function removeAct(event) {
+
+        actsObj[event.target.id].deleted = 'yes';
+
+        cancelButton();
+        if (fixedActs.children.length === 0 && fixActForm.classList.contains('hidden')) {
+            fixActForm.classList.remove('hidden');
+            fixShowForm.classList.add('hidden');
+        }
+        renderList();
+    }
+
+    function placeCheck() {
+        var i, keys = Object.keys(actsObj), errorBlock = document.createElement('div');
+
+        errorBlock.classList.add('errorMsg');
+        errorBlock.innerText = 'Это место занято. Измените место, даты или категорию закрепления.';
+
+        for(i = 0; i < keys.length; i++) {
+            if (actsObj[keys[i]].place === +position.value) {
+                alert('bad');
+                position.classList.add('input-error');
+                position.parentNode.appendChild(errorBlock);
+                return true;
+            } else {
+                if (position.classList.contains('input-error')) {
+                    position.classList.remove('input-error');
+                    errorBlock = position.parentNode.getElementsByClassName('errorMsg')[0];
+                    position.parentNode.removeChild(errorBlock);
+                }
+            }
+        }
+    }
+
     function renderList() {
+        cancelButton();
         var newAct, newContent, newDateRow, nelem, elem, cities = '', exCities = '', keys;
-        if (actsObj.length === 0) return;
+        if (Object.keys(actsObj).length === 0) return;
         fixedActs.innerHTML = '';
-        fixActForm.classList.add('hidden');
-        fixShowForm.classList.remove('hidden');
+
         keys = Object.keys(actsObj);
         for (var key = 0; key < (keys.length > 3 ? 3 : keys.length); key++) {
             if (actsObj[keys[key]].deleted === 'no') {
@@ -104,11 +141,13 @@ function fixAct() {
                         cities += i === arr.length - 1 ? item : item + ', ';
                     });
                     nelem.innerText = cities;
+                    cities = '';
                 } else {
                     actsObj[keys[key]].exCities.forEach(function (item, i, arr) {
                         exCities += i === arr.length - 1 ? item : item + ', ';
                     });
                     nelem.innerText = 'Все города кроме: ' + exCities;
+                    exCities = '';
                 }
 
                 newContent.appendChild(nelem);
@@ -121,7 +160,7 @@ function fixAct() {
 
                 nelem = document.createElement('div');
                 nelem.classList.add('fixedActs__cats');
-                actsObj[keys[key]].cats.forEach(function (item, i, arr) {
+                actsObj[keys[key]].cats.forEach(function (item, i) {
                     elem = document.createElement('span');
                     elem.classList.add('tag');
                     elem.classList.add('tag-fixed');
@@ -177,12 +216,14 @@ function fixAct() {
                 newAct.appendChild(nelem);
 
                 fixedActs.appendChild(newAct);
+                cancelButton();
             } else if (actsObj[keys[key]].deleted === 'yes') {
-                
+
                 function cancelActDel(event) {
-                    console.log(event.target);
+                    actsObj[event.target.id].deleted = 'no';
+                    renderList();
                 }
-                
+
                 // Номер
                 newAct = document.createElement('div');
                 newAct.classList.add('fixedActs__act');
@@ -204,46 +245,36 @@ function fixAct() {
                 nelem.classList.add('innerButton');
                 nelem.classList.add('innerButton-cancel');
                 nelem.classList.add('innerButton-right');
+                nelem.setAttribute('id', keys[key]);
                 nelem.innerText = 'Отмена';
-                
+
                 nelem.addEventListener('click', cancelActDel);
                 newContent.appendChild(nelem);
 
                 newAct.appendChild(newContent);
 
                 fixedActs.appendChild(newAct);
+                cancelButton();
             }
         }
     }
 
     renderList();
 
-    function removeAct(event) {
-
-        actsObj[event.target.id].deleted = 'yes';
-
-        cancelButton();
-        if (fixedActs.children.length === 0 && fixActForm.classList.contains('hidden')) {
-            fixActForm.classList.remove('hidden');
-            fixShowForm.classList.add('hidden');
-        }
-        renderList();
-    }
-
-    function curActsCheck() {
-        var trash = document.getElementsByClassName('trash trash-fixCats');
-
-        for (i = 0; i < trash.length; i++) {
-            trash[i].addEventListener('click', removeAct);
-        }
-    }
-
-    curActsCheck();
+    // function curActsCheck() {
+    //     var trash = document.getElementsByClassName('trash trash-fixCats');
+    //
+    //     for (var i = 0; i < trash.length; i++) {
+    //         trash[i].addEventListener('click', removeAct);
+    //     }
+    // }
+    //
+    // curActsCheck();
 
     function fixClick() {
-        if (fixActForm.classList.contains('hidden')) {
-            fixActForm.classList.remove('hidden')
-        } else {
+        // if (fixActForm.classList.contains('hidden')) {
+            // fixActForm.classList.remove('hidden')
+        // } else {
             if (
                 fixExCities.innerHTML ||
                 fixCities.innerHTML &&
@@ -252,21 +283,56 @@ function fixAct() {
                 startDate.value &&
                 endDate.value
             ) {
-                var newFixAct = {
-                    cities: ['Санкт-Петербург'],
-                    exCities: [],
-                    cats: ['Красота/Уход за лицом'],
-                    place: 3,
-                    startDate: '01.06.2017',
-                    endDate: '15.06.2017'
+
+                if(placeCheck()) return;
+
+                if (fixCities.children.length > 0) {
+                    cities = fixCities.innerText.split('\n');
+                    cities.splice(cities.length - 1, 1);
+                } else {
+                    cities = [];
+                }
+
+                if (fixExCities.children.length > 0) {
+                    exCities = fixExCities.innerText.split('\n');
+                    exCities.splice(exCities.length - 1, 1);
+                } else {
+                    exCities = [];
+                }
+
+                if (fixedCats.children.length > 0) {
+                    var cats = fixedCats.innerText.split('\n');
+                    cats.splice(cats.length - 1, 1);
+                } else {
+                    cats = [];
+                }
+
+                key = Object.keys(actsObj).length - 1;
+                key = +(Object.keys(actsObj)[key]) + 1;
+                console.log(key);
+                actsObj[key] = {
+                    cities: cities,
+                    exCities: exCities,
+                    cats: cats,
+                    place: position.value,
+                    startDate: startDate.value,
+                    endDate: endDate.value,
+                    deleted: 'no'
                 };
 
-                actsObj.push(newFixAct);
+                fixCities.innerHTML = '';
+                fixExCities.innerHTML = '';
+                fixedCats.innerHTML = '';
+                position.value = '';
+                startDate.value = '';
+                endDate.value = '';
                 renderList();
+                fixActForm.classList.remove('hidden');
+                fixShowForm.classList.add('hidden');
             } else {
                 // alert('ne zbs =(')
             }
-        }
+        // }
     }
 
     fixShowForm.addEventListener('click', function () {

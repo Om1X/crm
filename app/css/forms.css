@@ -64,7 +64,7 @@ div.-inline:nth-child(4n) {
   border: solid 1px #43d167;
 }
 .input-error {
-  color: #ff4355;
+  border-color: #ff4355;
 }
 .input-category {
   width: 516px;
@@ -490,7 +490,7 @@ input[type='checkbox']:checked + .checkboxLabel > span::after {
   color: rgba(32, 36, 56, 0.4);
 }
 .fixActForm {
-  padding: 16px 16px 20px;
+  padding: 16px 15px 20px;
   margin-bottom: 10px;
   border-radius: 8px;
   -webkit-box-shadow: 1px 2px 6px 0 rgba(32, 36, 56, 0.12), 0 -1px 2px 0 rgba(32, 36, 56, 0.05);
@@ -511,4 +511,11 @@ input[type='checkbox']:checked + .checkboxLabel > span::after {
 .actDeleted {
   display: inline-block;
   line-height: 52px;
+}
+.errorMsg {
+  position: absolute;
+  font-size: 12px;
+  line-height: 1.33;
+  text-align: left;
+  color: #ff4355;
 }
