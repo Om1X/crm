@@ -88,7 +88,6 @@ function fixAct() {
 
         for(i = 0; i < keys.length; i++) {
             if (actsObj[keys[i]].place === +position.value) {
-                alert('bad');
                 position.classList.add('input-error');
                 position.parentNode.appendChild(errorBlock);
                 return true;
@@ -309,7 +308,6 @@ function fixAct() {
 
                 key = Object.keys(actsObj).length - 1;
                 key = +(Object.keys(actsObj)[key]) + 1;
-                console.log(key);
                 actsObj[key] = {
                     cities: cities,
                     exCities: exCities,
