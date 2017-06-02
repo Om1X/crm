@@ -90,6 +90,7 @@ function fixAct() {
             if (actsObj[keys[i]].place === +position.value) {
                 position.classList.add('input-error');
                 position.parentNode.appendChild(errorBlock);
+                // i = keys.length;
                 return true;
             } else {
                 if (position.classList.contains('input-error')) {
@@ -312,7 +313,7 @@ function fixAct() {
                     cities: cities,
                     exCities: exCities,
                     cats: cats,
-                    place: position.value,
+                    place: +position.value,
                     startDate: startDate.value,
                     endDate: endDate.value,
                     deleted: 'no'

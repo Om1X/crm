@@ -715,6 +715,9 @@ ul {
 .suggest > li:hover {
   background-color: rgba(32, 36, 56, 0.05);
 }
+.suggest > .onTab {
+  background-color: rgba(32, 35, 56, 0.05) !important;
+}
 .suggest-address {
   top: 61px;
 }

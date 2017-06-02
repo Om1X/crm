@@ -91,6 +91,9 @@
 .dropdownList > li:first-child {
   border-radius: 8px 8px 0 0;
 }
+.dropdownList > .onTab {
+  background-color: rgba(32, 35, 56, 0.05) !important;
+}
 .dropdownList .disabled {
   background: #fff;
   color: rgba(32, 36, 56, 0.2);
